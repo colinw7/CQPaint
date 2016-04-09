@@ -1,0 +1,31 @@
+/* XPM */
+
+static const char *
+refresh_data[] = {
+  /* width height num_colors chars_per_pixel x_hot y_hot */
+  "16 16 4 1 0 0",
+
+  /* colors */
+  ". s symbol1 c #000000 m black",
+  "# s symbol2 c #444444 m black",
+  "a s symbol3 c #aaaaaa m white",
+  "  s mask c none",
+
+  /* pixels */
+  "                ",
+  "    a##..##a    ",
+  "   a.......#a   ",
+  "  a..#aaaa#..a  ",
+  " a#.#a    a..a  ",
+  " a#.a           ",
+  "aa..aaa    aa   ",
+  "......a   a..a  ",
+  "a....a   a....a ",
+  " a..a   a......a",
+  "  aa    aaa..aaa",
+  "          a.#   ",
+  " a..a    a#.#   ",
+  " a..#aaaa#..a   ",
+  "  a#.......a    ",
+  "   a##..##a     ",
+};

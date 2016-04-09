@@ -1,0 +1,8 @@
+*.o
+
+moc_*.cpp
+ui_*.cpp
+
+bin/
+obj/
+lib/
