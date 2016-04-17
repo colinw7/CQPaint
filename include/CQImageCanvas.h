@@ -26,28 +26,6 @@ class CQImageCanvas : public QWidget {
     MODE_FILL
   };
 
- private:
-  struct Pen {
-    CRGBA fg;
-    CRGBA bg;
-  };
-
-  typedef CValueHistoryT<double,2> HistDbl;
-
-  CImagePtr              image_;
-  CImagePtr              vimage_; // zoomed image
-  Mode                   mode_;
-  CRGBA                  bg_;
-  Pen                    pen_;
-  CIPoint2D              press_pos_;
-  HistDbl                zoom_factor_;
-  bool                   pressed_;
-  bool                   fill_screen_;
-  bool                   keep_aspect_;
-  bool                   zoom_cursor_active_;
-  CAutoPtr<CQZoomCursor> zoom_cursor_;
-  CAutoPtr<QTimer>       timer_;
-
  public:
   CQImageCanvas(QWidget *parent=0);
 
@@ -129,6 +107,28 @@ class CQImageCanvas : public QWidget {
   void penFgChanged();
 
   void keyPressed(const CKeyEvent &event);
+
+ private:
+  struct Pen {
+    CRGBA fg;
+    CRGBA bg;
+  };
+
+  typedef CValueHistoryT<double,2> HistDbl;
+
+  CImagePtr              image_;
+  CImagePtr              vimage_; // zoomed image
+  Mode                   mode_;
+  CRGBA                  bg_;
+  Pen                    pen_;
+  CIPoint2D              press_pos_;
+  HistDbl                zoom_factor_;
+  bool                   pressed_;
+  bool                   fill_screen_;
+  bool                   keep_aspect_;
+  bool                   zoom_cursor_active_;
+  CAutoPtr<CQZoomCursor> zoom_cursor_;
+  CAutoPtr<QTimer>       timer_;
 };
 
 #endif

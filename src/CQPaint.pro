@@ -11,6 +11,7 @@ QMAKE_CXXFLAGS += -std=c++11
 CONFIG += staticlib
 
 MOC_DIR = .moc
+UI_DIR = .moc
 
 # Input
 SOURCES += \

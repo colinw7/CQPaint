@@ -15,7 +15,7 @@ CXX           = g++
 DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -m64 -pipe -O2 -fPIC -Wall -W -D_REENTRANT $(DEFINES)
 CXXFLAGS      = -m64 -pipe -std=c++11 -O2 -fPIC -Wall -W -D_REENTRANT $(DEFINES)
-INCPATH       = -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I. -I../include -I../../CQUtil/include -I../../CImageLib/include -I../../CCommand/include -I../../CConfig/include -I../../CFont/include -I../../CFile/include -I../../CMath/include -I../../CStrUtil/include -I../../CUtil/include -I../../COS/include -I/usr/include/freetype2 -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I.moc -I.
+INCPATH       = -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I. -I../include -I../../CQUtil/include -I../../CImageLib/include -I../../CCommand/include -I../../CConfig/include -I../../CFont/include -I../../CFile/include -I../../CMath/include -I../../CStrUtil/include -I../../CUtil/include -I../../COS/include -I/usr/include/freetype2 -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I.moc -I.moc
 AR            = ar cqs
 RANLIB        = 
 QMAKE         = /usr/lib/x86_64-linux-gnu/qt5/bin/qmake
@@ -327,7 +327,7 @@ all: Makefile ../lib/$(TARGET)
 
 staticlib: ../lib/$(TARGET)
 
-../lib/$(TARGET): ui_CQPaintGaussianBlur.h ui_CQPaintTurbulence.h $(OBJECTS) $(OBJCOMP) 
+../lib/$(TARGET): .moc/ui_CQPaintGaussianBlur.h .moc/ui_CQPaintTurbulence.h $(OBJECTS) $(OBJCOMP) 
 	@test -d ../lib/ || mkdir -p ../lib/
 	-$(DEL_FILE) $(TARGET)
 	$(AR) $(TARGET) $(OBJECTS)
@@ -647,7 +647,7 @@ compiler_moc_header_clean:
 		../include/CQDockWidget.h \
 		/usr/include/qt5/QtWidgets/QDockWidget \
 		/usr/include/qt5/QtWidgets/qdockwidget.h \
-		CQWorkspace.h \
+		../include/CQWorkspace.h \
 		/usr/include/qt5/QtCore/QObject \
 		/usr/include/qt5/QtWidgets/QMdiArea \
 		/usr/include/qt5/QtWidgets/qmdiarea.h \
@@ -657,7 +657,7 @@ compiler_moc_header_clean:
 		/usr/include/qt5/QtWidgets/qmdisubwindow.h \
 		/usr/include/qt5/QtCore/QSignalMapper \
 		/usr/include/qt5/QtCore/qsignalmapper.h \
-		CQImageCanvas.h \
+		../include/CQImageCanvas.h \
 		/usr/include/qt5/QtWidgets/QWidget \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CIPoint2D.h \
@@ -676,6 +676,7 @@ compiler_moc_header_clean:
 		../../CMath/include/NaN.h \
 		../../CUtil/include/CRGBName.h \
 		../../CUtil/include/CColorComponent.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/CAlignType.h \
 		../../CFile/include/CFileType.h \
 		../../CUtil/include/COptVal.h \
@@ -1055,6 +1056,7 @@ compiler_moc_header_clean:
 		../../CMath/include/NaN.h \
 		../../CUtil/include/CRGBName.h \
 		../../CUtil/include/CColorComponent.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/CAlignType.h \
 		../../CFile/include/CFileType.h \
 		../../CUtil/include/COptVal.h \
@@ -3103,6 +3105,7 @@ compiler_moc_header_clean:
 		../../CUtil/include/CColorComponent.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CIPoint2D.h \
@@ -4775,14 +4778,14 @@ compiler_moc_header_clean:
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_CQPaintGaussianBlur.h ui_CQPaintTurbulence.h
+compiler_uic_make_all: .moc/ui_CQPaintGaussianBlur.h .moc/ui_CQPaintTurbulence.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_CQPaintGaussianBlur.h ui_CQPaintTurbulence.h
-ui_CQPaintGaussianBlur.h: CQPaintGaussianBlur.ui
-	/usr/lib/x86_64-linux-gnu/qt5/bin/uic CQPaintGaussianBlur.ui -o ui_CQPaintGaussianBlur.h
+	-$(DEL_FILE) .moc/ui_CQPaintGaussianBlur.h .moc/ui_CQPaintTurbulence.h
+.moc/ui_CQPaintGaussianBlur.h: CQPaintGaussianBlur.ui
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic CQPaintGaussianBlur.ui -o .moc/ui_CQPaintGaussianBlur.h
 
-ui_CQPaintTurbulence.h: CQPaintTurbulence.ui
-	/usr/lib/x86_64-linux-gnu/qt5/bin/uic CQPaintTurbulence.ui -o ui_CQPaintTurbulence.h
+.moc/ui_CQPaintTurbulence.h: CQPaintTurbulence.ui
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic CQPaintTurbulence.ui -o .moc/ui_CQPaintTurbulence.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -4923,7 +4926,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../include/CQDockWidget.h \
 		/usr/include/qt5/QtWidgets/QDockWidget \
 		/usr/include/qt5/QtWidgets/qdockwidget.h \
-		CQWorkspace.h \
+		../include/CQWorkspace.h \
 		/usr/include/qt5/QtCore/QObject \
 		/usr/include/qt5/QtWidgets/QMdiArea \
 		/usr/include/qt5/QtWidgets/qmdiarea.h \
@@ -4933,7 +4936,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		/usr/include/qt5/QtWidgets/qmdisubwindow.h \
 		/usr/include/qt5/QtCore/QSignalMapper \
 		/usr/include/qt5/QtCore/qsignalmapper.h \
-		CQImageCanvas.h \
+		../include/CQImageCanvas.h \
 		/usr/include/qt5/QtWidgets/QWidget \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CIPoint2D.h \
@@ -4952,6 +4955,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CMath/include/NaN.h \
 		../../CUtil/include/CRGBName.h \
 		../../CUtil/include/CColorComponent.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/CAlignType.h \
 		../../CFile/include/CFileType.h \
 		../../CUtil/include/COptVal.h \
@@ -5336,7 +5340,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		/usr/include/qt5/QtGui/qtextformat.h \
 		/usr/include/qt5/QtGui/qpen.h \
 		/usr/include/qt5/QtGui/qtextoption.h \
-		ui_CQPaintGaussianBlur.h \
+		.moc/ui_CQPaintGaussianBlur.h \
 		/usr/include/qt5/QtCore/QVariant \
 		/usr/include/qt5/QtWidgets/QAction \
 		/usr/include/qt5/QtWidgets/qaction.h \
@@ -5505,7 +5509,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		/usr/include/qt5/QtGui/qtextformat.h \
 		/usr/include/qt5/QtGui/qpen.h \
 		/usr/include/qt5/QtGui/qtextoption.h \
-		ui_CQPaintTurbulence.h \
+		.moc/ui_CQPaintTurbulence.h \
 		/usr/include/qt5/QtCore/QVariant \
 		/usr/include/qt5/QtWidgets/QAction \
 		/usr/include/qt5/QtWidgets/qaction.h \
@@ -5717,6 +5721,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CColorComponent.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CIPoint2D.h \
@@ -5740,7 +5745,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		close_16_png.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQPaintTools.o CQPaintTools.cpp
 
-../obj/CQImageCanvas.o: CQImageCanvas.cpp CQImageCanvas.h \
+../obj/CQImageCanvas.o: CQImageCanvas.cpp ../include/CQImageCanvas.h \
 		/usr/include/qt5/QtWidgets/QWidget \
 		/usr/include/qt5/QtWidgets/qwidget.h \
 		/usr/include/qt5/QtGui/qwindowdefs.h \
@@ -5866,6 +5871,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CMath/include/NaN.h \
 		../../CUtil/include/CRGBName.h \
 		../../CUtil/include/CColorComponent.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/CAlignType.h \
 		../../CFile/include/CFileType.h \
 		../../CUtil/include/COptVal.h \
@@ -6130,7 +6136,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		/usr/include/qt5/QtWidgets/qcheckbox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQResizeImageDlg.o CQResizeImageDlg.cpp
 
-../obj/CQDirView.o: CQDirView.cpp CQDirView.h \
+../obj/CQDirView.o: CQDirView.cpp ../include/CQDirView.h \
 		/usr/include/qt5/QtCore/QObject \
 		/usr/include/qt5/QtCore/qobject.h \
 		/usr/include/qt5/QtCore/qobjectdefs.h \
@@ -6303,7 +6309,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		/usr/include/qt5/QtCore/qfiledevice.h \
 		/usr/include/qt5/QtGui/qvector2d.h \
 		/usr/include/qt5/QtGui/qtouchdevice.h \
-		CQDirView.h \
+		../include/CQDirView.h \
 		/usr/include/qt5/QtCore/QObject \
 		../include/CDirView.h \
 		CQFileMgr.h \
@@ -6471,7 +6477,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qtabwidget.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
-		CQDirView.h \
+		../include/CQDirView.h \
 		/usr/include/qt5/QtCore/QObject \
 		CQFloatEdit.h \
 		/usr/include/qt5/QtWidgets/QLineEdit \
@@ -6708,6 +6714,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CImageLib/include/CImageLib.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/COptVal.h \
 		../../CImageLib/include/CImageMgr.h \
 		../../CStrUtil/include/CStrUtil.h \
@@ -6720,7 +6727,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CMath/include/CMatrix2D.h \
 		../../CMath/include/CMatrixType.h \
 		../../CUtil/include/CThrow.h \
-		CQDirView.h \
+		../include/CQDirView.h \
 		/usr/include/qt5/QtCore/QObject \
 		../../CFile/include/CDir.h \
 		../../COS/include/COSFile.h \
@@ -7052,6 +7059,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		CBrushStyle.h \
 		../../CUtil/include/CFillType.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/CAlignType.h \
 		../../CFile/include/CFileType.h \
 		../../CUtil/include/COptVal.h \
@@ -7267,6 +7275,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		CBrushStyle.h \
 		../../CUtil/include/CFillType.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/CAlignType.h \
 		../../CFile/include/CFileType.h \
 		../../CUtil/include/COptVal.h \
@@ -7469,6 +7478,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		CBrushStyle.h \
 		../../CUtil/include/CFillType.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/COptVal.h \
 		../../CMath/include/CGenGradient.h \
 		../../CFont/include/CFontMgr.h \
@@ -7824,6 +7834,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CColorComponent.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/COptVal.h \
 		../../CImageLib/include/CImageMgr.h \
 		../../CImageLib/include/CImageAnim.h \
@@ -7913,6 +7924,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		CBrushStyle.h \
 		../../CUtil/include/CFillType.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/COptVal.h \
 		../../CMath/include/CGenGradient.h \
 		../../CFont/include/CFontMgr.h \
@@ -7979,6 +7991,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		CBrushStyle.h \
 		../../CUtil/include/CFillType.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/COptVal.h \
 		../../CMath/include/CGenGradient.h \
 		../../CFont/include/CFontMgr.h \
@@ -8063,6 +8076,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CMath/include/NaN.h \
 		../../CUtil/include/CRGBName.h \
 		../../CUtil/include/CColorComponent.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/COptVal.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CFileMgrFile.o CFileMgrFile.cpp
 
@@ -8105,6 +8119,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CColorComponent.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/COptVal.h \
 		../../CImageLib/include/CImageMgr.h \
 		../../CImageLib/include/CImageAnim.h \
@@ -8172,6 +8187,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CColorComponent.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/COptVal.h \
 		../../CImageLib/include/CImageMgr.h \
 		../../CImageLib/include/CImageAnim.h \
@@ -8343,6 +8359,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		CBrushStyle.h \
 		../../CUtil/include/CFillType.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/CAlignType.h \
 		../../CFile/include/CFileType.h \
 		../../CUtil/include/COptVal.h \
@@ -8494,6 +8511,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		CBrushStyle.h \
 		../../CUtil/include/CFillType.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/CAlignType.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
@@ -8848,6 +8866,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		CBrushStyle.h \
 		../../CUtil/include/CFillType.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/CAlignType.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
@@ -8943,6 +8962,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		CBrushStyle.h \
 		../../CUtil/include/CFillType.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/CAlignType.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
@@ -8998,6 +9018,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		CBrushStyle.h \
 		../../CUtil/include/CFillType.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/CAlignType.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
@@ -9254,6 +9275,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CAlignType.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/COptVal.h \
 		../../CImageLib/include/CImagePtr.h \
 		../../CImageLib/include/CImageMgr.h \
@@ -9459,6 +9481,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CAlignType.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/COptVal.h \
 		../../CImageLib/include/CImagePtr.h \
 		../../CImageLib/include/CImageMgr.h \
@@ -10595,7 +10618,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		cursors/selectmask.xbm
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQWinWidget.o CQWinWidget.cpp
 
-../obj/CQWorkspace.o: CQWorkspace.cpp CQWorkspace.h \
+../obj/CQWorkspace.o: CQWorkspace.cpp ../include/CQWorkspace.h \
 		/usr/include/qt5/QtCore/QObject \
 		/usr/include/qt5/QtCore/qobject.h \
 		/usr/include/qt5/QtCore/qobjectdefs.h \
@@ -10746,6 +10769,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CColorComponent.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CIPoint2D.h \
@@ -10891,6 +10915,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CColorComponent.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CIPoint2D.h \
@@ -11220,6 +11245,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CColorComponent.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIVector2D.h \
@@ -11276,6 +11302,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CColorComponent.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CIPoint2D.h \
@@ -11318,6 +11345,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CColorComponent.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CIVector2D.h \
