@@ -54,11 +54,8 @@ CSymbol2D.cpp \
 CQColorWheel.cpp \
 CQColorWheelCanvas.cpp \
 CQNameValue.cpp \
-CQIntegerEdit.cpp \
-CQPoint2DEdit.cpp \
 CQPoint3DEdit.cpp \
 CQRadioButtons.cpp \
-CQRealEdit.cpp \
 CQRGBAEdit.cpp \
 CQWinWidget.cpp \
 CQWorkspace.cpp \
@@ -91,7 +88,6 @@ CQColorWheel.h \
 CQColorWheelCanvas.h \
 CQDirBar.h \
 CQDirPlaces.h \
-CQDrawUtil.h \
 CQFileMgrDetails.h \
 CQFileMgrFilmstripIcons.h \
 CQFileMgrFilmstripImage.h \
@@ -107,14 +103,10 @@ CQPixelRendererSubCanvas.h \
 CQWidgetPixelRenderer.h \
 \
 CQImageButton.h \
-CQIntegerEdit.h \
 CQNameValue.h \
 CQPaintTools.h \
-CQPoint2DEdit.h \
 CQPoint3DEdit.h \
 CQRadioButtons.h \
-CQRealEdit.h \
-CQRealSpin.h \
 CQResizeImageDlg.h \
 CQRGBAEdit.h \
 CQWinWidget.h \
