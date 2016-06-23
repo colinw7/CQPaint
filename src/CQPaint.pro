@@ -129,6 +129,7 @@ INCLUDEPATH += \
 ../../CCommand/include \
 ../../CConfig/include \
 ../../CFont/include \
+../../CFileUtil/include \
 ../../CFile/include \
 ../../CMath/include \
 ../../CStrUtil/include \
