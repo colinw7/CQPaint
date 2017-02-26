@@ -34,9 +34,11 @@ INCLUDEPATH += \
 unix:LIBS += \
 -L$$LIB_DIR \
 -L../../CQUtil/lib \
+-L../../CRenderer/lib \
 -L../../CImageLib/lib \
 -L../../CFont/lib \
 -L../../CCommand/lib \
+-L../../CFileUtil/lib \
 -L../../CFile/lib \
 -L../../CConfig/lib \
 -L../../CUtil/lib \
@@ -44,7 +46,7 @@ unix:LIBS += \
 -L../../CRegExp/lib \
 -L../../COS/lib \
 -lCQPaint \
--lCQUtil -lCImageLib -lCFont -lCConfig \
--lCCommand -lCFile -lCStrUtil -lCUtil -lCOS \
+-lCQUtil -lCQRenderer -lCRenderer -lCImageLib -lCFont -lCConfig \
+-lCCommand -lCFileUtil -lCFile -lCStrUtil -lCUtil -lCOS \
 -lCRegExp \
 -lpng -ljpeg -ltre -lcurses -lfreetype

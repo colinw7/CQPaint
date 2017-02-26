@@ -43,13 +43,7 @@ CFileMgrFilmstrip.cpp \
 CFileMgrIcons.cpp \
 \
 CQPixelRendererCanvas.cpp \
-CQPixelRenderer.cpp \
 CQPixelRendererScrolledCanvas.cpp \
-CQWidgetPixelRenderer.cpp \
-CImagePixelRenderer.cpp \
-CPixelRenderer.cpp \
-CPixelClip.cpp \
-CSymbol2D.cpp \
 \
 CQColorWheel.cpp \
 CQColorWheelCanvas.cpp \
@@ -71,7 +65,6 @@ CFileNotify.cpp \
 CDirFilesMgr.cpp \
 CDirFiles.cpp \
 CImageThumbnail.cpp \
-CFreeType.cpp \
 CEncode64.cpp \
 CMathGeom2D.cpp \
 CArcToBezier.cpp \
@@ -97,10 +90,8 @@ CQFileMgrInfo.h \
 CQFileMgrToolbar.h \
 \
 CQPixelRendererCanvas.h \
-CQPixelRenderer.h \
 CQPixelRendererScrolledCanvas.h \
 CQPixelRendererSubCanvas.h \
-CQWidgetPixelRenderer.h \
 \
 CQImageButton.h \
 CQNameValue.h \
@@ -125,6 +116,8 @@ INCLUDEPATH += \
 . \
 ../include \
 ../../CQUtil/include \
+../../CRenderer/include \
+../../CRenderer/qinclude \
 ../../CImageLib/include \
 ../../CCommand/include \
 ../../CConfig/include \
