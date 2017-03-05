@@ -89,9 +89,7 @@ SOURCES       = CQPaint.cpp \
 		CDirFilesMgr.cpp \
 		CDirFiles.cpp \
 		CImageThumbnail.cpp \
-		CEncode64.cpp \
-		CMathGeom2D.cpp \
-		CArcToBezier.cpp .moc/moc_CQPaint.cpp \
+		CEncode64.cpp .moc/moc_CQPaint.cpp \
 		.moc/moc_CQPaintGaussianBlur.cpp \
 		.moc/moc_CQPaintTurbulence.cpp \
 		.moc/moc_CQImageCanvas.cpp \
@@ -166,8 +164,6 @@ OBJECTS       = ../obj/CQPaint.o \
 		../obj/CDirFiles.o \
 		../obj/CImageThumbnail.o \
 		../obj/CEncode64.o \
-		../obj/CMathGeom2D.o \
-		../obj/CArcToBezier.o \
 		../obj/moc_CQPaint.o \
 		../obj/moc_CQPaintGaussianBlur.o \
 		../obj/moc_CQPaintTurbulence.o \
@@ -335,9 +331,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		CDirFilesMgr.cpp \
 		CDirFiles.cpp \
 		CImageThumbnail.cpp \
-		CEncode64.cpp \
-		CMathGeom2D.cpp \
-		CArcToBezier.cpp
+		CEncode64.cpp
 QMAKE_TARGET  = CQPaint
 DESTDIR       = ../lib/#avoid trailing-slash linebreak
 TARGET        = libCQPaint.a
@@ -525,7 +519,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../include/CQPaint.h ../include/CQPaintGaussianBlur.h ../include/CQPaintTurbulence.h ../include/CQImageCanvas.h ../include/CQDirView.h ../include/CQWorkspace.h CQColorWheel.h CQColorWheelCanvas.h CQDirBar.h CQDirPlaces.h CQFileMgrDetails.h CQFileMgrFilmstripIcons.h CQFileMgrFilmstripImage.h CQFileMgr.h CQFileMgrIcons.h CQFileMgrInfo.h CQFileMgrToolbar.h CQPixelRendererCanvas.h CQPixelRendererScrolledCanvas.h CQPixelRendererSubCanvas.h CQImageButton.h CQNameValue.h CQPaintTools.h CQPoint3DEdit.h CQRadioButtons.h CQResizeImageDlg.h CQRGBAEdit.h CQWinWidget.h CQZoomCursor.h CQFloatEdit.h CQAutoHide.h $(DISTDIR)/
-	$(COPY_FILE) --parents CQPaint.cpp CQPaintGaussianBlur.cpp CQPaintTurbulence.cpp CQPaintTools.cpp CQImageCanvas.cpp CQResizeImageDlg.cpp CQDirView.cpp CQDirBar.cpp CQDirPlaces.cpp CDirView.cpp CQFileMgr.cpp CQFileMgrDetails.cpp CQFileMgrFilmstripIcons.cpp CQFileMgrFilmstripImage.cpp CQFileMgrIcons.cpp CQFileMgrInfo.cpp CQFileMgrToolbar.cpp CFileMgr.cpp CFileMgrDetails.cpp CFileMgrDir.cpp CFileMgrFile.cpp CFileMgrFilmstrip.cpp CFileMgrIcons.cpp CQPixelRendererCanvas.cpp CQPixelRendererScrolledCanvas.cpp CQColorWheel.cpp CQColorWheelCanvas.cpp CQNameValue.cpp CQPoint3DEdit.cpp CQRadioButtons.cpp CQRGBAEdit.cpp CQWinWidget.cpp CQWorkspace.cpp CQZoomCursor.cpp CQImageButton.cpp CQFloatEdit.cpp CQAutoHide.cpp CColorWheel.cpp CMime.cpp CFileIcon.cpp CFileNotify.cpp CDirFilesMgr.cpp CDirFiles.cpp CImageThumbnail.cpp CEncode64.cpp CMathGeom2D.cpp CArcToBezier.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents CQPaint.cpp CQPaintGaussianBlur.cpp CQPaintTurbulence.cpp CQPaintTools.cpp CQImageCanvas.cpp CQResizeImageDlg.cpp CQDirView.cpp CQDirBar.cpp CQDirPlaces.cpp CDirView.cpp CQFileMgr.cpp CQFileMgrDetails.cpp CQFileMgrFilmstripIcons.cpp CQFileMgrFilmstripImage.cpp CQFileMgrIcons.cpp CQFileMgrInfo.cpp CQFileMgrToolbar.cpp CFileMgr.cpp CFileMgrDetails.cpp CFileMgrDir.cpp CFileMgrFile.cpp CFileMgrFilmstrip.cpp CFileMgrIcons.cpp CQPixelRendererCanvas.cpp CQPixelRendererScrolledCanvas.cpp CQColorWheel.cpp CQColorWheelCanvas.cpp CQNameValue.cpp CQPoint3DEdit.cpp CQRadioButtons.cpp CQRGBAEdit.cpp CQWinWidget.cpp CQWorkspace.cpp CQZoomCursor.cpp CQImageButton.cpp CQFloatEdit.cpp CQAutoHide.cpp CColorWheel.cpp CMime.cpp CFileIcon.cpp CFileNotify.cpp CDirFilesMgr.cpp CDirFiles.cpp CImageThumbnail.cpp CEncode64.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents CQPaintGaussianBlur.ui CQPaintTurbulence.ui $(DISTDIR)/
 
 
@@ -560,6 +554,8 @@ compiler_moc_header_clean:
 		../include/CQWorkspace.h \
 		../include/CQImageCanvas.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIVector2D.h \
@@ -572,8 +568,6 @@ compiler_moc_header_clean:
 		../../CUtil/include/CHSL.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/CAlignType.h \
@@ -594,6 +588,8 @@ compiler_moc_header_clean:
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../include/CQPaintTurbulence.h -o .moc/moc_CQPaintTurbulence.cpp
 
 .moc/moc_CQImageCanvas.cpp: ../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIVector2D.h \
@@ -606,8 +602,6 @@ compiler_moc_header_clean:
 		../../CUtil/include/CHSL.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/CAlignType.h \
@@ -640,8 +634,8 @@ compiler_moc_header_clean:
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
 		../../CMath/include/NaN.h \
-		../../CUtil/include/CColorComponent.h \
 		../../CMath/include/CIPoint2D.h \
+		../../CUtil/include/CColorComponent.h \
 		CQColorWheel.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQColorWheel.h -o .moc/moc_CQColorWheel.cpp
 
@@ -656,9 +650,9 @@ compiler_moc_header_clean:
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
 		../../CMath/include/NaN.h \
+		../../CMath/include/CIPoint2D.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CUtil/include/COrientation.h \
-		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIVector2D.h \
@@ -683,6 +677,8 @@ compiler_moc_header_clean:
 .moc/moc_CQFileMgrFilmstripIcons.cpp: CQPixelRendererScrolledCanvas.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/CEvent.h \
@@ -695,6 +691,8 @@ compiler_moc_header_clean:
 .moc/moc_CQFileMgrFilmstripImage.cpp: CQPixelRendererScrolledCanvas.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/CEvent.h \
@@ -706,6 +704,8 @@ compiler_moc_header_clean:
 
 .moc/moc_CQFileMgr.cpp: ../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIVector2D.h \
 		CFileMgrLib.h \
@@ -731,6 +731,8 @@ compiler_moc_header_clean:
 .moc/moc_CQFileMgrIcons.cpp: CQPixelRendererScrolledCanvas.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/CEvent.h \
@@ -749,6 +751,8 @@ compiler_moc_header_clean:
 .moc/moc_CQPixelRendererCanvas.cpp: ../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/CEvent.h \
 		../../CUtil/include/CKeyType.h \
@@ -757,6 +761,8 @@ compiler_moc_header_clean:
 
 .moc/moc_CQPixelRendererScrolledCanvas.cpp: ../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/CEvent.h \
@@ -770,6 +776,8 @@ compiler_moc_header_clean:
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/CEvent.h \
 		../../CUtil/include/CKeyType.h \
@@ -794,13 +802,13 @@ compiler_moc_header_clean:
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
 		../../CMath/include/NaN.h \
+		../../CMath/include/CIPoint2D.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
 		../../CUtil/include/CRGBACombineDef.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/COptVal.h \
 		../../CImageLib/include/CImagePtr.h \
@@ -815,7 +823,6 @@ compiler_moc_header_clean:
 .moc/moc_CQNameValue.cpp: CQPoint3DEdit.h \
 		../../CMath/include/CPoint3D.h \
 		../../CMath/include/CPoint2D.h \
-		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIPoint3D.h \
 		../../CQUtil/include/CQPoint2DEdit.h \
 		CQRGBAEdit.h \
@@ -829,6 +836,7 @@ compiler_moc_header_clean:
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
 		../../CMath/include/NaN.h \
+		../../CMath/include/CIPoint2D.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CQUtil/include/CQRealEdit.h \
 		../../CQUtil/include/CQIntegerEdit.h \
@@ -841,7 +849,6 @@ compiler_moc_header_clean:
 
 .moc/moc_CQPoint3DEdit.cpp: ../../CMath/include/CPoint3D.h \
 		../../CMath/include/CPoint2D.h \
-		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIPoint3D.h \
 		CQPoint3DEdit.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQPoint3DEdit.h -o .moc/moc_CQPoint3DEdit.cpp
@@ -862,6 +869,7 @@ compiler_moc_header_clean:
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
 		../../CMath/include/NaN.h \
+		../../CMath/include/CIPoint2D.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CQUtil/include/CQRealEdit.h \
 		CQRGBAEdit.h
@@ -906,6 +914,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../include/CQWorkspace.h \
 		../include/CQImageCanvas.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIVector2D.h \
@@ -918,8 +928,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSL.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/CAlignType.h \
@@ -988,13 +996,13 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
 		../../CMath/include/NaN.h \
+		../../CMath/include/CIPoint2D.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
 		../../CUtil/include/CRGBACombineDef.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/COptVal.h \
 		../../CImageLib/include/CImagePtr.h \
@@ -1012,6 +1020,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 
 ../obj/CQImageCanvas.o: CQImageCanvas.cpp ../include/CQImageCanvas.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIVector2D.h \
@@ -1024,8 +1034,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSL.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/CAlignType.h \
@@ -1078,7 +1086,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		CQPoint3DEdit.h \
 		../../CMath/include/CPoint3D.h \
 		../../CMath/include/CPoint2D.h \
-		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIPoint3D.h \
 		../../CQUtil/include/CQPoint2DEdit.h \
 		CQRGBAEdit.h \
@@ -1092,6 +1099,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
 		../../CMath/include/NaN.h \
+		../../CMath/include/CIPoint2D.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CQUtil/include/CQRealEdit.h \
 		../../CQUtil/include/CQIntegerEdit.h
@@ -1107,6 +1115,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		CQFileMgr.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIVector2D.h \
 		CFileMgrLib.h \
@@ -1159,6 +1169,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 ../obj/CQFileMgr.o: CQFileMgr.cpp CQFileMgr.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIVector2D.h \
 		CFileMgrLib.h \
@@ -1199,8 +1211,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSL.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CUtil/include/CLineDash.h \
 		../../CUtil/include/CILineDash.h \
@@ -1245,6 +1255,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CKeyType.h \
 		CQFileMgr.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIVector2D.h \
 		CFileMgrLib.h \
@@ -1267,6 +1279,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		CQPixelRendererScrolledCanvas.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/CEvent.h \
@@ -1286,8 +1300,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSL.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CUtil/include/CDirectionType.h \
 		../../CUtil/include/CThrow.h \
@@ -1348,6 +1360,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		CQPixelRendererScrolledCanvas.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/CEvent.h \
@@ -1366,8 +1380,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSL.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CUtil/include/CDirectionType.h \
 		../../CUtil/include/CThrow.h \
@@ -1420,6 +1432,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		CQPixelRendererScrolledCanvas.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/CEvent.h \
@@ -1454,8 +1468,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSL.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CUtil/include/CDirectionType.h \
 		../../CUtil/include/CThrow.h \
@@ -1501,6 +1513,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		CQFileMgr.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIVector2D.h \
 		CFileMgrLib.h \
@@ -1533,6 +1547,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		CQFileMgr.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIVector2D.h \
 		CFileMgrLib.h \
@@ -1558,8 +1574,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSL.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
@@ -1599,6 +1613,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CFile/include/CFile.h \
 		../../CFile/include/CFileBase.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CIVector2D.h \
 		CFileMgrIcons.h \
 		CFileMgrFilmstrip.h \
@@ -1618,8 +1634,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSL.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CUtil/include/CDirectionType.h \
 		../../CUtil/include/CThrow.h \
@@ -1672,6 +1686,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CFile/include/CFile.h \
 		../../CFile/include/CFileBase.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CIVector2D.h \
 		CFileMgrIcons.h \
 		CFileMgrFilmstrip.h \
@@ -1684,8 +1700,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSL.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CUtil/include/CDirectionType.h \
 		../../CUtil/include/CThrow.h \
@@ -1738,6 +1752,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CFile/include/CFile.h \
 		../../CFile/include/CFileBase.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CIVector2D.h \
 		CFileMgrIcons.h \
 		CFileMgrFilmstrip.h \
@@ -1767,6 +1783,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CFile/include/CFile.h \
 		../../CFile/include/CFileBase.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CIVector2D.h \
 		CFileMgrIcons.h \
 		CFileMgrFilmstrip.h \
@@ -1785,8 +1803,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSL.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/COptVal.h
@@ -1811,6 +1827,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CFile/include/CFile.h \
 		../../CFile/include/CFileBase.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CIVector2D.h \
 		CFileMgrIcons.h \
 		CFileMgrFilmstrip.h \
@@ -1824,8 +1842,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSL.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
@@ -1878,6 +1894,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CFile/include/CFile.h \
 		../../CFile/include/CFileBase.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CIVector2D.h \
 		CFileMgrIcons.h \
 		CFileMgrFilmstrip.h \
@@ -1891,8 +1909,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSL.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
@@ -1930,6 +1946,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/CEvent.h \
 		../../CUtil/include/CKeyType.h \
@@ -1945,8 +1963,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSL.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CUtil/include/CDirectionType.h \
 		../../CUtil/include/CThrow.h \
@@ -1999,6 +2015,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../CMath/include/NaN.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/CEvent.h \
 		../../CUtil/include/CKeyType.h \
@@ -2018,8 +2036,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
 		../../CMath/include/NaN.h \
-		../../CUtil/include/CColorComponent.h \
 		../../CMath/include/CIPoint2D.h \
+		../../CUtil/include/CColorComponent.h \
 		CQColorWheelCanvas.h \
 		CColorWheel.h \
 		../../CUtil/include/COrientation.h \
@@ -2080,9 +2098,9 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
 		../../CMath/include/NaN.h \
+		../../CMath/include/CIPoint2D.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CUtil/include/COrientation.h \
-		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIVector2D.h \
@@ -2133,7 +2151,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		CQPoint3DEdit.h \
 		../../CMath/include/CPoint3D.h \
 		../../CMath/include/CPoint2D.h \
-		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIPoint3D.h \
 		../../CQUtil/include/CQPoint2DEdit.h \
 		CQRGBAEdit.h \
@@ -2147,6 +2164,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
 		../../CMath/include/NaN.h \
+		../../CMath/include/CIPoint2D.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CQUtil/include/CQRealEdit.h \
 		../../CQUtil/include/CQIntegerEdit.h
@@ -2155,7 +2173,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 ../obj/CQPoint3DEdit.o: CQPoint3DEdit.cpp CQPoint3DEdit.h \
 		../../CMath/include/CPoint3D.h \
 		../../CMath/include/CPoint2D.h \
-		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIPoint3D.h \
 		../../CStrUtil/include/CStrUtil.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQPoint3DEdit.o CQPoint3DEdit.cpp
@@ -2174,6 +2191,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
 		../../CMath/include/NaN.h \
+		../../CMath/include/CIPoint2D.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CQUtil/include/CQRealEdit.h \
 		../../CStrUtil/include/CStrUtil.h
@@ -2208,13 +2226,13 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
 		../../CMath/include/NaN.h \
+		../../CMath/include/CIPoint2D.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
 		../../CUtil/include/CRGBACombineDef.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/COptVal.h \
 		../../CImageLib/include/CImagePtr.h \
@@ -2242,13 +2260,13 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
 		../../CMath/include/NaN.h \
+		../../CMath/include/CIPoint2D.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
 		../../CUtil/include/CRGBACombineDef.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/COptVal.h \
 		../../CImageLib/include/CImagePtr.h \
@@ -2278,9 +2296,9 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
 		../../CMath/include/NaN.h \
+		../../CMath/include/CIPoint2D.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CUtil/include/COrientation.h \
-		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIVector2D.h \
@@ -2321,12 +2339,12 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
 		../../CMath/include/NaN.h \
+		../../CMath/include/CIPoint2D.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
 		../../CUtil/include/CRGBACombineDef.h \
 		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/COptVal.h \
 		../../CImageLib/include/CImagePtr.h \
@@ -2377,13 +2395,13 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
 		../../CMath/include/NaN.h \
+		../../CMath/include/CIPoint2D.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CImageLib/include/CImageState.h \
 		../../CImageLib/include/CImage.h \
 		../../CUtil/include/CRGBACombineDef.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/COptVal.h \
 		../../CImageLib/include/CImageMgr.h \
@@ -2400,38 +2418,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CFile/include/CFileBase.h \
 		../../CFile/include/CFileType.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CEncode64.o CEncode64.cpp
-
-../obj/CMathGeom2D.o: CMathGeom2D.cpp CMathGeom2D.h \
-		../../CMath/include/CPoint2D.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CMath/include/CBBox2D.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CVector2D.h \
-		../../CMath/include/CSize2D.h \
-		../../CMath/include/CISize2D.h \
-		../../CMath/include/CPolygonOrientation.h \
-		../../CUtil/include/CLineJoinType.h \
-		../../CMath/include/CLine2D.h \
-		../../CMath/include/CShape2D.h \
-		../../CMath/include/C3Bezier2D.h \
-		../../CMath/include/C2Bezier2D.h \
-		CArcToBezier.h \
-		../../CMath/include/CBezierToLine.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CMathGeom2D.o CMathGeom2D.cpp
-
-../obj/CArcToBezier.o: CArcToBezier.cpp CArcToBezier.h \
-		../../CMath/include/C3Bezier2D.h \
-		../../CMath/include/CPoint2D.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CMath/include/C2Bezier2D.h \
-		../../CMath/include/CBBox2D.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CVector2D.h \
-		../../CMath/include/CSize2D.h \
-		../../CMath/include/CISize2D.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CArcToBezier.o CArcToBezier.cpp
 
 ../obj/moc_CQPaint.o: .moc/moc_CQPaint.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQPaint.o .moc/moc_CQPaint.cpp

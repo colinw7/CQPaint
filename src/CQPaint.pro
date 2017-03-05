@@ -66,8 +66,6 @@ CDirFilesMgr.cpp \
 CDirFiles.cpp \
 CImageThumbnail.cpp \
 CEncode64.cpp \
-CMathGeom2D.cpp \
-CArcToBezier.cpp \
 
 HEADERS += \
 ../include/CQPaint.h \
