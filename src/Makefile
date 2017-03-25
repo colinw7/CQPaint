@@ -15,7 +15,7 @@ CXX           = g++
 DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -m64 -pipe -O2 -fPIC -Wall -W -D_REENTRANT $(DEFINES)
 CXXFLAGS      = -m64 -pipe -std=c++11 -O2 -fPIC -Wall -W -D_REENTRANT $(DEFINES)
-INCPATH       = -I. -I. -I../include -I../../CQUtil/include -I../../CRenderer/include -I../../CRenderer/qinclude -I../../CImageLib/include -I../../CCommand/include -I../../CConfig/include -I../../CFont/include -I../../CFileUtil/include -I../../CFile/include -I../../CMath/include -I../../CStrUtil/include -I../../CUtil/include -I../../COS/include -isystem /usr/include/freetype2 -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I.moc -I.moc -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64
+INCPATH       = -I. -I. -I../include -I../../CFileMgr/qinclude -I../../CFileMgr/include -I../../CColorWheel/qinclude -I../../CColorWheel/include -I../../CQUtil/include -I../../CRenderer/include -I../../CRenderer/qinclude -I../../CImageLib/include -I../../CCommand/include -I../../CConfig/include -I../../CFont/include -I../../CFileUtil/include -I../../CFile/include -I../../CMath/include -I../../CStrUtil/include -I../../CUtil/include -I../../COS/include -isystem /usr/include/freetype2 -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I.moc -I.moc -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64
 QMAKE         = /usr/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -51,101 +51,37 @@ SOURCES       = CQPaint.cpp \
 		CQPaintTools.cpp \
 		CQImageCanvas.cpp \
 		CQResizeImageDlg.cpp \
-		CQDirView.cpp \
-		CQDirBar.cpp \
-		CQDirPlaces.cpp \
-		CDirView.cpp \
-		CQFileMgr.cpp \
-		CQFileMgrDetails.cpp \
-		CQFileMgrFilmstripIcons.cpp \
-		CQFileMgrFilmstripImage.cpp \
-		CQFileMgrIcons.cpp \
-		CQFileMgrInfo.cpp \
-		CQFileMgrToolbar.cpp \
-		CFileMgr.cpp \
-		CFileMgrDetails.cpp \
-		CFileMgrDir.cpp \
-		CFileMgrFile.cpp \
-		CFileMgrFilmstrip.cpp \
-		CFileMgrIcons.cpp \
 		CQPixelRendererCanvas.cpp \
 		CQPixelRendererScrolledCanvas.cpp \
-		CQColorWheel.cpp \
-		CQColorWheelCanvas.cpp \
 		CQNameValue.cpp \
 		CQPoint3DEdit.cpp \
 		CQRadioButtons.cpp \
 		CQRGBAEdit.cpp \
 		CQWinWidget.cpp \
 		CQWorkspace.cpp \
-		CQZoomCursor.cpp \
-		CQImageButton.cpp \
-		CQFloatEdit.cpp \
-		CQAutoHide.cpp \
-		CColorWheel.cpp \
-		CMime.cpp \
-		CFileIcon.cpp \
-		CFileNotify.cpp \
-		CDirFilesMgr.cpp \
-		CDirFiles.cpp \
-		CImageThumbnail.cpp \
-		CEncode64.cpp .moc/moc_CQPaint.cpp \
+		CQZoomCursor.cpp .moc/moc_CQPaint.cpp \
 		.moc/moc_CQPaintGaussianBlur.cpp \
 		.moc/moc_CQPaintTurbulence.cpp \
+		.moc/moc_CQPaintTools.cpp \
 		.moc/moc_CQImageCanvas.cpp \
-		.moc/moc_CQDirView.cpp \
-		.moc/moc_CQWorkspace.cpp \
-		.moc/moc_CQColorWheel.cpp \
-		.moc/moc_CQColorWheelCanvas.cpp \
-		.moc/moc_CQDirBar.cpp \
-		.moc/moc_CQDirPlaces.cpp \
-		.moc/moc_CQFileMgrDetails.cpp \
-		.moc/moc_CQFileMgrFilmstripIcons.cpp \
-		.moc/moc_CQFileMgrFilmstripImage.cpp \
-		.moc/moc_CQFileMgr.cpp \
-		.moc/moc_CQFileMgrIcons.cpp \
-		.moc/moc_CQFileMgrInfo.cpp \
-		.moc/moc_CQFileMgrToolbar.cpp \
+		.moc/moc_CQResizeImageDlg.cpp \
 		.moc/moc_CQPixelRendererCanvas.cpp \
 		.moc/moc_CQPixelRendererScrolledCanvas.cpp \
 		.moc/moc_CQPixelRendererSubCanvas.cpp \
-		.moc/moc_CQImageButton.cpp \
 		.moc/moc_CQNameValue.cpp \
-		.moc/moc_CQPaintTools.cpp \
 		.moc/moc_CQPoint3DEdit.cpp \
 		.moc/moc_CQRadioButtons.cpp \
-		.moc/moc_CQResizeImageDlg.cpp \
 		.moc/moc_CQRGBAEdit.cpp \
 		.moc/moc_CQWinWidget.cpp \
-		.moc/moc_CQFloatEdit.cpp \
-		.moc/moc_CQAutoHide.cpp
+		.moc/moc_CQWorkspace.cpp
 OBJECTS       = ../obj/CQPaint.o \
 		../obj/CQPaintGaussianBlur.o \
 		../obj/CQPaintTurbulence.o \
 		../obj/CQPaintTools.o \
 		../obj/CQImageCanvas.o \
 		../obj/CQResizeImageDlg.o \
-		../obj/CQDirView.o \
-		../obj/CQDirBar.o \
-		../obj/CQDirPlaces.o \
-		../obj/CDirView.o \
-		../obj/CQFileMgr.o \
-		../obj/CQFileMgrDetails.o \
-		../obj/CQFileMgrFilmstripIcons.o \
-		../obj/CQFileMgrFilmstripImage.o \
-		../obj/CQFileMgrIcons.o \
-		../obj/CQFileMgrInfo.o \
-		../obj/CQFileMgrToolbar.o \
-		../obj/CFileMgr.o \
-		../obj/CFileMgrDetails.o \
-		../obj/CFileMgrDir.o \
-		../obj/CFileMgrFile.o \
-		../obj/CFileMgrFilmstrip.o \
-		../obj/CFileMgrIcons.o \
 		../obj/CQPixelRendererCanvas.o \
 		../obj/CQPixelRendererScrolledCanvas.o \
-		../obj/CQColorWheel.o \
-		../obj/CQColorWheelCanvas.o \
 		../obj/CQNameValue.o \
 		../obj/CQPoint3DEdit.o \
 		../obj/CQRadioButtons.o \
@@ -153,47 +89,21 @@ OBJECTS       = ../obj/CQPaint.o \
 		../obj/CQWinWidget.o \
 		../obj/CQWorkspace.o \
 		../obj/CQZoomCursor.o \
-		../obj/CQImageButton.o \
-		../obj/CQFloatEdit.o \
-		../obj/CQAutoHide.o \
-		../obj/CColorWheel.o \
-		../obj/CMime.o \
-		../obj/CFileIcon.o \
-		../obj/CFileNotify.o \
-		../obj/CDirFilesMgr.o \
-		../obj/CDirFiles.o \
-		../obj/CImageThumbnail.o \
-		../obj/CEncode64.o \
 		../obj/moc_CQPaint.o \
 		../obj/moc_CQPaintGaussianBlur.o \
 		../obj/moc_CQPaintTurbulence.o \
+		../obj/moc_CQPaintTools.o \
 		../obj/moc_CQImageCanvas.o \
-		../obj/moc_CQDirView.o \
-		../obj/moc_CQWorkspace.o \
-		../obj/moc_CQColorWheel.o \
-		../obj/moc_CQColorWheelCanvas.o \
-		../obj/moc_CQDirBar.o \
-		../obj/moc_CQDirPlaces.o \
-		../obj/moc_CQFileMgrDetails.o \
-		../obj/moc_CQFileMgrFilmstripIcons.o \
-		../obj/moc_CQFileMgrFilmstripImage.o \
-		../obj/moc_CQFileMgr.o \
-		../obj/moc_CQFileMgrIcons.o \
-		../obj/moc_CQFileMgrInfo.o \
-		../obj/moc_CQFileMgrToolbar.o \
+		../obj/moc_CQResizeImageDlg.o \
 		../obj/moc_CQPixelRendererCanvas.o \
 		../obj/moc_CQPixelRendererScrolledCanvas.o \
 		../obj/moc_CQPixelRendererSubCanvas.o \
-		../obj/moc_CQImageButton.o \
 		../obj/moc_CQNameValue.o \
-		../obj/moc_CQPaintTools.o \
 		../obj/moc_CQPoint3DEdit.o \
 		../obj/moc_CQRadioButtons.o \
-		../obj/moc_CQResizeImageDlg.o \
 		../obj/moc_CQRGBAEdit.o \
 		../obj/moc_CQWinWidget.o \
-		../obj/moc_CQFloatEdit.o \
-		../obj/moc_CQAutoHide.o
+		../obj/moc_CQWorkspace.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -260,78 +170,33 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		CQPaint.pro ../include/CQPaint.h \
 		../include/CQPaintGaussianBlur.h \
 		../include/CQPaintTurbulence.h \
+		CQPaintTools.h \
 		../include/CQImageCanvas.h \
-		../include/CQDirView.h \
-		../include/CQWorkspace.h \
-		CQColorWheel.h \
-		CQColorWheelCanvas.h \
-		CQDirBar.h \
-		CQDirPlaces.h \
-		CQFileMgrDetails.h \
-		CQFileMgrFilmstripIcons.h \
-		CQFileMgrFilmstripImage.h \
-		CQFileMgr.h \
-		CQFileMgrIcons.h \
-		CQFileMgrInfo.h \
-		CQFileMgrToolbar.h \
+		CQResizeImageDlg.h \
 		CQPixelRendererCanvas.h \
 		CQPixelRendererScrolledCanvas.h \
 		CQPixelRendererSubCanvas.h \
-		CQImageButton.h \
 		CQNameValue.h \
-		CQPaintTools.h \
 		CQPoint3DEdit.h \
 		CQRadioButtons.h \
-		CQResizeImageDlg.h \
 		CQRGBAEdit.h \
 		CQWinWidget.h \
-		CQZoomCursor.h \
-		CQFloatEdit.h \
-		CQAutoHide.h CQPaint.cpp \
+		../include/CQWorkspace.h \
+		CQZoomCursor.h CQPaint.cpp \
 		CQPaintGaussianBlur.cpp \
 		CQPaintTurbulence.cpp \
 		CQPaintTools.cpp \
 		CQImageCanvas.cpp \
 		CQResizeImageDlg.cpp \
-		CQDirView.cpp \
-		CQDirBar.cpp \
-		CQDirPlaces.cpp \
-		CDirView.cpp \
-		CQFileMgr.cpp \
-		CQFileMgrDetails.cpp \
-		CQFileMgrFilmstripIcons.cpp \
-		CQFileMgrFilmstripImage.cpp \
-		CQFileMgrIcons.cpp \
-		CQFileMgrInfo.cpp \
-		CQFileMgrToolbar.cpp \
-		CFileMgr.cpp \
-		CFileMgrDetails.cpp \
-		CFileMgrDir.cpp \
-		CFileMgrFile.cpp \
-		CFileMgrFilmstrip.cpp \
-		CFileMgrIcons.cpp \
 		CQPixelRendererCanvas.cpp \
 		CQPixelRendererScrolledCanvas.cpp \
-		CQColorWheel.cpp \
-		CQColorWheelCanvas.cpp \
 		CQNameValue.cpp \
 		CQPoint3DEdit.cpp \
 		CQRadioButtons.cpp \
 		CQRGBAEdit.cpp \
 		CQWinWidget.cpp \
 		CQWorkspace.cpp \
-		CQZoomCursor.cpp \
-		CQImageButton.cpp \
-		CQFloatEdit.cpp \
-		CQAutoHide.cpp \
-		CColorWheel.cpp \
-		CMime.cpp \
-		CFileIcon.cpp \
-		CFileNotify.cpp \
-		CDirFilesMgr.cpp \
-		CDirFiles.cpp \
-		CImageThumbnail.cpp \
-		CEncode64.cpp
+		CQZoomCursor.cpp
 QMAKE_TARGET  = CQPaint
 DESTDIR       = ../lib/#avoid trailing-slash linebreak
 TARGET        = libCQPaint.a
@@ -518,8 +383,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../include/CQPaint.h ../include/CQPaintGaussianBlur.h ../include/CQPaintTurbulence.h ../include/CQImageCanvas.h ../include/CQDirView.h ../include/CQWorkspace.h CQColorWheel.h CQColorWheelCanvas.h CQDirBar.h CQDirPlaces.h CQFileMgrDetails.h CQFileMgrFilmstripIcons.h CQFileMgrFilmstripImage.h CQFileMgr.h CQFileMgrIcons.h CQFileMgrInfo.h CQFileMgrToolbar.h CQPixelRendererCanvas.h CQPixelRendererScrolledCanvas.h CQPixelRendererSubCanvas.h CQImageButton.h CQNameValue.h CQPaintTools.h CQPoint3DEdit.h CQRadioButtons.h CQResizeImageDlg.h CQRGBAEdit.h CQWinWidget.h CQZoomCursor.h CQFloatEdit.h CQAutoHide.h $(DISTDIR)/
-	$(COPY_FILE) --parents CQPaint.cpp CQPaintGaussianBlur.cpp CQPaintTurbulence.cpp CQPaintTools.cpp CQImageCanvas.cpp CQResizeImageDlg.cpp CQDirView.cpp CQDirBar.cpp CQDirPlaces.cpp CDirView.cpp CQFileMgr.cpp CQFileMgrDetails.cpp CQFileMgrFilmstripIcons.cpp CQFileMgrFilmstripImage.cpp CQFileMgrIcons.cpp CQFileMgrInfo.cpp CQFileMgrToolbar.cpp CFileMgr.cpp CFileMgrDetails.cpp CFileMgrDir.cpp CFileMgrFile.cpp CFileMgrFilmstrip.cpp CFileMgrIcons.cpp CQPixelRendererCanvas.cpp CQPixelRendererScrolledCanvas.cpp CQColorWheel.cpp CQColorWheelCanvas.cpp CQNameValue.cpp CQPoint3DEdit.cpp CQRadioButtons.cpp CQRGBAEdit.cpp CQWinWidget.cpp CQWorkspace.cpp CQZoomCursor.cpp CQImageButton.cpp CQFloatEdit.cpp CQAutoHide.cpp CColorWheel.cpp CMime.cpp CFileIcon.cpp CFileNotify.cpp CDirFilesMgr.cpp CDirFiles.cpp CImageThumbnail.cpp CEncode64.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../include/CQPaint.h ../include/CQPaintGaussianBlur.h ../include/CQPaintTurbulence.h CQPaintTools.h ../include/CQImageCanvas.h CQResizeImageDlg.h CQPixelRendererCanvas.h CQPixelRendererScrolledCanvas.h CQPixelRendererSubCanvas.h CQNameValue.h CQPoint3DEdit.h CQRadioButtons.h CQRGBAEdit.h CQWinWidget.h ../include/CQWorkspace.h CQZoomCursor.h $(DISTDIR)/
+	$(COPY_FILE) --parents CQPaint.cpp CQPaintGaussianBlur.cpp CQPaintTurbulence.cpp CQPaintTools.cpp CQImageCanvas.cpp CQResizeImageDlg.cpp CQPixelRendererCanvas.cpp CQPixelRendererScrolledCanvas.cpp CQNameValue.cpp CQPoint3DEdit.cpp CQRadioButtons.cpp CQRGBAEdit.cpp CQWinWidget.cpp CQWorkspace.cpp CQZoomCursor.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents CQPaintGaussianBlur.ui CQPaintTurbulence.ui $(DISTDIR)/
 
 
@@ -543,9 +408,9 @@ check: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: .moc/moc_CQPaint.cpp .moc/moc_CQPaintGaussianBlur.cpp .moc/moc_CQPaintTurbulence.cpp .moc/moc_CQImageCanvas.cpp .moc/moc_CQDirView.cpp .moc/moc_CQWorkspace.cpp .moc/moc_CQColorWheel.cpp .moc/moc_CQColorWheelCanvas.cpp .moc/moc_CQDirBar.cpp .moc/moc_CQDirPlaces.cpp .moc/moc_CQFileMgrDetails.cpp .moc/moc_CQFileMgrFilmstripIcons.cpp .moc/moc_CQFileMgrFilmstripImage.cpp .moc/moc_CQFileMgr.cpp .moc/moc_CQFileMgrIcons.cpp .moc/moc_CQFileMgrInfo.cpp .moc/moc_CQFileMgrToolbar.cpp .moc/moc_CQPixelRendererCanvas.cpp .moc/moc_CQPixelRendererScrolledCanvas.cpp .moc/moc_CQPixelRendererSubCanvas.cpp .moc/moc_CQImageButton.cpp .moc/moc_CQNameValue.cpp .moc/moc_CQPaintTools.cpp .moc/moc_CQPoint3DEdit.cpp .moc/moc_CQRadioButtons.cpp .moc/moc_CQResizeImageDlg.cpp .moc/moc_CQRGBAEdit.cpp .moc/moc_CQWinWidget.cpp .moc/moc_CQFloatEdit.cpp .moc/moc_CQAutoHide.cpp
+compiler_moc_header_make_all: .moc/moc_CQPaint.cpp .moc/moc_CQPaintGaussianBlur.cpp .moc/moc_CQPaintTurbulence.cpp .moc/moc_CQPaintTools.cpp .moc/moc_CQImageCanvas.cpp .moc/moc_CQResizeImageDlg.cpp .moc/moc_CQPixelRendererCanvas.cpp .moc/moc_CQPixelRendererScrolledCanvas.cpp .moc/moc_CQPixelRendererSubCanvas.cpp .moc/moc_CQNameValue.cpp .moc/moc_CQPoint3DEdit.cpp .moc/moc_CQRadioButtons.cpp .moc/moc_CQRGBAEdit.cpp .moc/moc_CQWinWidget.cpp .moc/moc_CQWorkspace.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) .moc/moc_CQPaint.cpp .moc/moc_CQPaintGaussianBlur.cpp .moc/moc_CQPaintTurbulence.cpp .moc/moc_CQImageCanvas.cpp .moc/moc_CQDirView.cpp .moc/moc_CQWorkspace.cpp .moc/moc_CQColorWheel.cpp .moc/moc_CQColorWheelCanvas.cpp .moc/moc_CQDirBar.cpp .moc/moc_CQDirPlaces.cpp .moc/moc_CQFileMgrDetails.cpp .moc/moc_CQFileMgrFilmstripIcons.cpp .moc/moc_CQFileMgrFilmstripImage.cpp .moc/moc_CQFileMgr.cpp .moc/moc_CQFileMgrIcons.cpp .moc/moc_CQFileMgrInfo.cpp .moc/moc_CQFileMgrToolbar.cpp .moc/moc_CQPixelRendererCanvas.cpp .moc/moc_CQPixelRendererScrolledCanvas.cpp .moc/moc_CQPixelRendererSubCanvas.cpp .moc/moc_CQImageButton.cpp .moc/moc_CQNameValue.cpp .moc/moc_CQPaintTools.cpp .moc/moc_CQPoint3DEdit.cpp .moc/moc_CQRadioButtons.cpp .moc/moc_CQResizeImageDlg.cpp .moc/moc_CQRGBAEdit.cpp .moc/moc_CQWinWidget.cpp .moc/moc_CQFloatEdit.cpp .moc/moc_CQAutoHide.cpp
+	-$(DEL_FILE) .moc/moc_CQPaint.cpp .moc/moc_CQPaintGaussianBlur.cpp .moc/moc_CQPaintTurbulence.cpp .moc/moc_CQPaintTools.cpp .moc/moc_CQImageCanvas.cpp .moc/moc_CQResizeImageDlg.cpp .moc/moc_CQPixelRendererCanvas.cpp .moc/moc_CQPixelRendererScrolledCanvas.cpp .moc/moc_CQPixelRendererSubCanvas.cpp .moc/moc_CQNameValue.cpp .moc/moc_CQPoint3DEdit.cpp .moc/moc_CQRadioButtons.cpp .moc/moc_CQRGBAEdit.cpp .moc/moc_CQWinWidget.cpp .moc/moc_CQWorkspace.cpp
 .moc/moc_CQPaint.cpp: ../../CQUtil/include/CQMainWindow.h \
 		../../CQUtil/include/CQMenu.h \
 		../../CQUtil/include/CQToolBar.h \
@@ -555,17 +420,17 @@ compiler_moc_header_clean:
 		../include/CQImageCanvas.h \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
+		../../COS/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIVector2D.h \
 		../../CImageLib/include/CImage.h \
 		../../CUtil/include/CRGBA.h \
 		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CRGBUtil.h \
 		../../CUtil/include/CCMYK.h \
 		../../CUtil/include/CHSL.h \
+		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
 		../../CUtil/include/CColorComponent.h \
@@ -579,27 +444,31 @@ compiler_moc_header_clean:
 		../../CUtil/include/CKeyType.h \
 		../../CUtil/include/CAutoPtr.h \
 		../include/CQPaint.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../include/CQPaint.h -o .moc/moc_CQPaint.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../include/CQPaint.h -o .moc/moc_CQPaint.cpp
 
 .moc/moc_CQPaintGaussianBlur.cpp: ../include/CQPaintGaussianBlur.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../include/CQPaintGaussianBlur.h -o .moc/moc_CQPaintGaussianBlur.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../include/CQPaintGaussianBlur.h -o .moc/moc_CQPaintGaussianBlur.cpp
 
 .moc/moc_CQPaintTurbulence.cpp: ../include/CQPaintTurbulence.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../include/CQPaintTurbulence.h -o .moc/moc_CQPaintTurbulence.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../include/CQPaintTurbulence.h -o .moc/moc_CQPaintTurbulence.cpp
+
+.moc/moc_CQPaintTools.cpp: CQWinWidget.h \
+		CQPaintTools.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQPaintTools.h -o .moc/moc_CQPaintTools.cpp
 
 .moc/moc_CQImageCanvas.cpp: ../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
+		../../COS/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIVector2D.h \
 		../../CImageLib/include/CImage.h \
 		../../CUtil/include/CRGBA.h \
 		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CRGBUtil.h \
 		../../CUtil/include/CCMYK.h \
 		../../CUtil/include/CHSL.h \
+		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
 		../../CUtil/include/CColorComponent.h \
@@ -614,155 +483,26 @@ compiler_moc_header_clean:
 		../../CUtil/include/CKeyType.h \
 		../../CUtil/include/CAutoPtr.h \
 		../include/CQImageCanvas.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../include/CQImageCanvas.h -o .moc/moc_CQImageCanvas.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../include/CQImageCanvas.h -o .moc/moc_CQImageCanvas.cpp
 
-.moc/moc_CQDirView.cpp: ../include/CDirView.h \
-		../include/CQDirView.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../include/CQDirView.h -o .moc/moc_CQDirView.cpp
-
-.moc/moc_CQWorkspace.cpp: ../../CQUtil/include/CQMenu.h \
-		../include/CQWorkspace.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../include/CQWorkspace.h -o .moc/moc_CQWorkspace.cpp
-
-.moc/moc_CQColorWheel.cpp: ../../CUtil/include/CRGBA.h \
-		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
-		../../CUtil/include/CRGBUtil.h \
-		../../CUtil/include/CCMYK.h \
-		../../CUtil/include/CHSL.h \
-		../../CUtil/include/CHSB.h \
-		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CUtil/include/CColorComponent.h \
-		CQColorWheel.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQColorWheel.h -o .moc/moc_CQColorWheel.cpp
-
-.moc/moc_CQColorWheelCanvas.cpp: CColorWheel.h \
-		../../CUtil/include/CRGBA.h \
-		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
-		../../CUtil/include/CRGBUtil.h \
-		../../CUtil/include/CCMYK.h \
-		../../CUtil/include/CHSL.h \
-		../../CUtil/include/CHSB.h \
-		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CUtil/include/CColorComponent.h \
-		../../CUtil/include/COrientation.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CISize2D.h \
-		../../CMath/include/CIVector2D.h \
-		CQColorWheelCanvas.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQColorWheelCanvas.h -o .moc/moc_CQColorWheelCanvas.cpp
-
-.moc/moc_CQDirBar.cpp: CQDirBar.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQDirBar.h -o .moc/moc_CQDirBar.cpp
-
-.moc/moc_CQDirPlaces.cpp: ../include/CDirView.h \
-		CQDirPlaces.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQDirPlaces.h -o .moc/moc_CQDirPlaces.cpp
-
-.moc/moc_CQFileMgrDetails.cpp: CFileMgrDetails.h \
-		../../CUtil/include/CAlignType.h \
-		../../CUtil/include/CEvent.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CUtil/include/CKeyType.h \
-		CQFileMgrDetails.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQFileMgrDetails.h -o .moc/moc_CQFileMgrDetails.cpp
-
-.moc/moc_CQFileMgrFilmstripIcons.cpp: CQPixelRendererScrolledCanvas.h \
-		../../CMath/include/CISize2D.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CMath/include/CIVector2D.h \
-		../../CUtil/include/CEvent.h \
-		../../CUtil/include/CKeyType.h \
-		../../CUtil/include/CScrollType.h \
-		../../CUtil/include/accessor.h \
-		CQFileMgrFilmstripIcons.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQFileMgrFilmstripIcons.h -o .moc/moc_CQFileMgrFilmstripIcons.cpp
-
-.moc/moc_CQFileMgrFilmstripImage.cpp: CQPixelRendererScrolledCanvas.h \
-		../../CMath/include/CISize2D.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CMath/include/CIVector2D.h \
-		../../CUtil/include/CEvent.h \
-		../../CUtil/include/CKeyType.h \
-		../../CUtil/include/CScrollType.h \
-		../../CUtil/include/accessor.h \
-		CQFileMgrFilmstripImage.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQFileMgrFilmstripImage.h -o .moc/moc_CQFileMgrFilmstripImage.cpp
-
-.moc/moc_CQFileMgr.cpp: ../../CMath/include/CIPoint2D.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CISize2D.h \
-		../../CMath/include/CIVector2D.h \
-		CFileMgrLib.h \
-		CFileMgr.h \
-		../../CUtil/include/COrientation.h \
-		../../CFile/include/CFileType.h \
-		../../CImageLib/include/CImagePtr.h \
-		../../CUtil/include/CRefPtr.h \
-		CFileMgrDir.h \
-		CFileMgrDetails.h \
-		../../CUtil/include/CAlignType.h \
-		../../CUtil/include/CEvent.h \
-		../../CUtil/include/CKeyType.h \
-		../../CUtil/include/CAutoPtr.h \
-		CFileMgrFile.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		CFileMgrIcons.h \
-		CFileMgrFilmstrip.h \
-		CQFileMgr.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQFileMgr.h -o .moc/moc_CQFileMgr.cpp
-
-.moc/moc_CQFileMgrIcons.cpp: CQPixelRendererScrolledCanvas.h \
-		../../CMath/include/CISize2D.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CMath/include/CIVector2D.h \
-		../../CUtil/include/CEvent.h \
-		../../CUtil/include/CKeyType.h \
-		../../CUtil/include/CScrollType.h \
-		../../CUtil/include/accessor.h \
-		CQFileMgrIcons.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQFileMgrIcons.h -o .moc/moc_CQFileMgrIcons.cpp
-
-.moc/moc_CQFileMgrInfo.cpp: CQFileMgrInfo.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQFileMgrInfo.h -o .moc/moc_CQFileMgrInfo.cpp
-
-.moc/moc_CQFileMgrToolbar.cpp: CQFileMgrToolbar.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQFileMgrToolbar.h -o .moc/moc_CQFileMgrToolbar.cpp
+.moc/moc_CQResizeImageDlg.cpp: CQResizeImageDlg.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQResizeImageDlg.h -o .moc/moc_CQResizeImageDlg.cpp
 
 .moc/moc_CQPixelRendererCanvas.cpp: ../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
+		../../COS/include/NaN.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/CEvent.h \
 		../../CUtil/include/CKeyType.h \
 		CQPixelRendererCanvas.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQPixelRendererCanvas.h -o .moc/moc_CQPixelRendererCanvas.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQPixelRendererCanvas.h -o .moc/moc_CQPixelRendererCanvas.cpp
 
 .moc/moc_CQPixelRendererScrolledCanvas.cpp: ../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
+		../../COS/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/CEvent.h \
@@ -770,14 +510,14 @@ compiler_moc_header_clean:
 		../../CUtil/include/CScrollType.h \
 		../../CUtil/include/accessor.h \
 		CQPixelRendererScrolledCanvas.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQPixelRendererScrolledCanvas.h -o .moc/moc_CQPixelRendererScrolledCanvas.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQPixelRendererScrolledCanvas.h -o .moc/moc_CQPixelRendererScrolledCanvas.cpp
 
 .moc/moc_CQPixelRendererSubCanvas.cpp: CQPixelRendererCanvas.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
+		../../COS/include/NaN.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/CEvent.h \
 		../../CUtil/include/CKeyType.h \
@@ -785,40 +525,7 @@ compiler_moc_header_clean:
 		../../CUtil/include/CScrollType.h \
 		../../CUtil/include/accessor.h \
 		CQPixelRendererSubCanvas.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQPixelRendererSubCanvas.h -o .moc/moc_CQPixelRendererSubCanvas.cpp
-
-.moc/moc_CQImageButton.cpp: ../../CImageLib/include/CImageLib.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		../../CFile/include/CFileType.h \
-		../../CUtil/include/CAlignType.h \
-		../../CUtil/include/CRGBA.h \
-		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
-		../../CUtil/include/CRGBUtil.h \
-		../../CUtil/include/CCMYK.h \
-		../../CUtil/include/CHSL.h \
-		../../CUtil/include/CHSB.h \
-		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CUtil/include/CColorComponent.h \
-		../../CImageLib/include/CImageState.h \
-		../../CImageLib/include/CImage.h \
-		../../CUtil/include/CRGBACombineDef.h \
-		../../CMath/include/CISize2D.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CIVector2D.h \
-		../../CUtil/include/COptVal.h \
-		../../CImageLib/include/CImagePtr.h \
-		../../CUtil/include/CRefPtr.h \
-		../../CImageLib/include/CImageMgr.h \
-		../../CStrUtil/include/CStrUtil.h \
-		../../CImageLib/include/CImageAnim.h \
-		../../CImageLib/include/CImageFile.h \
-		CQImageButton.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQImageButton.h -o .moc/moc_CQImageButton.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQPixelRendererSubCanvas.h -o .moc/moc_CQPixelRendererSubCanvas.cpp
 
 .moc/moc_CQNameValue.cpp: CQPoint3DEdit.h \
 		../../CMath/include/CPoint3D.h \
@@ -828,61 +535,52 @@ compiler_moc_header_clean:
 		CQRGBAEdit.h \
 		../../CUtil/include/CRGBA.h \
 		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CRGBUtil.h \
 		../../CUtil/include/CCMYK.h \
 		../../CUtil/include/CHSL.h \
+		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
+		../../COS/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CQUtil/include/CQRealEdit.h \
 		../../CQUtil/include/CQIntegerEdit.h \
 		CQNameValue.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQNameValue.h -o .moc/moc_CQNameValue.cpp
-
-.moc/moc_CQPaintTools.cpp: CQWinWidget.h \
-		CQPaintTools.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQPaintTools.h -o .moc/moc_CQPaintTools.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQNameValue.h -o .moc/moc_CQNameValue.cpp
 
 .moc/moc_CQPoint3DEdit.cpp: ../../CMath/include/CPoint3D.h \
 		../../CMath/include/CPoint2D.h \
 		../../CMath/include/CIPoint3D.h \
 		CQPoint3DEdit.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQPoint3DEdit.h -o .moc/moc_CQPoint3DEdit.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQPoint3DEdit.h -o .moc/moc_CQPoint3DEdit.cpp
 
 .moc/moc_CQRadioButtons.cpp: CQRadioButtons.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQRadioButtons.h -o .moc/moc_CQRadioButtons.cpp
-
-.moc/moc_CQResizeImageDlg.cpp: CQResizeImageDlg.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQResizeImageDlg.h -o .moc/moc_CQResizeImageDlg.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQRadioButtons.h -o .moc/moc_CQRadioButtons.cpp
 
 .moc/moc_CQRGBAEdit.cpp: ../../CUtil/include/CRGBA.h \
 		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CRGBUtil.h \
 		../../CUtil/include/CCMYK.h \
 		../../CUtil/include/CHSL.h \
+		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
+		../../COS/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CQUtil/include/CQRealEdit.h \
 		CQRGBAEdit.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQRGBAEdit.h -o .moc/moc_CQRGBAEdit.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQRGBAEdit.h -o .moc/moc_CQRGBAEdit.cpp
 
 .moc/moc_CQWinWidget.cpp: CQWinWidget.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQWinWidget.h -o .moc/moc_CQWinWidget.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQWinWidget.h -o .moc/moc_CQWinWidget.cpp
 
-.moc/moc_CQFloatEdit.cpp: CQFloatEdit.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQFloatEdit.h -o .moc/moc_CQFloatEdit.cpp
-
-.moc/moc_CQAutoHide.cpp: CQAutoHide.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQAutoHide.h -o .moc/moc_CQAutoHide.cpp
+.moc/moc_CQWorkspace.cpp: ../../CQUtil/include/CQMenu.h \
+		../include/CQWorkspace.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../include/CQWorkspace.h -o .moc/moc_CQWorkspace.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -915,17 +613,17 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../include/CQImageCanvas.h \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
+		../../COS/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIVector2D.h \
 		../../CImageLib/include/CImage.h \
 		../../CUtil/include/CRGBA.h \
 		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CRGBUtil.h \
 		../../CUtil/include/CCMYK.h \
 		../../CUtil/include/CHSL.h \
+		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
 		../../CUtil/include/CColorComponent.h \
@@ -944,18 +642,18 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		CQWinWidget.h \
 		CQResizeImageDlg.h \
 		../../CQUtil/include/CQPixmapCache.h \
-		CQColorWheel.h \
-		CQFileMgr.h \
-		CFileMgrLib.h \
-		CFileMgr.h \
+		../../CColorWheel/qinclude/CQColorWheel.h \
+		../../CFileMgr/qinclude/CQFileMgr.h \
+		../../CFileMgr/include/CFileMgrLib.h \
+		../../CFileMgr/include/CFileMgr.h \
 		../../CUtil/include/COrientation.h \
-		CFileMgrDir.h \
-		CFileMgrDetails.h \
-		CFileMgrFile.h \
+		../../CFileMgr/include/CFileMgrDir.h \
+		../../CFileMgr/include/CFileMgrDetails.h \
+		../../CFileMgr/include/CFileMgrFile.h \
 		../../CFile/include/CFile.h \
 		../../CFile/include/CFileBase.h \
-		CFileMgrIcons.h \
-		CFileMgrFilmstrip.h \
+		../../CFileMgr/include/CFileMgrIcons.h \
+		../../CFileMgr/include/CFileMgrFilmstrip.h \
 		../../COS/include/COSFile.h \
 		svg/new_svg.h \
 		svg/load_svg.h \
@@ -980,7 +678,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 
 ../obj/CQPaintTools.o: CQPaintTools.cpp CQPaintTools.h \
 		CQWinWidget.h \
-		CQImageButton.h \
+		../../CQUtil/include/CQImageButton.h \
 		../../CImageLib/include/CImageLib.h \
 		../../CFile/include/CFile.h \
 		../../CFile/include/CFileBase.h \
@@ -988,14 +686,14 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CAlignType.h \
 		../../CUtil/include/CRGBA.h \
 		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CRGBUtil.h \
 		../../CUtil/include/CCMYK.h \
 		../../CUtil/include/CHSL.h \
+		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
+		../../COS/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CImageLib/include/CImageState.h \
@@ -1011,27 +709,27 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CStrUtil/include/CStrUtil.h \
 		../../CImageLib/include/CImageAnim.h \
 		../../CImageLib/include/CImageFile.h \
-		region_16_png.h \
-		pen_16_png.h \
-		color_picker_16_png.h \
-		fill_16_png.h \
-		close_16_png.h
+		png/region_16_png.h \
+		png/pen_16_png.h \
+		png/color_picker_16_png.h \
+		png/fill_16_png.h \
+		png/close_16_png.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQPaintTools.o CQPaintTools.cpp
 
 ../obj/CQImageCanvas.o: CQImageCanvas.cpp ../include/CQImageCanvas.h \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
+		../../COS/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIVector2D.h \
 		../../CImageLib/include/CImage.h \
 		../../CUtil/include/CRGBA.h \
 		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CRGBUtil.h \
 		../../CUtil/include/CCMYK.h \
 		../../CUtil/include/CHSL.h \
+		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
 		../../CUtil/include/CColorComponent.h \
@@ -1091,863 +789,26 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		CQRGBAEdit.h \
 		../../CUtil/include/CRGBA.h \
 		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CRGBUtil.h \
 		../../CUtil/include/CCMYK.h \
 		../../CUtil/include/CHSL.h \
+		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
+		../../COS/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CQUtil/include/CQRealEdit.h \
 		../../CQUtil/include/CQIntegerEdit.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQResizeImageDlg.o CQResizeImageDlg.cpp
 
-../obj/CQDirView.o: CQDirView.cpp ../include/CQDirView.h \
-		../include/CDirView.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQDirView.o CQDirView.cpp
-
-../obj/CQDirBar.o: CQDirBar.cpp CQDirBar.h \
-		../include/CQDirView.h \
-		../include/CDirView.h \
-		CQFileMgr.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CISize2D.h \
-		../../CMath/include/CIVector2D.h \
-		CFileMgrLib.h \
-		CFileMgr.h \
-		../../CUtil/include/COrientation.h \
-		../../CFile/include/CFileType.h \
-		../../CImageLib/include/CImagePtr.h \
-		../../CUtil/include/CRefPtr.h \
-		CFileMgrDir.h \
-		CFileMgrDetails.h \
-		../../CUtil/include/CAlignType.h \
-		../../CUtil/include/CEvent.h \
-		../../CUtil/include/CKeyType.h \
-		../../CUtil/include/CAutoPtr.h \
-		CFileMgrFile.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		CFileMgrIcons.h \
-		CFileMgrFilmstrip.h \
-		../../CFile/include/CDir.h \
-		../../CStrUtil/include/CStrUtil.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQDirBar.o CQDirBar.cpp
-
-../obj/CQDirPlaces.o: CQDirPlaces.cpp CQDirPlaces.h \
-		../include/CDirView.h \
-		../include/CQDirView.h \
-		CQFloatEdit.h \
-		../../CConfig/include/CConfig.h \
-		../../CUtil/include/CAutoPtr.h \
-		../../CFile/include/CDir.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		../../CFile/include/CFileType.h \
-		../../CStrUtil/include/CStrUtil.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQDirPlaces.o CQDirPlaces.cpp
-
-../obj/CDirView.o: CDirView.cpp ../include/CDirView.h \
-		CDirFiles.h \
-		../../CFile/include/CDir.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		../../CFile/include/CFileType.h \
-		../../CUtil/include/CFuncs.h \
-		../../CConfig/include/CConfig.h \
-		../../CUtil/include/CAutoPtr.h \
-		../../CStrUtil/include/CStrUtil.h \
-		CFileNotify.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CDirView.o CDirView.cpp
-
-../obj/CQFileMgr.o: CQFileMgr.cpp CQFileMgr.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CISize2D.h \
-		../../CMath/include/CIVector2D.h \
-		CFileMgrLib.h \
-		CFileMgr.h \
-		../../CUtil/include/COrientation.h \
-		../../CFile/include/CFileType.h \
-		../../CImageLib/include/CImagePtr.h \
-		../../CUtil/include/CRefPtr.h \
-		CFileMgrDir.h \
-		CFileMgrDetails.h \
-		../../CUtil/include/CAlignType.h \
-		../../CUtil/include/CEvent.h \
-		../../CUtil/include/CKeyType.h \
-		../../CUtil/include/CAutoPtr.h \
-		CFileMgrFile.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		CFileMgrIcons.h \
-		CFileMgrFilmstrip.h \
-		CQDirBar.h \
-		CQDirPlaces.h \
-		../include/CDirView.h \
-		CQFileMgrIcons.h \
-		CQPixelRendererScrolledCanvas.h \
-		../../CUtil/include/CScrollType.h \
-		../../CUtil/include/accessor.h \
-		CQFileMgrFilmstripIcons.h \
-		CQFileMgrFilmstripImage.h \
-		CQFileMgrDetails.h \
-		CQFileMgrToolbar.h \
-		CQFileMgrInfo.h \
-		../../CQUtil/include/CQUtil.h \
-		../../CUtil/include/CRGBA.h \
-		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
-		../../CUtil/include/CRGBUtil.h \
-		../../CUtil/include/CCMYK.h \
-		../../CUtil/include/CHSL.h \
-		../../CUtil/include/CHSB.h \
-		../../CUtil/include/CHSI.h \
-		../../CUtil/include/CColorComponent.h \
-		../../CUtil/include/CLineDash.h \
-		../../CUtil/include/CILineDash.h \
-		../../CMath/include/CAngle.h \
-		../../CFont/include/CFontStyle.h \
-		../../CUtil/include/CFlags.h \
-		../../CFont/include/CFont.h \
-		../../CImageLib/include/CImageLib.h \
-		../../CImageLib/include/CImageState.h \
-		../../CImageLib/include/CImage.h \
-		../../CUtil/include/CRGBACombineDef.h \
-		../../CUtil/include/COptVal.h \
-		../../CImageLib/include/CImageMgr.h \
-		../../CStrUtil/include/CStrUtil.h \
-		../../CImageLib/include/CImageAnim.h \
-		../../CImageLib/include/CImageFile.h \
-		../../CMath/include/CPoint2D.h \
-		../../CMath/include/CBBox2D.h \
-		../../CMath/include/CVector2D.h \
-		../../CMath/include/CSize2D.h \
-		../../CMath/include/CMatrix2D.h \
-		../../CMath/include/CMathMacros.h \
-		../../CMath/include/CMatrixType.h \
-		../../CUtil/include/CThrow.h \
-		../../CUtil/include/CBrush.h \
-		../../CUtil/include/CBrushStyle.h \
-		../../CUtil/include/CFillType.h \
-		../../CMath/include/CGenGradient.h \
-		../../CUtil/include/CPen.h \
-		../../CUtil/include/CLineCapType.h \
-		../../CUtil/include/CLineJoinType.h \
-		../include/CQDirView.h \
-		../../CFile/include/CDir.h \
-		../../COS/include/COSFile.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQFileMgr.o CQFileMgr.cpp
-
-../obj/CQFileMgrDetails.o: CQFileMgrDetails.cpp CQFileMgrDetails.h \
-		CFileMgrDetails.h \
-		../../CUtil/include/CAlignType.h \
-		../../CUtil/include/CEvent.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CUtil/include/CKeyType.h \
-		CQFileMgr.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CISize2D.h \
-		../../CMath/include/CIVector2D.h \
-		CFileMgrLib.h \
-		CFileMgr.h \
-		../../CUtil/include/COrientation.h \
-		../../CFile/include/CFileType.h \
-		../../CImageLib/include/CImagePtr.h \
-		../../CUtil/include/CRefPtr.h \
-		CFileMgrDir.h \
-		../../CUtil/include/CAutoPtr.h \
-		CFileMgrFile.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		CFileMgrIcons.h \
-		CFileMgrFilmstrip.h \
-		../../CStrUtil/include/CStrUtil.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQFileMgrDetails.o CQFileMgrDetails.cpp
-
-../obj/CQFileMgrFilmstripIcons.o: CQFileMgrFilmstripIcons.cpp CQFileMgrFilmstripIcons.h \
-		CQPixelRendererScrolledCanvas.h \
-		../../CMath/include/CISize2D.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CMath/include/CIVector2D.h \
-		../../CUtil/include/CEvent.h \
-		../../CUtil/include/CKeyType.h \
-		../../CUtil/include/CScrollType.h \
-		../../CUtil/include/accessor.h \
-		CQPixelRendererCanvas.h \
-		../../CRenderer/qinclude/CQWidgetPixelRenderer.h \
-		../../CRenderer/qinclude/CQPixelRenderer.h \
-		../../CUtil/include/CAutoPtr.h \
-		../../CRenderer/include/CPixelRenderer.h \
-		../../CUtil/include/CRGBA.h \
-		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
-		../../CUtil/include/CRGBUtil.h \
-		../../CUtil/include/CCMYK.h \
-		../../CUtil/include/CHSL.h \
-		../../CUtil/include/CHSB.h \
-		../../CUtil/include/CHSI.h \
-		../../CUtil/include/CColorComponent.h \
-		../../CUtil/include/CDirectionType.h \
-		../../CUtil/include/CThrow.h \
-		../../CUtil/include/CPen.h \
-		../../CUtil/include/CLineDash.h \
-		../../CUtil/include/CILineDash.h \
-		../../CUtil/include/CLineCapType.h \
-		../../CUtil/include/CLineJoinType.h \
-		../../CUtil/include/CBrush.h \
-		../../CUtil/include/CBrushStyle.h \
-		../../CUtil/include/CFillType.h \
-		../../CImageLib/include/CImage.h \
-		../../CUtil/include/CRGBACombineDef.h \
-		../../CUtil/include/CAlignType.h \
-		../../CFile/include/CFileType.h \
-		../../CUtil/include/COptVal.h \
-		../../CImageLib/include/CImagePtr.h \
-		../../CUtil/include/CRefPtr.h \
-		../../CMath/include/CGenGradient.h \
-		../../CFont/include/CFontMgr.h \
-		../../CFont/include/CFont.h \
-		../../CFont/include/CFontStyle.h \
-		../../CUtil/include/CFlags.h \
-		../../CImageLib/include/CImageLib.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		../../CImageLib/include/CImageState.h \
-		../../CImageLib/include/CImageMgr.h \
-		../../CStrUtil/include/CStrUtil.h \
-		../../CImageLib/include/CImageAnim.h \
-		../../CImageLib/include/CImageFile.h \
-		../../CMath/include/CPoint2D.h \
-		../../CRenderer/include/CSymbol2D.h \
-		../../CMath/include/CBresenham.h \
-		../../CUtil/include/CSingleton.h \
-		../../CRenderer/include/CPixelClip.h \
-		../../CMath/include/CILine2D.h \
-		CQFileMgr.h \
-		CFileMgrLib.h \
-		CFileMgr.h \
-		../../CUtil/include/COrientation.h \
-		CFileMgrDir.h \
-		CFileMgrDetails.h \
-		CFileMgrFile.h \
-		CFileMgrIcons.h \
-		CFileMgrFilmstrip.h \
-		../../CQUtil/include/CQUtil.h \
-		../../CMath/include/CAngle.h \
-		../../CMath/include/CBBox2D.h \
-		../../CMath/include/CVector2D.h \
-		../../CMath/include/CSize2D.h \
-		../../CMath/include/CMatrix2D.h \
-		../../CMath/include/CMathMacros.h \
-		../../CMath/include/CMatrixType.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQFileMgrFilmstripIcons.o CQFileMgrFilmstripIcons.cpp
-
-../obj/CQFileMgrFilmstripImage.o: CQFileMgrFilmstripImage.cpp CQFileMgrFilmstripImage.h \
-		CQPixelRendererScrolledCanvas.h \
-		../../CMath/include/CISize2D.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CMath/include/CIVector2D.h \
-		../../CUtil/include/CEvent.h \
-		../../CUtil/include/CKeyType.h \
-		../../CUtil/include/CScrollType.h \
-		../../CUtil/include/accessor.h \
-		../../CRenderer/qinclude/CQWidgetPixelRenderer.h \
-		../../CRenderer/qinclude/CQPixelRenderer.h \
-		../../CUtil/include/CAutoPtr.h \
-		../../CRenderer/include/CPixelRenderer.h \
-		../../CUtil/include/CRGBA.h \
-		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
-		../../CUtil/include/CRGBUtil.h \
-		../../CUtil/include/CCMYK.h \
-		../../CUtil/include/CHSL.h \
-		../../CUtil/include/CHSB.h \
-		../../CUtil/include/CHSI.h \
-		../../CUtil/include/CColorComponent.h \
-		../../CUtil/include/CDirectionType.h \
-		../../CUtil/include/CThrow.h \
-		../../CUtil/include/CPen.h \
-		../../CUtil/include/CLineDash.h \
-		../../CUtil/include/CILineDash.h \
-		../../CUtil/include/CLineCapType.h \
-		../../CUtil/include/CLineJoinType.h \
-		../../CUtil/include/CBrush.h \
-		../../CUtil/include/CBrushStyle.h \
-		../../CUtil/include/CFillType.h \
-		../../CImageLib/include/CImage.h \
-		../../CUtil/include/CRGBACombineDef.h \
-		../../CUtil/include/CAlignType.h \
-		../../CFile/include/CFileType.h \
-		../../CUtil/include/COptVal.h \
-		../../CImageLib/include/CImagePtr.h \
-		../../CUtil/include/CRefPtr.h \
-		../../CMath/include/CGenGradient.h \
-		../../CFont/include/CFontMgr.h \
-		../../CFont/include/CFont.h \
-		../../CFont/include/CFontStyle.h \
-		../../CUtil/include/CFlags.h \
-		../../CImageLib/include/CImageLib.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		../../CImageLib/include/CImageState.h \
-		../../CImageLib/include/CImageMgr.h \
-		../../CStrUtil/include/CStrUtil.h \
-		../../CImageLib/include/CImageAnim.h \
-		../../CImageLib/include/CImageFile.h \
-		../../CMath/include/CPoint2D.h \
-		../../CRenderer/include/CSymbol2D.h \
-		../../CMath/include/CBresenham.h \
-		../../CUtil/include/CSingleton.h \
-		../../CRenderer/include/CPixelClip.h \
-		../../CMath/include/CILine2D.h \
-		CFileMgrIcons.h \
-		CQFileMgr.h \
-		CFileMgrLib.h \
-		CFileMgr.h \
-		../../CUtil/include/COrientation.h \
-		CFileMgrDir.h \
-		CFileMgrDetails.h \
-		CFileMgrFile.h \
-		CFileMgrFilmstrip.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQFileMgrFilmstripImage.o CQFileMgrFilmstripImage.cpp
-
-../obj/CQFileMgrIcons.o: CQFileMgrIcons.cpp CQFileMgrIcons.h \
-		CQPixelRendererScrolledCanvas.h \
-		../../CMath/include/CISize2D.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CMath/include/CIVector2D.h \
-		../../CUtil/include/CEvent.h \
-		../../CUtil/include/CKeyType.h \
-		../../CUtil/include/CScrollType.h \
-		../../CUtil/include/accessor.h \
-		CQFileMgr.h \
-		CFileMgrLib.h \
-		CFileMgr.h \
-		../../CUtil/include/COrientation.h \
-		../../CFile/include/CFileType.h \
-		../../CImageLib/include/CImagePtr.h \
-		../../CUtil/include/CRefPtr.h \
-		CFileMgrDir.h \
-		CFileMgrDetails.h \
-		../../CUtil/include/CAlignType.h \
-		../../CUtil/include/CAutoPtr.h \
-		CFileMgrFile.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		CFileMgrIcons.h \
-		CFileMgrFilmstrip.h \
-		CQPixelRendererCanvas.h \
-		../../CRenderer/qinclude/CQWidgetPixelRenderer.h \
-		../../CRenderer/qinclude/CQPixelRenderer.h \
-		../../CRenderer/include/CPixelRenderer.h \
-		../../CUtil/include/CRGBA.h \
-		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
-		../../CUtil/include/CRGBUtil.h \
-		../../CUtil/include/CCMYK.h \
-		../../CUtil/include/CHSL.h \
-		../../CUtil/include/CHSB.h \
-		../../CUtil/include/CHSI.h \
-		../../CUtil/include/CColorComponent.h \
-		../../CUtil/include/CDirectionType.h \
-		../../CUtil/include/CThrow.h \
-		../../CUtil/include/CPen.h \
-		../../CUtil/include/CLineDash.h \
-		../../CUtil/include/CILineDash.h \
-		../../CUtil/include/CLineCapType.h \
-		../../CUtil/include/CLineJoinType.h \
-		../../CUtil/include/CBrush.h \
-		../../CUtil/include/CBrushStyle.h \
-		../../CUtil/include/CFillType.h \
-		../../CImageLib/include/CImage.h \
-		../../CUtil/include/CRGBACombineDef.h \
-		../../CUtil/include/COptVal.h \
-		../../CMath/include/CGenGradient.h \
-		../../CFont/include/CFontMgr.h \
-		../../CFont/include/CFont.h \
-		../../CFont/include/CFontStyle.h \
-		../../CUtil/include/CFlags.h \
-		../../CImageLib/include/CImageLib.h \
-		../../CImageLib/include/CImageState.h \
-		../../CImageLib/include/CImageMgr.h \
-		../../CStrUtil/include/CStrUtil.h \
-		../../CImageLib/include/CImageAnim.h \
-		../../CImageLib/include/CImageFile.h \
-		../../CMath/include/CPoint2D.h \
-		../../CRenderer/include/CSymbol2D.h \
-		../../CMath/include/CBresenham.h \
-		../../CUtil/include/CSingleton.h \
-		../../CRenderer/include/CPixelClip.h \
-		../../CMath/include/CILine2D.h \
-		../../CQUtil/include/CQUtil.h \
-		../../CMath/include/CAngle.h \
-		../../CMath/include/CBBox2D.h \
-		../../CMath/include/CVector2D.h \
-		../../CMath/include/CSize2D.h \
-		../../CMath/include/CMatrix2D.h \
-		../../CMath/include/CMathMacros.h \
-		../../CMath/include/CMatrixType.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQFileMgrIcons.o CQFileMgrIcons.cpp
-
-../obj/CQFileMgrInfo.o: CQFileMgrInfo.cpp CQFileMgrInfo.h \
-		CQFileMgr.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CISize2D.h \
-		../../CMath/include/CIVector2D.h \
-		CFileMgrLib.h \
-		CFileMgr.h \
-		../../CUtil/include/COrientation.h \
-		../../CFile/include/CFileType.h \
-		../../CImageLib/include/CImagePtr.h \
-		../../CUtil/include/CRefPtr.h \
-		CFileMgrDir.h \
-		CFileMgrDetails.h \
-		../../CUtil/include/CAlignType.h \
-		../../CUtil/include/CEvent.h \
-		../../CUtil/include/CKeyType.h \
-		../../CUtil/include/CAutoPtr.h \
-		CFileMgrFile.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		CFileMgrIcons.h \
-		CFileMgrFilmstrip.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQFileMgrInfo.o CQFileMgrInfo.cpp
-
-../obj/CQFileMgrToolbar.o: CQFileMgrToolbar.cpp CQFileMgrToolbar.h \
-		../../CConfig/include/CConfig.h \
-		../../CUtil/include/CAutoPtr.h \
-		../../CFile/include/CDir.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		../../CFile/include/CFileType.h \
-		../../CStrUtil/include/CStrUtil.h \
-		CQFileMgr.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CISize2D.h \
-		../../CMath/include/CIVector2D.h \
-		CFileMgrLib.h \
-		CFileMgr.h \
-		../../CUtil/include/COrientation.h \
-		../../CImageLib/include/CImagePtr.h \
-		../../CUtil/include/CRefPtr.h \
-		CFileMgrDir.h \
-		CFileMgrDetails.h \
-		../../CUtil/include/CAlignType.h \
-		../../CUtil/include/CEvent.h \
-		../../CUtil/include/CKeyType.h \
-		CFileMgrFile.h \
-		CFileMgrIcons.h \
-		CFileMgrFilmstrip.h \
-		CQImageButton.h \
-		../../CImageLib/include/CImageLib.h \
-		../../CUtil/include/CRGBA.h \
-		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
-		../../CUtil/include/CRGBUtil.h \
-		../../CUtil/include/CCMYK.h \
-		../../CUtil/include/CHSL.h \
-		../../CUtil/include/CHSB.h \
-		../../CUtil/include/CHSI.h \
-		../../CUtil/include/CColorComponent.h \
-		../../CImageLib/include/CImageState.h \
-		../../CImageLib/include/CImage.h \
-		../../CUtil/include/CRGBACombineDef.h \
-		../../CUtil/include/COptVal.h \
-		../../CImageLib/include/CImageMgr.h \
-		../../CImageLib/include/CImageAnim.h \
-		../../CImageLib/include/CImageFile.h \
-		svg/back_svg.h \
-		../../CQUtil/include/CQPixmapCache.h \
-		svg/details_svg.h \
-		svg/forward_svg.h \
-		svg/hidden_svg.h \
-		svg/icons_svg.h \
-		svg/image_svg.h \
-		svg/refresh_svg.h \
-		svg/strip_svg.h \
-		svg/favorites_svg.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQFileMgrToolbar.o CQFileMgrToolbar.cpp
-
-../obj/CFileMgr.o: CFileMgr.cpp CFileMgrLibI.h \
-		CFileMgrLib.h \
-		CFileMgr.h \
-		../../CUtil/include/COrientation.h \
-		../../CMath/include/CISize2D.h \
-		../../CFile/include/CFileType.h \
-		../../CImageLib/include/CImagePtr.h \
-		../../CUtil/include/CRefPtr.h \
-		CFileMgrDir.h \
-		CFileMgrDetails.h \
-		../../CUtil/include/CAlignType.h \
-		../../CUtil/include/CEvent.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CUtil/include/CKeyType.h \
-		../../CUtil/include/CAutoPtr.h \
-		CFileMgrFile.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CIVector2D.h \
-		CFileMgrIcons.h \
-		CFileMgrFilmstrip.h \
-		../../CStrUtil/include/CStrUtil.h \
-		CMime.h \
-		../../CUtil/include/CSingleton.h \
-		../../CFileUtil/include/CFileUtil.h \
-		../../CConfig/include/CConfig.h \
-		../../CCommand/include/CCommandMgr.h \
-		../../CCommand/include/CCommand.h \
-		../../CRenderer/include/CPixelRenderer.h \
-		../../CUtil/include/CRGBA.h \
-		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
-		../../CUtil/include/CRGBUtil.h \
-		../../CUtil/include/CCMYK.h \
-		../../CUtil/include/CHSL.h \
-		../../CUtil/include/CHSB.h \
-		../../CUtil/include/CHSI.h \
-		../../CUtil/include/CColorComponent.h \
-		../../CUtil/include/CDirectionType.h \
-		../../CUtil/include/CThrow.h \
-		../../CUtil/include/CPen.h \
-		../../CUtil/include/CLineDash.h \
-		../../CUtil/include/CILineDash.h \
-		../../CUtil/include/CLineCapType.h \
-		../../CUtil/include/CLineJoinType.h \
-		../../CUtil/include/CBrush.h \
-		../../CUtil/include/CBrushStyle.h \
-		../../CUtil/include/CFillType.h \
-		../../CImageLib/include/CImage.h \
-		../../CUtil/include/CRGBACombineDef.h \
-		../../CUtil/include/COptVal.h \
-		../../CMath/include/CGenGradient.h \
-		../../CFont/include/CFontMgr.h \
-		../../CFont/include/CFont.h \
-		../../CFont/include/CFontStyle.h \
-		../../CUtil/include/CFlags.h \
-		../../CImageLib/include/CImageLib.h \
-		../../CImageLib/include/CImageState.h \
-		../../CImageLib/include/CImageMgr.h \
-		../../CImageLib/include/CImageAnim.h \
-		../../CImageLib/include/CImageFile.h \
-		../../CMath/include/CPoint2D.h \
-		../../CRenderer/include/CSymbol2D.h \
-		../../CMath/include/CBresenham.h \
-		../../CRenderer/include/CPixelClip.h \
-		../../CMath/include/CILine2D.h \
-		CFileIcon.h \
-		../../COS/include/COSFile.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CFileMgr.o CFileMgr.cpp
-
-../obj/CFileMgrDetails.o: CFileMgrDetails.cpp CFileMgrLibI.h \
-		CFileMgrLib.h \
-		CFileMgr.h \
-		../../CUtil/include/COrientation.h \
-		../../CMath/include/CISize2D.h \
-		../../CFile/include/CFileType.h \
-		../../CImageLib/include/CImagePtr.h \
-		../../CUtil/include/CRefPtr.h \
-		CFileMgrDir.h \
-		CFileMgrDetails.h \
-		../../CUtil/include/CAlignType.h \
-		../../CUtil/include/CEvent.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CUtil/include/CKeyType.h \
-		../../CUtil/include/CAutoPtr.h \
-		CFileMgrFile.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CIVector2D.h \
-		CFileMgrIcons.h \
-		CFileMgrFilmstrip.h \
-		../../CRenderer/include/CPixelRenderer.h \
-		../../CUtil/include/CRGBA.h \
-		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
-		../../CUtil/include/CRGBUtil.h \
-		../../CUtil/include/CCMYK.h \
-		../../CUtil/include/CHSL.h \
-		../../CUtil/include/CHSB.h \
-		../../CUtil/include/CHSI.h \
-		../../CUtil/include/CColorComponent.h \
-		../../CUtil/include/CDirectionType.h \
-		../../CUtil/include/CThrow.h \
-		../../CUtil/include/CPen.h \
-		../../CUtil/include/CLineDash.h \
-		../../CUtil/include/CILineDash.h \
-		../../CUtil/include/CLineCapType.h \
-		../../CUtil/include/CLineJoinType.h \
-		../../CUtil/include/CBrush.h \
-		../../CUtil/include/CBrushStyle.h \
-		../../CUtil/include/CFillType.h \
-		../../CImageLib/include/CImage.h \
-		../../CUtil/include/CRGBACombineDef.h \
-		../../CUtil/include/COptVal.h \
-		../../CMath/include/CGenGradient.h \
-		../../CFont/include/CFontMgr.h \
-		../../CFont/include/CFont.h \
-		../../CFont/include/CFontStyle.h \
-		../../CUtil/include/CFlags.h \
-		../../CImageLib/include/CImageLib.h \
-		../../CImageLib/include/CImageState.h \
-		../../CImageLib/include/CImageMgr.h \
-		../../CStrUtil/include/CStrUtil.h \
-		../../CImageLib/include/CImageAnim.h \
-		../../CImageLib/include/CImageFile.h \
-		../../CMath/include/CPoint2D.h \
-		../../CRenderer/include/CSymbol2D.h \
-		../../CMath/include/CBresenham.h \
-		../../CUtil/include/CSingleton.h \
-		../../CRenderer/include/CPixelClip.h \
-		../../CMath/include/CILine2D.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CFileMgrDetails.o CFileMgrDetails.cpp
-
-../obj/CFileMgrDir.o: CFileMgrDir.cpp CFileMgrLibI.h \
-		CFileMgrLib.h \
-		CFileMgr.h \
-		../../CUtil/include/COrientation.h \
-		../../CMath/include/CISize2D.h \
-		../../CFile/include/CFileType.h \
-		../../CImageLib/include/CImagePtr.h \
-		../../CUtil/include/CRefPtr.h \
-		CFileMgrDir.h \
-		CFileMgrDetails.h \
-		../../CUtil/include/CAlignType.h \
-		../../CUtil/include/CEvent.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CUtil/include/CKeyType.h \
-		../../CUtil/include/CAutoPtr.h \
-		CFileMgrFile.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CIVector2D.h \
-		CFileMgrIcons.h \
-		CFileMgrFilmstrip.h \
-		../../CStrUtil/include/CStrUtil.h \
-		../../CFile/include/CDir.h \
-		../../CFileUtil/include/CFileUtil.h \
-		CTime.h \
-		../../CUtil/include/CFuncs.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CFileMgrDir.o CFileMgrDir.cpp
-
-../obj/CFileMgrFile.o: CFileMgrFile.cpp CFileMgrLibI.h \
-		CFileMgrLib.h \
-		CFileMgr.h \
-		../../CUtil/include/COrientation.h \
-		../../CMath/include/CISize2D.h \
-		../../CFile/include/CFileType.h \
-		../../CImageLib/include/CImagePtr.h \
-		../../CUtil/include/CRefPtr.h \
-		CFileMgrDir.h \
-		CFileMgrDetails.h \
-		../../CUtil/include/CAlignType.h \
-		../../CUtil/include/CEvent.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CUtil/include/CKeyType.h \
-		../../CUtil/include/CAutoPtr.h \
-		CFileMgrFile.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CIVector2D.h \
-		CFileMgrIcons.h \
-		CFileMgrFilmstrip.h \
-		../../CStrUtil/include/CStrUtil.h \
-		../../CFile/include/CDir.h \
-		../../CFileUtil/include/CFileUtil.h \
-		CTime.h \
-		../../CUtil/include/CFuncs.h \
-		../../CImageLib/include/CImageMgr.h \
-		../../CImageLib/include/CImage.h \
-		../../CUtil/include/CRGBA.h \
-		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
-		../../CUtil/include/CRGBUtil.h \
-		../../CUtil/include/CCMYK.h \
-		../../CUtil/include/CHSL.h \
-		../../CUtil/include/CHSB.h \
-		../../CUtil/include/CHSI.h \
-		../../CUtil/include/CColorComponent.h \
-		../../CUtil/include/CRGBACombineDef.h \
-		../../CUtil/include/COptVal.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CFileMgrFile.o CFileMgrFile.cpp
-
-../obj/CFileMgrFilmstrip.o: CFileMgrFilmstrip.cpp CFileMgrLibI.h \
-		CFileMgrLib.h \
-		CFileMgr.h \
-		../../CUtil/include/COrientation.h \
-		../../CMath/include/CISize2D.h \
-		../../CFile/include/CFileType.h \
-		../../CImageLib/include/CImagePtr.h \
-		../../CUtil/include/CRefPtr.h \
-		CFileMgrDir.h \
-		CFileMgrDetails.h \
-		../../CUtil/include/CAlignType.h \
-		../../CUtil/include/CEvent.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CUtil/include/CKeyType.h \
-		../../CUtil/include/CAutoPtr.h \
-		CFileMgrFile.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CIVector2D.h \
-		CFileMgrIcons.h \
-		CFileMgrFilmstrip.h \
-		../../CFileUtil/include/CFileUtil.h \
-		../../CImageLib/include/CImageLib.h \
-		../../CUtil/include/CRGBA.h \
-		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
-		../../CUtil/include/CRGBUtil.h \
-		../../CUtil/include/CCMYK.h \
-		../../CUtil/include/CHSL.h \
-		../../CUtil/include/CHSB.h \
-		../../CUtil/include/CHSI.h \
-		../../CUtil/include/CColorComponent.h \
-		../../CImageLib/include/CImageState.h \
-		../../CImageLib/include/CImage.h \
-		../../CUtil/include/CRGBACombineDef.h \
-		../../CUtil/include/COptVal.h \
-		../../CImageLib/include/CImageMgr.h \
-		../../CStrUtil/include/CStrUtil.h \
-		../../CImageLib/include/CImageAnim.h \
-		../../CImageLib/include/CImageFile.h \
-		../../CRenderer/include/CPixelRenderer.h \
-		../../CUtil/include/CDirectionType.h \
-		../../CUtil/include/CThrow.h \
-		../../CUtil/include/CPen.h \
-		../../CUtil/include/CLineDash.h \
-		../../CUtil/include/CILineDash.h \
-		../../CUtil/include/CLineCapType.h \
-		../../CUtil/include/CLineJoinType.h \
-		../../CUtil/include/CBrush.h \
-		../../CUtil/include/CBrushStyle.h \
-		../../CUtil/include/CFillType.h \
-		../../CMath/include/CGenGradient.h \
-		../../CFont/include/CFontMgr.h \
-		../../CFont/include/CFont.h \
-		../../CFont/include/CFontStyle.h \
-		../../CUtil/include/CFlags.h \
-		../../CMath/include/CPoint2D.h \
-		../../CRenderer/include/CSymbol2D.h \
-		../../CMath/include/CBresenham.h \
-		../../CUtil/include/CSingleton.h \
-		../../CRenderer/include/CPixelClip.h \
-		../../CMath/include/CILine2D.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CFileMgrFilmstrip.o CFileMgrFilmstrip.cpp
-
-../obj/CFileMgrIcons.o: CFileMgrIcons.cpp CFileMgrLibI.h \
-		CFileMgrLib.h \
-		CFileMgr.h \
-		../../CUtil/include/COrientation.h \
-		../../CMath/include/CISize2D.h \
-		../../CFile/include/CFileType.h \
-		../../CImageLib/include/CImagePtr.h \
-		../../CUtil/include/CRefPtr.h \
-		CFileMgrDir.h \
-		CFileMgrDetails.h \
-		../../CUtil/include/CAlignType.h \
-		../../CUtil/include/CEvent.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CUtil/include/CKeyType.h \
-		../../CUtil/include/CAutoPtr.h \
-		CFileMgrFile.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CIVector2D.h \
-		CFileMgrIcons.h \
-		CFileMgrFilmstrip.h \
-		../../CFileUtil/include/CFileUtil.h \
-		../../CImageLib/include/CImageLib.h \
-		../../CUtil/include/CRGBA.h \
-		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
-		../../CUtil/include/CRGBUtil.h \
-		../../CUtil/include/CCMYK.h \
-		../../CUtil/include/CHSL.h \
-		../../CUtil/include/CHSB.h \
-		../../CUtil/include/CHSI.h \
-		../../CUtil/include/CColorComponent.h \
-		../../CImageLib/include/CImageState.h \
-		../../CImageLib/include/CImage.h \
-		../../CUtil/include/CRGBACombineDef.h \
-		../../CUtil/include/COptVal.h \
-		../../CImageLib/include/CImageMgr.h \
-		../../CStrUtil/include/CStrUtil.h \
-		../../CImageLib/include/CImageAnim.h \
-		../../CImageLib/include/CImageFile.h \
-		../../CRenderer/include/CPixelRenderer.h \
-		../../CUtil/include/CDirectionType.h \
-		../../CUtil/include/CThrow.h \
-		../../CUtil/include/CPen.h \
-		../../CUtil/include/CLineDash.h \
-		../../CUtil/include/CILineDash.h \
-		../../CUtil/include/CLineCapType.h \
-		../../CUtil/include/CLineJoinType.h \
-		../../CUtil/include/CBrush.h \
-		../../CUtil/include/CBrushStyle.h \
-		../../CUtil/include/CFillType.h \
-		../../CMath/include/CGenGradient.h \
-		../../CFont/include/CFontMgr.h \
-		../../CFont/include/CFont.h \
-		../../CFont/include/CFontStyle.h \
-		../../CUtil/include/CFlags.h \
-		../../CMath/include/CPoint2D.h \
-		../../CRenderer/include/CSymbol2D.h \
-		../../CMath/include/CBresenham.h \
-		../../CUtil/include/CSingleton.h \
-		../../CRenderer/include/CPixelClip.h \
-		../../CMath/include/CILine2D.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CFileMgrIcons.o CFileMgrIcons.cpp
-
 ../obj/CQPixelRendererCanvas.o: CQPixelRendererCanvas.cpp CQPixelRendererCanvas.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
+		../../COS/include/NaN.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/CEvent.h \
 		../../CUtil/include/CKeyType.h \
@@ -1957,10 +818,10 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CRenderer/include/CPixelRenderer.h \
 		../../CUtil/include/CRGBA.h \
 		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CRGBUtil.h \
 		../../CUtil/include/CCMYK.h \
 		../../CUtil/include/CHSL.h \
+		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
 		../../CUtil/include/CColorComponent.h \
@@ -2016,7 +877,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
+		../../COS/include/NaN.h \
 		../../CMath/include/CIVector2D.h \
 		../../CUtil/include/CEvent.h \
 		../../CUtil/include/CKeyType.h \
@@ -2024,128 +885,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CScrollType.h \
 		../../CUtil/include/accessor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQPixelRendererScrolledCanvas.o CQPixelRendererScrolledCanvas.cpp
-
-../obj/CQColorWheel.o: CQColorWheel.cpp CQColorWheel.h \
-		../../CUtil/include/CRGBA.h \
-		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
-		../../CUtil/include/CRGBUtil.h \
-		../../CUtil/include/CCMYK.h \
-		../../CUtil/include/CHSL.h \
-		../../CUtil/include/CHSB.h \
-		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CUtil/include/CColorComponent.h \
-		CQColorWheelCanvas.h \
-		CColorWheel.h \
-		../../CUtil/include/COrientation.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CISize2D.h \
-		../../CMath/include/CIVector2D.h \
-		../../CQUtil/include/CQUtil.h \
-		../../CUtil/include/CEvent.h \
-		../../CUtil/include/CKeyType.h \
-		../../CUtil/include/CLineDash.h \
-		../../CUtil/include/CILineDash.h \
-		../../CMath/include/CAngle.h \
-		../../CFont/include/CFontStyle.h \
-		../../CUtil/include/CFlags.h \
-		../../CFont/include/CFont.h \
-		../../CUtil/include/CRefPtr.h \
-		../../CImageLib/include/CImageLib.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		../../CFile/include/CFileType.h \
-		../../CUtil/include/CAlignType.h \
-		../../CImageLib/include/CImageState.h \
-		../../CImageLib/include/CImage.h \
-		../../CUtil/include/CRGBACombineDef.h \
-		../../CUtil/include/COptVal.h \
-		../../CImageLib/include/CImagePtr.h \
-		../../CImageLib/include/CImageMgr.h \
-		../../CStrUtil/include/CStrUtil.h \
-		../../CImageLib/include/CImageAnim.h \
-		../../CImageLib/include/CImageFile.h \
-		../../CMath/include/CPoint2D.h \
-		../../CMath/include/CBBox2D.h \
-		../../CMath/include/CVector2D.h \
-		../../CMath/include/CSize2D.h \
-		../../CMath/include/CMatrix2D.h \
-		../../CMath/include/CMathMacros.h \
-		../../CMath/include/CMatrixType.h \
-		../../CUtil/include/CThrow.h \
-		../../CUtil/include/CBrush.h \
-		../../CUtil/include/CBrushStyle.h \
-		../../CUtil/include/CFillType.h \
-		../../CUtil/include/CAutoPtr.h \
-		../../CMath/include/CGenGradient.h \
-		../../CUtil/include/CPen.h \
-		../../CUtil/include/CLineCapType.h \
-		../../CUtil/include/CLineJoinType.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQColorWheel.o CQColorWheel.cpp
-
-../obj/CQColorWheelCanvas.o: CQColorWheelCanvas.cpp CQColorWheelCanvas.h \
-		CColorWheel.h \
-		../../CUtil/include/CRGBA.h \
-		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
-		../../CUtil/include/CRGBUtil.h \
-		../../CUtil/include/CCMYK.h \
-		../../CUtil/include/CHSL.h \
-		../../CUtil/include/CHSB.h \
-		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CUtil/include/CColorComponent.h \
-		../../CUtil/include/COrientation.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CISize2D.h \
-		../../CMath/include/CIVector2D.h \
-		CQColorWheel.h \
-		../../CQUtil/include/CQUtil.h \
-		../../CUtil/include/CEvent.h \
-		../../CUtil/include/CKeyType.h \
-		../../CUtil/include/CLineDash.h \
-		../../CUtil/include/CILineDash.h \
-		../../CMath/include/CAngle.h \
-		../../CFont/include/CFontStyle.h \
-		../../CUtil/include/CFlags.h \
-		../../CFont/include/CFont.h \
-		../../CUtil/include/CRefPtr.h \
-		../../CImageLib/include/CImageLib.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		../../CFile/include/CFileType.h \
-		../../CUtil/include/CAlignType.h \
-		../../CImageLib/include/CImageState.h \
-		../../CImageLib/include/CImage.h \
-		../../CUtil/include/CRGBACombineDef.h \
-		../../CUtil/include/COptVal.h \
-		../../CImageLib/include/CImagePtr.h \
-		../../CImageLib/include/CImageMgr.h \
-		../../CStrUtil/include/CStrUtil.h \
-		../../CImageLib/include/CImageAnim.h \
-		../../CImageLib/include/CImageFile.h \
-		../../CMath/include/CPoint2D.h \
-		../../CMath/include/CBBox2D.h \
-		../../CMath/include/CVector2D.h \
-		../../CMath/include/CSize2D.h \
-		../../CMath/include/CMatrix2D.h \
-		../../CMath/include/CMathMacros.h \
-		../../CMath/include/CMatrixType.h \
-		../../CUtil/include/CThrow.h \
-		../../CUtil/include/CBrush.h \
-		../../CUtil/include/CBrushStyle.h \
-		../../CUtil/include/CFillType.h \
-		../../CUtil/include/CAutoPtr.h \
-		../../CMath/include/CGenGradient.h \
-		../../CUtil/include/CPen.h \
-		../../CUtil/include/CLineCapType.h \
-		../../CUtil/include/CLineJoinType.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQColorWheelCanvas.o CQColorWheelCanvas.cpp
 
 ../obj/CQNameValue.o: CQNameValue.cpp CQNameValue.h \
 		CQPoint3DEdit.h \
@@ -2156,14 +895,14 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		CQRGBAEdit.h \
 		../../CUtil/include/CRGBA.h \
 		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CRGBUtil.h \
 		../../CUtil/include/CCMYK.h \
 		../../CUtil/include/CHSL.h \
+		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
+		../../COS/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CQUtil/include/CQRealEdit.h \
@@ -2183,14 +922,14 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 ../obj/CQRGBAEdit.o: CQRGBAEdit.cpp CQRGBAEdit.h \
 		../../CUtil/include/CRGBA.h \
 		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CRGBUtil.h \
 		../../CUtil/include/CCMYK.h \
 		../../CUtil/include/CHSL.h \
+		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
+		../../COS/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CQUtil/include/CQRealEdit.h \
@@ -2218,14 +957,14 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CAlignType.h \
 		../../CUtil/include/CRGBA.h \
 		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CRGBUtil.h \
 		../../CUtil/include/CCMYK.h \
 		../../CUtil/include/CHSL.h \
+		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
 		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
+		../../COS/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CImageLib/include/CImageState.h \
@@ -2244,181 +983,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CAutoPtr.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQZoomCursor.o CQZoomCursor.cpp
 
-../obj/CQImageButton.o: CQImageButton.cpp CQImageButton.h \
-		../../CImageLib/include/CImageLib.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		../../CFile/include/CFileType.h \
-		../../CUtil/include/CAlignType.h \
-		../../CUtil/include/CRGBA.h \
-		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
-		../../CUtil/include/CRGBUtil.h \
-		../../CUtil/include/CCMYK.h \
-		../../CUtil/include/CHSL.h \
-		../../CUtil/include/CHSB.h \
-		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CUtil/include/CColorComponent.h \
-		../../CImageLib/include/CImageState.h \
-		../../CImageLib/include/CImage.h \
-		../../CUtil/include/CRGBACombineDef.h \
-		../../CMath/include/CISize2D.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CIVector2D.h \
-		../../CUtil/include/COptVal.h \
-		../../CImageLib/include/CImagePtr.h \
-		../../CUtil/include/CRefPtr.h \
-		../../CImageLib/include/CImageMgr.h \
-		../../CStrUtil/include/CStrUtil.h \
-		../../CImageLib/include/CImageAnim.h \
-		../../CImageLib/include/CImageFile.h \
-		../../CQUtil/include/CQImage.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQImageButton.o CQImageButton.cpp
-
-../obj/CQFloatEdit.o: CQFloatEdit.cpp CQFloatEdit.h \
-		CQAutoHide.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQFloatEdit.o CQFloatEdit.cpp
-
-../obj/CQAutoHide.o: CQAutoHide.cpp CQAutoHide.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQAutoHide.o CQAutoHide.cpp
-
-../obj/CColorWheel.o: CColorWheel.cpp CColorWheel.h \
-		../../CUtil/include/CRGBA.h \
-		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
-		../../CUtil/include/CRGBUtil.h \
-		../../CUtil/include/CCMYK.h \
-		../../CUtil/include/CHSL.h \
-		../../CUtil/include/CHSB.h \
-		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CUtil/include/CColorComponent.h \
-		../../CUtil/include/COrientation.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CISize2D.h \
-		../../CMath/include/CIVector2D.h \
-		../../CMath/include/CMathMacros.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CColorWheel.o CColorWheel.cpp
-
-../obj/CMime.o: CMime.cpp CMime.h \
-		../../CUtil/include/CSingleton.h \
-		../../CFile/include/CFileType.h \
-		../../COS/include/COSUser.h \
-		../../COS/include/COSProcess.h \
-		../../CStrUtil/include/CStrUtil.h \
-		../../CUtil/include/CEnv.h \
-		../../CUtil/include/CRefPtr.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		../../CConfig/include/CConfig.h \
-		../../CUtil/include/CAutoPtr.h \
-		../../CFileUtil/include/CFileUtil.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CMime.o CMime.cpp
-
-../obj/CFileIcon.o: CFileIcon.cpp CFileIcon.h \
-		../../CConfig/include/CConfig.h \
-		../../CUtil/include/CAutoPtr.h \
-		../../CMath/include/CISize2D.h \
-		../../CImageLib/include/CImageLib.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		../../CFile/include/CFileType.h \
-		../../CUtil/include/CAlignType.h \
-		../../CUtil/include/CRGBA.h \
-		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
-		../../CUtil/include/CRGBUtil.h \
-		../../CUtil/include/CCMYK.h \
-		../../CUtil/include/CHSL.h \
-		../../CUtil/include/CHSB.h \
-		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CUtil/include/CColorComponent.h \
-		../../CImageLib/include/CImageState.h \
-		../../CImageLib/include/CImage.h \
-		../../CUtil/include/CRGBACombineDef.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CIVector2D.h \
-		../../CUtil/include/COptVal.h \
-		../../CImageLib/include/CImagePtr.h \
-		../../CUtil/include/CRefPtr.h \
-		../../CImageLib/include/CImageMgr.h \
-		../../CStrUtil/include/CStrUtil.h \
-		../../CImageLib/include/CImageAnim.h \
-		../../CImageLib/include/CImageFile.h \
-		../../CFileUtil/include/CFileUtil.h \
-		CImageThumbnail.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CFileIcon.o CFileIcon.cpp
-
-../obj/CFileNotify.o: CFileNotify.cpp CFileNotify.h \
-		../../COS/include/COSRead.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CFileNotify.o CFileNotify.cpp
-
-../obj/CDirFilesMgr.o: CDirFilesMgr.cpp CDirFilesMgr.h \
-		CDirFiles.h \
-		../../CFile/include/CDir.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		../../CFile/include/CFileType.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CDirFilesMgr.o CDirFilesMgr.cpp
-
-../obj/CDirFiles.o: CDirFiles.cpp CDirFiles.h \
-		../../CFile/include/CDir.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		../../CFile/include/CFileType.h \
-		CDirScope.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CDirFiles.o CDirFiles.cpp
-
-../obj/CImageThumbnail.o: CImageThumbnail.cpp CImageThumbnail.h \
-		../../CImageLib/include/CImagePtr.h \
-		../../CUtil/include/CRefPtr.h \
-		../../CImageLib/include/CImageLib.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		../../CFile/include/CFileType.h \
-		../../CUtil/include/CAlignType.h \
-		../../CUtil/include/CRGBA.h \
-		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
-		../../CUtil/include/CRGBUtil.h \
-		../../CUtil/include/CCMYK.h \
-		../../CUtil/include/CHSL.h \
-		../../CUtil/include/CHSB.h \
-		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
-		../../CMath/include/CIPoint2D.h \
-		../../CUtil/include/CColorComponent.h \
-		../../CImageLib/include/CImageState.h \
-		../../CImageLib/include/CImage.h \
-		../../CUtil/include/CRGBACombineDef.h \
-		../../CMath/include/CISize2D.h \
-		../../CMath/include/CIBBox2D.h \
-		../../CMath/include/CIVector2D.h \
-		../../CUtil/include/COptVal.h \
-		../../CImageLib/include/CImageMgr.h \
-		../../CStrUtil/include/CStrUtil.h \
-		../../CImageLib/include/CImageAnim.h \
-		../../CImageLib/include/CImageFile.h \
-		CEncode64.h \
-		../../CFile/include/CDir.h \
-		../../CUtil/include/CEnv.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CImageThumbnail.o CImageThumbnail.cpp
-
-../obj/CEncode64.o: CEncode64.cpp CEncode64.h \
-		../../CFile/include/CFile.h \
-		../../CFile/include/CFileBase.h \
-		../../CFile/include/CFileType.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CEncode64.o CEncode64.cpp
-
 ../obj/moc_CQPaint.o: .moc/moc_CQPaint.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQPaint.o .moc/moc_CQPaint.cpp
 
@@ -2428,47 +992,14 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 ../obj/moc_CQPaintTurbulence.o: .moc/moc_CQPaintTurbulence.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQPaintTurbulence.o .moc/moc_CQPaintTurbulence.cpp
 
+../obj/moc_CQPaintTools.o: .moc/moc_CQPaintTools.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQPaintTools.o .moc/moc_CQPaintTools.cpp
+
 ../obj/moc_CQImageCanvas.o: .moc/moc_CQImageCanvas.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQImageCanvas.o .moc/moc_CQImageCanvas.cpp
 
-../obj/moc_CQDirView.o: .moc/moc_CQDirView.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQDirView.o .moc/moc_CQDirView.cpp
-
-../obj/moc_CQWorkspace.o: .moc/moc_CQWorkspace.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQWorkspace.o .moc/moc_CQWorkspace.cpp
-
-../obj/moc_CQColorWheel.o: .moc/moc_CQColorWheel.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQColorWheel.o .moc/moc_CQColorWheel.cpp
-
-../obj/moc_CQColorWheelCanvas.o: .moc/moc_CQColorWheelCanvas.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQColorWheelCanvas.o .moc/moc_CQColorWheelCanvas.cpp
-
-../obj/moc_CQDirBar.o: .moc/moc_CQDirBar.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQDirBar.o .moc/moc_CQDirBar.cpp
-
-../obj/moc_CQDirPlaces.o: .moc/moc_CQDirPlaces.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQDirPlaces.o .moc/moc_CQDirPlaces.cpp
-
-../obj/moc_CQFileMgrDetails.o: .moc/moc_CQFileMgrDetails.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQFileMgrDetails.o .moc/moc_CQFileMgrDetails.cpp
-
-../obj/moc_CQFileMgrFilmstripIcons.o: .moc/moc_CQFileMgrFilmstripIcons.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQFileMgrFilmstripIcons.o .moc/moc_CQFileMgrFilmstripIcons.cpp
-
-../obj/moc_CQFileMgrFilmstripImage.o: .moc/moc_CQFileMgrFilmstripImage.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQFileMgrFilmstripImage.o .moc/moc_CQFileMgrFilmstripImage.cpp
-
-../obj/moc_CQFileMgr.o: .moc/moc_CQFileMgr.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQFileMgr.o .moc/moc_CQFileMgr.cpp
-
-../obj/moc_CQFileMgrIcons.o: .moc/moc_CQFileMgrIcons.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQFileMgrIcons.o .moc/moc_CQFileMgrIcons.cpp
-
-../obj/moc_CQFileMgrInfo.o: .moc/moc_CQFileMgrInfo.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQFileMgrInfo.o .moc/moc_CQFileMgrInfo.cpp
-
-../obj/moc_CQFileMgrToolbar.o: .moc/moc_CQFileMgrToolbar.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQFileMgrToolbar.o .moc/moc_CQFileMgrToolbar.cpp
+../obj/moc_CQResizeImageDlg.o: .moc/moc_CQResizeImageDlg.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQResizeImageDlg.o .moc/moc_CQResizeImageDlg.cpp
 
 ../obj/moc_CQPixelRendererCanvas.o: .moc/moc_CQPixelRendererCanvas.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQPixelRendererCanvas.o .moc/moc_CQPixelRendererCanvas.cpp
@@ -2479,14 +1010,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 ../obj/moc_CQPixelRendererSubCanvas.o: .moc/moc_CQPixelRendererSubCanvas.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQPixelRendererSubCanvas.o .moc/moc_CQPixelRendererSubCanvas.cpp
 
-../obj/moc_CQImageButton.o: .moc/moc_CQImageButton.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQImageButton.o .moc/moc_CQImageButton.cpp
-
 ../obj/moc_CQNameValue.o: .moc/moc_CQNameValue.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQNameValue.o .moc/moc_CQNameValue.cpp
-
-../obj/moc_CQPaintTools.o: .moc/moc_CQPaintTools.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQPaintTools.o .moc/moc_CQPaintTools.cpp
 
 ../obj/moc_CQPoint3DEdit.o: .moc/moc_CQPoint3DEdit.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQPoint3DEdit.o .moc/moc_CQPoint3DEdit.cpp
@@ -2494,20 +1019,14 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 ../obj/moc_CQRadioButtons.o: .moc/moc_CQRadioButtons.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQRadioButtons.o .moc/moc_CQRadioButtons.cpp
 
-../obj/moc_CQResizeImageDlg.o: .moc/moc_CQResizeImageDlg.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQResizeImageDlg.o .moc/moc_CQResizeImageDlg.cpp
-
 ../obj/moc_CQRGBAEdit.o: .moc/moc_CQRGBAEdit.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQRGBAEdit.o .moc/moc_CQRGBAEdit.cpp
 
 ../obj/moc_CQWinWidget.o: .moc/moc_CQWinWidget.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQWinWidget.o .moc/moc_CQWinWidget.cpp
 
-../obj/moc_CQFloatEdit.o: .moc/moc_CQFloatEdit.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQFloatEdit.o .moc/moc_CQFloatEdit.cpp
-
-../obj/moc_CQAutoHide.o: .moc/moc_CQAutoHide.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQAutoHide.o .moc/moc_CQAutoHide.cpp
+../obj/moc_CQWorkspace.o: .moc/moc_CQWorkspace.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQWorkspace.o .moc/moc_CQWorkspace.cpp
 
 ####### Install
 

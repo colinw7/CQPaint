@@ -3,11 +3,11 @@
 #include <CQWinWidget.h>
 #include <QVBoxLayout>
 
-#include <region_16_png.h>
-#include <pen_16_png.h>
-#include <color_picker_16_png.h>
-#include <fill_16_png.h>
-#include <close_16_png.h>
+#include <png/region_16_png.h>
+#include <png/pen_16_png.h>
+#include <png/color_picker_16_png.h>
+#include <png/fill_16_png.h>
+#include <png/close_16_png.h>
 
 CQPaintToolsWindow::
 CQPaintToolsWindow(QWidget *parent) :

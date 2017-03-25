@@ -15,7 +15,7 @@ CXX           = g++
 DEFINES       = -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -m64 -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -m64 -pipe -std=c++11 -DGNUPLOT_EXPR -DRGB_UTIL -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I. -I. -I../include -I../../CQUtil/include -I../../CImageLib/include -I../../CFile/include -I../../CMath/include -I../../CUtil/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I.moc -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64
+INCPATH       = -I. -I. -I../include -I../../CQUtil/include -I../../CImageLib/include -I../../CFile/include -I../../CMath/include -I../../COS/include -I../../CUtil/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I.moc -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64
 QMAKE         = /usr/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -36,7 +36,7 @@ DISTNAME      = CQPaint1.0.0
 DISTDIR = /home/colinw/git/CQPaint/obj/CQPaint1.0.0
 LINK          = g++
 LFLAGS        = -m64
-LIBS          = $(SUBLIBS) -L/usr/X11R6/lib64 -L../lib -L../../CQUtil/lib -L../../CRenderer/lib -L../../CImageLib/lib -L../../CFont/lib -L../../CCommand/lib -L../../CFileUtil/lib -L../../CFile/lib -L../../CConfig/lib -L../../CUtil/lib -L../../CStrUtil/lib -L../../CRegExp/lib -L../../COS/lib -lCQPaint -lCQUtil -lCQRenderer -lCRenderer -lCImageLib -lCFont -lCConfig -lCCommand -lCFileUtil -lCFile -lCStrUtil -lCUtil -lCOS -lCRegExp -lpng -ljpeg -ltre -lcurses -lfreetype -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
+LIBS          = $(SUBLIBS) -L/usr/X11R6/lib64 -L../lib -L../../CQUtil/lib -L../../CFileMgr/lib -L../../CColorWheel/lib -L../../CRenderer/lib -L../../CImageLib/lib -L../../CFont/lib -L../../CCommand/lib -L../../CFileUtil/lib -L../../CFile/lib -L../../CConfig/lib -L../../CMath/lib -L../../CStrUtil/lib -L../../CUtil/lib -L../../CRegExp/lib -L../../COS/lib -lCQPaint -lCQFileMgr -lCFileMgr -lCQColorWheel -lCColorWheel -lCQUtil -lCQRenderer -lCRenderer -lCImageLib -lCFont -lCConfig -lCCommand -lCFileUtil -lCFile -lCMath -lCStrUtil -lCUtil -lCOS -lCRegExp -lpng -ljpeg -ltre -lcurses -lfreetype -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -343,20 +343,20 @@ compiler_clean:
 		../include/CQWorkspace.h \
 		../include/CQImageCanvas.h \
 		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CMathGen.h \
+		../../COS/include/NaN.h \
 		../../CMath/include/CIPoint2D.h \
 		../../CMath/include/CISize2D.h \
 		../../CMath/include/CIVector2D.h \
 		../../CImageLib/include/CImage.h \
 		../../CUtil/include/CRGBA.h \
 		../../CUtil/include/CRGB.h \
-		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CRGBUtil.h \
 		../../CUtil/include/CCMYK.h \
 		../../CUtil/include/CHSL.h \
+		../../CUtil/include/CHSV.h \
 		../../CUtil/include/CHSB.h \
 		../../CUtil/include/CHSI.h \
-		../../CMath/include/CMathGen.h \
-		../../CMath/include/NaN.h \
 		../../CUtil/include/CColorComponent.h \
 		../../CUtil/include/CRGBACombineDef.h \
 		../../CUtil/include/CAlignType.h \

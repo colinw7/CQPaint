@@ -23,30 +23,9 @@ CQPaintTools.cpp \
 CQImageCanvas.cpp \
 CQResizeImageDlg.cpp \
 \
-CQDirView.cpp \
-CQDirBar.cpp \
-CQDirPlaces.cpp \
-CDirView.cpp \
-\
-CQFileMgr.cpp \
-CQFileMgrDetails.cpp \
-CQFileMgrFilmstripIcons.cpp \
-CQFileMgrFilmstripImage.cpp \
-CQFileMgrIcons.cpp \
-CQFileMgrInfo.cpp \
-CQFileMgrToolbar.cpp \
-CFileMgr.cpp \
-CFileMgrDetails.cpp \
-CFileMgrDir.cpp \
-CFileMgrFile.cpp \
-CFileMgrFilmstrip.cpp \
-CFileMgrIcons.cpp \
-\
 CQPixelRendererCanvas.cpp \
 CQPixelRendererScrolledCanvas.cpp \
 \
-CQColorWheel.cpp \
-CQColorWheelCanvas.cpp \
 CQNameValue.cpp \
 CQPoint3DEdit.cpp \
 CQRadioButtons.cpp \
@@ -54,54 +33,27 @@ CQRGBAEdit.cpp \
 CQWinWidget.cpp \
 CQWorkspace.cpp \
 CQZoomCursor.cpp \
-CQImageButton.cpp \
-CQFloatEdit.cpp \
-CQAutoHide.cpp \
-\
-CColorWheel.cpp \
-CMime.cpp \
-CFileIcon.cpp \
-CFileNotify.cpp \
-CDirFilesMgr.cpp \
-CDirFiles.cpp \
-CImageThumbnail.cpp \
-CEncode64.cpp \
 
 HEADERS += \
 ../include/CQPaint.h \
 ../include/CQPaintGaussianBlur.h \
 ../include/CQPaintTurbulence.h \
-../include/CQImageCanvas.h \
-../include/CQDirView.h \
-../include/CQWorkspace.h \
+CQPaintTools.h \
 \
-CQColorWheel.h \
-CQColorWheelCanvas.h \
-CQDirBar.h \
-CQDirPlaces.h \
-CQFileMgrDetails.h \
-CQFileMgrFilmstripIcons.h \
-CQFileMgrFilmstripImage.h \
-CQFileMgr.h \
-CQFileMgrIcons.h \
-CQFileMgrInfo.h \
-CQFileMgrToolbar.h \
+../include/CQImageCanvas.h \
+CQResizeImageDlg.h \
 \
 CQPixelRendererCanvas.h \
 CQPixelRendererScrolledCanvas.h \
 CQPixelRendererSubCanvas.h \
 \
-CQImageButton.h \
 CQNameValue.h \
-CQPaintTools.h \
 CQPoint3DEdit.h \
 CQRadioButtons.h \
-CQResizeImageDlg.h \
 CQRGBAEdit.h \
 CQWinWidget.h \
+../include/CQWorkspace.h \
 CQZoomCursor.h \
-CQFloatEdit.h \
-CQAutoHide.h \
 
 FORMS += \
 CQPaintGaussianBlur.ui \
@@ -113,6 +65,10 @@ DESTDIR     = ../lib
 INCLUDEPATH += \
 . \
 ../include \
+../../CFileMgr/qinclude \
+../../CFileMgr/include \
+../../CColorWheel/qinclude \
+../../CColorWheel/include \
 ../../CQUtil/include \
 ../../CRenderer/include \
 ../../CRenderer/qinclude \

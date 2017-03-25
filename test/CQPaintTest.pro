@@ -29,11 +29,14 @@ INCLUDEPATH += \
 ../../CImageLib/include \
 ../../CFile/include \
 ../../CMath/include \
+../../COS/include \
 ../../CUtil/include \
 
 unix:LIBS += \
 -L$$LIB_DIR \
 -L../../CQUtil/lib \
+-L../../CFileMgr/lib \
+-L../../CColorWheel/lib \
 -L../../CRenderer/lib \
 -L../../CImageLib/lib \
 -L../../CFont/lib \
@@ -41,12 +44,13 @@ unix:LIBS += \
 -L../../CFileUtil/lib \
 -L../../CFile/lib \
 -L../../CConfig/lib \
--L../../CUtil/lib \
+-L../../CMath/lib \
 -L../../CStrUtil/lib \
+-L../../CUtil/lib \
 -L../../CRegExp/lib \
 -L../../COS/lib \
--lCQPaint \
+-lCQPaint -lCQFileMgr -lCFileMgr -lCQColorWheel -lCColorWheel \
 -lCQUtil -lCQRenderer -lCRenderer -lCImageLib -lCFont -lCConfig \
--lCCommand -lCFileUtil -lCFile -lCStrUtil -lCUtil -lCOS \
+-lCCommand -lCFileUtil -lCFile -lCMath -lCStrUtil -lCUtil -lCOS \
 -lCRegExp \
 -lpng -ljpeg -ltre -lcurses -lfreetype
