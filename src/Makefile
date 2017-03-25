@@ -55,7 +55,6 @@ SOURCES       = CQPaint.cpp \
 		CQPixelRendererScrolledCanvas.cpp \
 		CQNameValue.cpp \
 		CQPoint3DEdit.cpp \
-		CQRadioButtons.cpp \
 		CQRGBAEdit.cpp \
 		CQWinWidget.cpp \
 		CQWorkspace.cpp \
@@ -70,7 +69,6 @@ SOURCES       = CQPaint.cpp \
 		.moc/moc_CQPixelRendererSubCanvas.cpp \
 		.moc/moc_CQNameValue.cpp \
 		.moc/moc_CQPoint3DEdit.cpp \
-		.moc/moc_CQRadioButtons.cpp \
 		.moc/moc_CQRGBAEdit.cpp \
 		.moc/moc_CQWinWidget.cpp \
 		.moc/moc_CQWorkspace.cpp
@@ -84,7 +82,6 @@ OBJECTS       = ../obj/CQPaint.o \
 		../obj/CQPixelRendererScrolledCanvas.o \
 		../obj/CQNameValue.o \
 		../obj/CQPoint3DEdit.o \
-		../obj/CQRadioButtons.o \
 		../obj/CQRGBAEdit.o \
 		../obj/CQWinWidget.o \
 		../obj/CQWorkspace.o \
@@ -100,7 +97,6 @@ OBJECTS       = ../obj/CQPaint.o \
 		../obj/moc_CQPixelRendererSubCanvas.o \
 		../obj/moc_CQNameValue.o \
 		../obj/moc_CQPoint3DEdit.o \
-		../obj/moc_CQRadioButtons.o \
 		../obj/moc_CQRGBAEdit.o \
 		../obj/moc_CQWinWidget.o \
 		../obj/moc_CQWorkspace.o
@@ -178,7 +174,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		CQPixelRendererSubCanvas.h \
 		CQNameValue.h \
 		CQPoint3DEdit.h \
-		CQRadioButtons.h \
 		CQRGBAEdit.h \
 		CQWinWidget.h \
 		../include/CQWorkspace.h \
@@ -192,7 +187,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		CQPixelRendererScrolledCanvas.cpp \
 		CQNameValue.cpp \
 		CQPoint3DEdit.cpp \
-		CQRadioButtons.cpp \
 		CQRGBAEdit.cpp \
 		CQWinWidget.cpp \
 		CQWorkspace.cpp \
@@ -383,8 +377,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../include/CQPaint.h ../include/CQPaintGaussianBlur.h ../include/CQPaintTurbulence.h CQPaintTools.h ../include/CQImageCanvas.h CQResizeImageDlg.h CQPixelRendererCanvas.h CQPixelRendererScrolledCanvas.h CQPixelRendererSubCanvas.h CQNameValue.h CQPoint3DEdit.h CQRadioButtons.h CQRGBAEdit.h CQWinWidget.h ../include/CQWorkspace.h CQZoomCursor.h $(DISTDIR)/
-	$(COPY_FILE) --parents CQPaint.cpp CQPaintGaussianBlur.cpp CQPaintTurbulence.cpp CQPaintTools.cpp CQImageCanvas.cpp CQResizeImageDlg.cpp CQPixelRendererCanvas.cpp CQPixelRendererScrolledCanvas.cpp CQNameValue.cpp CQPoint3DEdit.cpp CQRadioButtons.cpp CQRGBAEdit.cpp CQWinWidget.cpp CQWorkspace.cpp CQZoomCursor.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../include/CQPaint.h ../include/CQPaintGaussianBlur.h ../include/CQPaintTurbulence.h CQPaintTools.h ../include/CQImageCanvas.h CQResizeImageDlg.h CQPixelRendererCanvas.h CQPixelRendererScrolledCanvas.h CQPixelRendererSubCanvas.h CQNameValue.h CQPoint3DEdit.h CQRGBAEdit.h CQWinWidget.h ../include/CQWorkspace.h CQZoomCursor.h $(DISTDIR)/
+	$(COPY_FILE) --parents CQPaint.cpp CQPaintGaussianBlur.cpp CQPaintTurbulence.cpp CQPaintTools.cpp CQImageCanvas.cpp CQResizeImageDlg.cpp CQPixelRendererCanvas.cpp CQPixelRendererScrolledCanvas.cpp CQNameValue.cpp CQPoint3DEdit.cpp CQRGBAEdit.cpp CQWinWidget.cpp CQWorkspace.cpp CQZoomCursor.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents CQPaintGaussianBlur.ui CQPaintTurbulence.ui $(DISTDIR)/
 
 
@@ -408,9 +402,9 @@ check: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: .moc/moc_CQPaint.cpp .moc/moc_CQPaintGaussianBlur.cpp .moc/moc_CQPaintTurbulence.cpp .moc/moc_CQPaintTools.cpp .moc/moc_CQImageCanvas.cpp .moc/moc_CQResizeImageDlg.cpp .moc/moc_CQPixelRendererCanvas.cpp .moc/moc_CQPixelRendererScrolledCanvas.cpp .moc/moc_CQPixelRendererSubCanvas.cpp .moc/moc_CQNameValue.cpp .moc/moc_CQPoint3DEdit.cpp .moc/moc_CQRadioButtons.cpp .moc/moc_CQRGBAEdit.cpp .moc/moc_CQWinWidget.cpp .moc/moc_CQWorkspace.cpp
+compiler_moc_header_make_all: .moc/moc_CQPaint.cpp .moc/moc_CQPaintGaussianBlur.cpp .moc/moc_CQPaintTurbulence.cpp .moc/moc_CQPaintTools.cpp .moc/moc_CQImageCanvas.cpp .moc/moc_CQResizeImageDlg.cpp .moc/moc_CQPixelRendererCanvas.cpp .moc/moc_CQPixelRendererScrolledCanvas.cpp .moc/moc_CQPixelRendererSubCanvas.cpp .moc/moc_CQNameValue.cpp .moc/moc_CQPoint3DEdit.cpp .moc/moc_CQRGBAEdit.cpp .moc/moc_CQWinWidget.cpp .moc/moc_CQWorkspace.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) .moc/moc_CQPaint.cpp .moc/moc_CQPaintGaussianBlur.cpp .moc/moc_CQPaintTurbulence.cpp .moc/moc_CQPaintTools.cpp .moc/moc_CQImageCanvas.cpp .moc/moc_CQResizeImageDlg.cpp .moc/moc_CQPixelRendererCanvas.cpp .moc/moc_CQPixelRendererScrolledCanvas.cpp .moc/moc_CQPixelRendererSubCanvas.cpp .moc/moc_CQNameValue.cpp .moc/moc_CQPoint3DEdit.cpp .moc/moc_CQRadioButtons.cpp .moc/moc_CQRGBAEdit.cpp .moc/moc_CQWinWidget.cpp .moc/moc_CQWorkspace.cpp
+	-$(DEL_FILE) .moc/moc_CQPaint.cpp .moc/moc_CQPaintGaussianBlur.cpp .moc/moc_CQPaintTurbulence.cpp .moc/moc_CQPaintTools.cpp .moc/moc_CQImageCanvas.cpp .moc/moc_CQResizeImageDlg.cpp .moc/moc_CQPixelRendererCanvas.cpp .moc/moc_CQPixelRendererScrolledCanvas.cpp .moc/moc_CQPixelRendererSubCanvas.cpp .moc/moc_CQNameValue.cpp .moc/moc_CQPoint3DEdit.cpp .moc/moc_CQRGBAEdit.cpp .moc/moc_CQWinWidget.cpp .moc/moc_CQWorkspace.cpp
 .moc/moc_CQPaint.cpp: ../../CQUtil/include/CQMainWindow.h \
 		../../CQUtil/include/CQMenu.h \
 		../../CQUtil/include/CQToolBar.h \
@@ -555,9 +549,6 @@ compiler_moc_header_clean:
 		../../CMath/include/CIPoint3D.h \
 		CQPoint3DEdit.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQPoint3DEdit.h -o .moc/moc_CQPoint3DEdit.cpp
-
-.moc/moc_CQRadioButtons.cpp: CQRadioButtons.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQRadioButtons.h -o .moc/moc_CQRadioButtons.cpp
 
 .moc/moc_CQRGBAEdit.cpp: ../../CUtil/include/CRGBA.h \
 		../../CUtil/include/CRGB.h \
@@ -779,7 +770,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQImageCanvas.o CQImageCanvas.cpp
 
 ../obj/CQResizeImageDlg.o: CQResizeImageDlg.cpp CQResizeImageDlg.h \
-		CQRadioButtons.h \
+		../../CQUtil/include/CQRadioButtons.h \
 		CQNameValue.h \
 		CQPoint3DEdit.h \
 		../../CMath/include/CPoint3D.h \
@@ -916,9 +907,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CStrUtil/include/CStrUtil.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQPoint3DEdit.o CQPoint3DEdit.cpp
 
-../obj/CQRadioButtons.o: CQRadioButtons.cpp CQRadioButtons.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQRadioButtons.o CQRadioButtons.cpp
-
 ../obj/CQRGBAEdit.o: CQRGBAEdit.cpp CQRGBAEdit.h \
 		../../CUtil/include/CRGBA.h \
 		../../CUtil/include/CRGB.h \
@@ -1015,9 +1003,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 
 ../obj/moc_CQPoint3DEdit.o: .moc/moc_CQPoint3DEdit.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQPoint3DEdit.o .moc/moc_CQPoint3DEdit.cpp
-
-../obj/moc_CQRadioButtons.o: .moc/moc_CQRadioButtons.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQRadioButtons.o .moc/moc_CQRadioButtons.cpp
 
 ../obj/moc_CQRGBAEdit.o: .moc/moc_CQRGBAEdit.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQRGBAEdit.o .moc/moc_CQRGBAEdit.cpp

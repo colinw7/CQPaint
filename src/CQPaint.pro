@@ -28,7 +28,6 @@ CQPixelRendererScrolledCanvas.cpp \
 \
 CQNameValue.cpp \
 CQPoint3DEdit.cpp \
-CQRadioButtons.cpp \
 CQRGBAEdit.cpp \
 CQWinWidget.cpp \
 CQWorkspace.cpp \
@@ -49,7 +48,6 @@ CQPixelRendererSubCanvas.h \
 \
 CQNameValue.h \
 CQPoint3DEdit.h \
-CQRadioButtons.h \
 CQRGBAEdit.h \
 CQWinWidget.h \
 ../include/CQWorkspace.h \
