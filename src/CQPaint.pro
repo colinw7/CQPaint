@@ -11,7 +11,7 @@ QMAKE_CXXFLAGS += -std=c++11
 CONFIG += staticlib
 
 MOC_DIR = .moc
-UI_DIR = .moc
+UI_DIR = .ui
 
 # Input
 SOURCES += \
@@ -29,7 +29,6 @@ CQPixelRendererScrolledCanvas.cpp \
 CQNameValue.cpp \
 CQPoint3DEdit.cpp \
 CQRGBAEdit.cpp \
-CQWinWidget.cpp \
 CQWorkspace.cpp \
 CQZoomCursor.cpp \
 
@@ -49,7 +48,6 @@ CQPixelRendererSubCanvas.h \
 CQNameValue.h \
 CQPoint3DEdit.h \
 CQRGBAEdit.h \
-CQWinWidget.h \
 ../include/CQWorkspace.h \
 CQZoomCursor.h \
 

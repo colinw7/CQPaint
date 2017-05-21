@@ -27,7 +27,7 @@
 CQPaint::
 CQPaint() :
  CQMainWindow("CQPaint"),
- mode_       (MODE_SELECT)
+ mode_       (Mode::SELECT)
 {
 }
 
@@ -413,7 +413,7 @@ canvasKeyPressed(const CKeyEvent &event)
 
   if (window == 0) return;
 
-  if      (mode_ == MODE_ROTATE) {
+  if      (mode_ == Mode::ROTATE) {
     CImagePtr rimage;
 
     if      (event.isType(CKEY_TYPE_Left))
@@ -425,7 +425,7 @@ canvasKeyPressed(const CKeyEvent &event)
 
     window->updateImage(rimage);
   }
-  else if (mode_ == MODE_FLIP) {
+  else if (mode_ == Mode::FLIP) {
     if      (event.isType(CKEY_TYPE_Left) || event.isType(CKEY_TYPE_Right))
       window->getImage()->flipV();
     else if (event.isType(CKEY_TYPE_Up) || event.isType(CKEY_TYPE_Down))
@@ -435,7 +435,7 @@ canvasKeyPressed(const CKeyEvent &event)
 
     window->updateVImage(true);
   }
-  else if (mode_ == MODE_SCROLL) {
+  else if (mode_ == Mode::SCROLL) {
     if      (event.isType(CKEY_TYPE_Up))
       window->getImage()->scrollY(1);
     else if (event.isType(CKEY_TYPE_Down))
@@ -794,49 +794,49 @@ void
 CQPaint::
 setSelectMode()
 {
-  setMode(CQPaint::MODE_SELECT);
+  setMode(CQPaint::Mode::SELECT);
 }
 
 void
 CQPaint::
 setPenMode()
 {
-  setMode(CQPaint::MODE_PEN);
+  setMode(CQPaint::Mode::PEN);
 }
 
 void
 CQPaint::
 setDropperMode()
 {
-  setMode(CQPaint::MODE_DROPPER);
+  setMode(CQPaint::Mode::DROPPER);
 }
 
 void
 CQPaint::
 setFillMode()
 {
-  setMode(CQPaint::MODE_FILL);
+  setMode(CQPaint::Mode::FILL);
 }
 
 void
 CQPaint::
 setRotateMode()
 {
-  setMode(CQPaint::MODE_ROTATE);
+  setMode(CQPaint::Mode::ROTATE);
 }
 
 void
 CQPaint::
 setFlipMode()
 {
-  setMode(CQPaint::MODE_FLIP);
+  setMode(CQPaint::Mode::FLIP);
 }
 
 void
 CQPaint::
 setScrollMode()
 {
-  setMode(CQPaint::MODE_SCROLL);
+  setMode(CQPaint::Mode::SCROLL);
 }
 
 void

@@ -16,14 +16,14 @@ class CQPaint : public CQMainWindow {
   Q_OBJECT
 
  public:
-  enum Mode {
-    MODE_SELECT  = CQImageCanvas::MODE_SELECT,
-    MODE_PEN     = CQImageCanvas::MODE_PEN,
-    MODE_DROPPER = CQImageCanvas::MODE_DROPPER,
-    MODE_FILL    = CQImageCanvas::MODE_FILL,
-    MODE_ROTATE  = 1001,
-    MODE_FLIP    = 1002,
-    MODE_SCROLL  = 1003
+  enum class Mode {
+    SELECT  = CQImageCanvas::Mode::SELECT,
+    PEN     = CQImageCanvas::Mode::PEN,
+    DROPPER = CQImageCanvas::Mode::DROPPER,
+    FILL    = CQImageCanvas::Mode::FILL,
+    ROTATE  = 1001,
+    FLIP    = 1002,
+    SCROLL  = 1003
   };
 
   CQPaint();

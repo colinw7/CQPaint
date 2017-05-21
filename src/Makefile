@@ -15,7 +15,7 @@ CXX           = g++
 DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -m64 -pipe -O2 -fPIC -Wall -W -D_REENTRANT $(DEFINES)
 CXXFLAGS      = -m64 -pipe -std=c++11 -O2 -fPIC -Wall -W -D_REENTRANT $(DEFINES)
-INCPATH       = -I. -I. -I../include -I../../CFileMgr/qinclude -I../../CFileMgr/include -I../../CColorWheel/qinclude -I../../CColorWheel/include -I../../CQUtil/include -I../../CRenderer/include -I../../CRenderer/qinclude -I../../CImageLib/include -I../../CCommand/include -I../../CConfig/include -I../../CFont/include -I../../CFileUtil/include -I../../CFile/include -I../../CMath/include -I../../CStrUtil/include -I../../CUtil/include -I../../COS/include -isystem /usr/include/freetype2 -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I.moc -I.moc -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64
+INCPATH       = -I. -I. -I../include -I../../CFileMgr/qinclude -I../../CFileMgr/include -I../../CColorWheel/qinclude -I../../CColorWheel/include -I../../CQUtil/include -I../../CRenderer/include -I../../CRenderer/qinclude -I../../CImageLib/include -I../../CCommand/include -I../../CConfig/include -I../../CFont/include -I../../CFileUtil/include -I../../CFile/include -I../../CMath/include -I../../CStrUtil/include -I../../CUtil/include -I../../COS/include -isystem /usr/include/freetype2 -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I.moc -I.ui -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64
 QMAKE         = /usr/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -56,7 +56,6 @@ SOURCES       = CQPaint.cpp \
 		CQNameValue.cpp \
 		CQPoint3DEdit.cpp \
 		CQRGBAEdit.cpp \
-		CQWinWidget.cpp \
 		CQWorkspace.cpp \
 		CQZoomCursor.cpp .moc/moc_CQPaint.cpp \
 		.moc/moc_CQPaintGaussianBlur.cpp \
@@ -70,8 +69,8 @@ SOURCES       = CQPaint.cpp \
 		.moc/moc_CQNameValue.cpp \
 		.moc/moc_CQPoint3DEdit.cpp \
 		.moc/moc_CQRGBAEdit.cpp \
-		.moc/moc_CQWinWidget.cpp \
-		.moc/moc_CQWorkspace.cpp
+		.moc/moc_CQWorkspace.cpp \
+		.moc/moc_CQZoomCursor.cpp
 OBJECTS       = ../obj/CQPaint.o \
 		../obj/CQPaintGaussianBlur.o \
 		../obj/CQPaintTurbulence.o \
@@ -83,7 +82,6 @@ OBJECTS       = ../obj/CQPaint.o \
 		../obj/CQNameValue.o \
 		../obj/CQPoint3DEdit.o \
 		../obj/CQRGBAEdit.o \
-		../obj/CQWinWidget.o \
 		../obj/CQWorkspace.o \
 		../obj/CQZoomCursor.o \
 		../obj/moc_CQPaint.o \
@@ -98,8 +96,8 @@ OBJECTS       = ../obj/CQPaint.o \
 		../obj/moc_CQNameValue.o \
 		../obj/moc_CQPoint3DEdit.o \
 		../obj/moc_CQRGBAEdit.o \
-		../obj/moc_CQWinWidget.o \
-		../obj/moc_CQWorkspace.o
+		../obj/moc_CQWorkspace.o \
+		../obj/moc_CQZoomCursor.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -141,6 +139,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webkitwidgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_x11extras.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml_private.pri \
@@ -175,7 +174,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		CQNameValue.h \
 		CQPoint3DEdit.h \
 		CQRGBAEdit.h \
-		CQWinWidget.h \
 		../include/CQWorkspace.h \
 		CQZoomCursor.h CQPaint.cpp \
 		CQPaintGaussianBlur.cpp \
@@ -188,7 +186,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		CQNameValue.cpp \
 		CQPoint3DEdit.cpp \
 		CQRGBAEdit.cpp \
-		CQWinWidget.cpp \
 		CQWorkspace.cpp \
 		CQZoomCursor.cpp
 QMAKE_TARGET  = CQPaint
@@ -220,7 +217,7 @@ first: all
 
 staticlib: ../lib/$(TARGET)
 
-../lib/$(TARGET): .moc/ui_CQPaintGaussianBlur.h .moc/ui_CQPaintTurbulence.h $(OBJECTS) $(OBJCOMP) 
+../lib/$(TARGET): .ui/ui_CQPaintGaussianBlur.h .ui/ui_CQPaintTurbulence.h $(OBJECTS) $(OBJCOMP) 
 	@test -d ../lib/ || mkdir -p ../lib/
 	-$(DEL_FILE) $(TARGET)
 	$(AR) $(TARGET) $(OBJECTS)
@@ -269,6 +266,7 @@ Makefile: CQPaint.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.c
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webkitwidgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_x11extras.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml_private.pri \
@@ -337,6 +335,7 @@ Makefile: CQPaint.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.c
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webkitwidgets.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_x11extras.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml_private.pri:
@@ -377,8 +376,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../include/CQPaint.h ../include/CQPaintGaussianBlur.h ../include/CQPaintTurbulence.h CQPaintTools.h ../include/CQImageCanvas.h CQResizeImageDlg.h CQPixelRendererCanvas.h CQPixelRendererScrolledCanvas.h CQPixelRendererSubCanvas.h CQNameValue.h CQPoint3DEdit.h CQRGBAEdit.h CQWinWidget.h ../include/CQWorkspace.h CQZoomCursor.h $(DISTDIR)/
-	$(COPY_FILE) --parents CQPaint.cpp CQPaintGaussianBlur.cpp CQPaintTurbulence.cpp CQPaintTools.cpp CQImageCanvas.cpp CQResizeImageDlg.cpp CQPixelRendererCanvas.cpp CQPixelRendererScrolledCanvas.cpp CQNameValue.cpp CQPoint3DEdit.cpp CQRGBAEdit.cpp CQWinWidget.cpp CQWorkspace.cpp CQZoomCursor.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../include/CQPaint.h ../include/CQPaintGaussianBlur.h ../include/CQPaintTurbulence.h CQPaintTools.h ../include/CQImageCanvas.h CQResizeImageDlg.h CQPixelRendererCanvas.h CQPixelRendererScrolledCanvas.h CQPixelRendererSubCanvas.h CQNameValue.h CQPoint3DEdit.h CQRGBAEdit.h ../include/CQWorkspace.h CQZoomCursor.h $(DISTDIR)/
+	$(COPY_FILE) --parents CQPaint.cpp CQPaintGaussianBlur.cpp CQPaintTurbulence.cpp CQPaintTools.cpp CQImageCanvas.cpp CQResizeImageDlg.cpp CQPixelRendererCanvas.cpp CQPixelRendererScrolledCanvas.cpp CQNameValue.cpp CQPoint3DEdit.cpp CQRGBAEdit.cpp CQWorkspace.cpp CQZoomCursor.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents CQPaintGaussianBlur.ui CQPaintTurbulence.ui $(DISTDIR)/
 
 
@@ -402,16 +401,16 @@ check: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: .moc/moc_CQPaint.cpp .moc/moc_CQPaintGaussianBlur.cpp .moc/moc_CQPaintTurbulence.cpp .moc/moc_CQPaintTools.cpp .moc/moc_CQImageCanvas.cpp .moc/moc_CQResizeImageDlg.cpp .moc/moc_CQPixelRendererCanvas.cpp .moc/moc_CQPixelRendererScrolledCanvas.cpp .moc/moc_CQPixelRendererSubCanvas.cpp .moc/moc_CQNameValue.cpp .moc/moc_CQPoint3DEdit.cpp .moc/moc_CQRGBAEdit.cpp .moc/moc_CQWinWidget.cpp .moc/moc_CQWorkspace.cpp
+compiler_moc_header_make_all: .moc/moc_CQPaint.cpp .moc/moc_CQPaintGaussianBlur.cpp .moc/moc_CQPaintTurbulence.cpp .moc/moc_CQPaintTools.cpp .moc/moc_CQImageCanvas.cpp .moc/moc_CQResizeImageDlg.cpp .moc/moc_CQPixelRendererCanvas.cpp .moc/moc_CQPixelRendererScrolledCanvas.cpp .moc/moc_CQPixelRendererSubCanvas.cpp .moc/moc_CQNameValue.cpp .moc/moc_CQPoint3DEdit.cpp .moc/moc_CQRGBAEdit.cpp .moc/moc_CQWorkspace.cpp .moc/moc_CQZoomCursor.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) .moc/moc_CQPaint.cpp .moc/moc_CQPaintGaussianBlur.cpp .moc/moc_CQPaintTurbulence.cpp .moc/moc_CQPaintTools.cpp .moc/moc_CQImageCanvas.cpp .moc/moc_CQResizeImageDlg.cpp .moc/moc_CQPixelRendererCanvas.cpp .moc/moc_CQPixelRendererScrolledCanvas.cpp .moc/moc_CQPixelRendererSubCanvas.cpp .moc/moc_CQNameValue.cpp .moc/moc_CQPoint3DEdit.cpp .moc/moc_CQRGBAEdit.cpp .moc/moc_CQWinWidget.cpp .moc/moc_CQWorkspace.cpp
+	-$(DEL_FILE) .moc/moc_CQPaint.cpp .moc/moc_CQPaintGaussianBlur.cpp .moc/moc_CQPaintTurbulence.cpp .moc/moc_CQPaintTools.cpp .moc/moc_CQImageCanvas.cpp .moc/moc_CQResizeImageDlg.cpp .moc/moc_CQPixelRendererCanvas.cpp .moc/moc_CQPixelRendererScrolledCanvas.cpp .moc/moc_CQPixelRendererSubCanvas.cpp .moc/moc_CQNameValue.cpp .moc/moc_CQPoint3DEdit.cpp .moc/moc_CQRGBAEdit.cpp .moc/moc_CQWorkspace.cpp .moc/moc_CQZoomCursor.cpp
 .moc/moc_CQPaint.cpp: ../../CQUtil/include/CQMainWindow.h \
 		../../CQUtil/include/CQMenu.h \
 		../../CQUtil/include/CQToolBar.h \
 		../../CUtil/include/COptVal.h \
 		../include/CQDockWidget.h \
 		../include/CQWorkspace.h \
-		../include/CQImageCanvas.h \
+		CQImageCanvas.h \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CMathGen.h \
 		../../COS/include/NaN.h \
@@ -446,7 +445,7 @@ compiler_moc_header_clean:
 .moc/moc_CQPaintTurbulence.cpp: ../include/CQPaintTurbulence.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../include/CQPaintTurbulence.h -o .moc/moc_CQPaintTurbulence.cpp
 
-.moc/moc_CQPaintTools.cpp: CQWinWidget.h \
+.moc/moc_CQPaintTools.cpp: ../../CQUtil/include/CQWinWidget.h \
 		CQPaintTools.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQPaintTools.h -o .moc/moc_CQPaintTools.cpp
 
@@ -566,23 +565,54 @@ compiler_moc_header_clean:
 		CQRGBAEdit.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQRGBAEdit.h -o .moc/moc_CQRGBAEdit.cpp
 
-.moc/moc_CQWinWidget.cpp: CQWinWidget.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQWinWidget.h -o .moc/moc_CQWinWidget.cpp
-
 .moc/moc_CQWorkspace.cpp: ../../CQUtil/include/CQMenu.h \
 		../include/CQWorkspace.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../include/CQWorkspace.h -o .moc/moc_CQWorkspace.cpp
 
+.moc/moc_CQZoomCursor.cpp: ../../CImageLib/include/CImageLib.h \
+		../../CFile/include/CFile.h \
+		../../CFile/include/CFileBase.h \
+		../../CFile/include/CFileType.h \
+		../../CUtil/include/CAlignType.h \
+		../../CUtil/include/CRGBA.h \
+		../../CUtil/include/CRGB.h \
+		../../CUtil/include/CRGBUtil.h \
+		../../CUtil/include/CCMYK.h \
+		../../CUtil/include/CHSL.h \
+		../../CUtil/include/CHSV.h \
+		../../CUtil/include/CHSB.h \
+		../../CUtil/include/CHSI.h \
+		../../CMath/include/CMathGen.h \
+		../../COS/include/NaN.h \
+		../../CMath/include/CIPoint2D.h \
+		../../CUtil/include/CColorComponent.h \
+		../../CImageLib/include/CImageState.h \
+		../../CImageLib/include/CImage.h \
+		../../CUtil/include/CRGBACombineDef.h \
+		../../CMath/include/CISize2D.h \
+		../../CMath/include/CIBBox2D.h \
+		../../CMath/include/CIVector2D.h \
+		../../CUtil/include/COptVal.h \
+		../../CImageLib/include/CImagePtr.h \
+		../../CUtil/include/CRefPtr.h \
+		../../CImageLib/include/CImageMgr.h \
+		../../CStrUtil/include/CStrUtil.h \
+		../../CImageLib/include/CImageAnim.h \
+		../../CImageLib/include/CImageFile.h \
+		../../CUtil/include/CAutoPtr.h \
+		CQZoomCursor.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/src -I/home/colinw/git/CQPaint/include -I/home/colinw/git/CFileMgr/qinclude -I/home/colinw/git/CFileMgr/include -I/home/colinw/git/CColorWheel/qinclude -I/home/colinw/git/CColorWheel/include -I/home/colinw/git/CQUtil/include -I/home/colinw/git/CRenderer/include -I/home/colinw/git/CRenderer/qinclude -I/home/colinw/git/CImageLib/include -I/home/colinw/git/CCommand/include -I/home/colinw/git/CConfig/include -I/home/colinw/git/CFont/include -I/home/colinw/git/CFileUtil/include -I/home/colinw/git/CFile/include -I/home/colinw/git/CMath/include -I/home/colinw/git/CStrUtil/include -I/home/colinw/git/CUtil/include -I/home/colinw/git/COS/include -I/usr/include/freetype2 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include CQZoomCursor.h -o .moc/moc_CQZoomCursor.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: .moc/ui_CQPaintGaussianBlur.h .moc/ui_CQPaintTurbulence.h
+compiler_uic_make_all: .ui/ui_CQPaintGaussianBlur.h .ui/ui_CQPaintTurbulence.h
 compiler_uic_clean:
-	-$(DEL_FILE) .moc/ui_CQPaintGaussianBlur.h .moc/ui_CQPaintTurbulence.h
-.moc/ui_CQPaintGaussianBlur.h: CQPaintGaussianBlur.ui
-	/usr/lib/x86_64-linux-gnu/qt5/bin/uic CQPaintGaussianBlur.ui -o .moc/ui_CQPaintGaussianBlur.h
+	-$(DEL_FILE) .ui/ui_CQPaintGaussianBlur.h .ui/ui_CQPaintTurbulence.h
+.ui/ui_CQPaintGaussianBlur.h: CQPaintGaussianBlur.ui
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic CQPaintGaussianBlur.ui -o .ui/ui_CQPaintGaussianBlur.h
 
-.moc/ui_CQPaintTurbulence.h: CQPaintTurbulence.ui
-	/usr/lib/x86_64-linux-gnu/qt5/bin/uic CQPaintTurbulence.ui -o .moc/ui_CQPaintTurbulence.h
+.ui/ui_CQPaintTurbulence.h: CQPaintTurbulence.ui
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic CQPaintTurbulence.ui -o .ui/ui_CQPaintTurbulence.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -601,7 +631,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/COptVal.h \
 		../include/CQDockWidget.h \
 		../include/CQWorkspace.h \
-		../include/CQImageCanvas.h \
+		CQImageCanvas.h \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CMathGen.h \
 		../../COS/include/NaN.h \
@@ -630,7 +660,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../include/CQPaintGaussianBlur.h \
 		../include/CQPaintTurbulence.h \
 		CQPaintTools.h \
-		CQWinWidget.h \
+		../../CQUtil/include/CQWinWidget.h \
 		CQResizeImageDlg.h \
 		../../CQUtil/include/CQPixmapCache.h \
 		../../CColorWheel/qinclude/CQColorWheel.h \
@@ -668,7 +698,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQPaintTurbulence.o CQPaintTurbulence.cpp
 
 ../obj/CQPaintTools.o: CQPaintTools.cpp CQPaintTools.h \
-		CQWinWidget.h \
+		../../CQUtil/include/CQWinWidget.h \
 		../../CQUtil/include/CQImageButton.h \
 		../../CImageLib/include/CImageLib.h \
 		../../CFile/include/CFile.h \
@@ -707,7 +737,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		png/close_16_png.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQPaintTools.o CQPaintTools.cpp
 
-../obj/CQImageCanvas.o: CQImageCanvas.cpp ../include/CQImageCanvas.h \
+../obj/CQImageCanvas.o: CQImageCanvas.cpp CQImageCanvas.h \
 		../../CMath/include/CIBBox2D.h \
 		../../CMath/include/CMathGen.h \
 		../../COS/include/NaN.h \
@@ -734,7 +764,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CUtil/include/CEvent.h \
 		../../CUtil/include/CKeyType.h \
 		../../CUtil/include/CAutoPtr.h \
-		CQWinWidget.h \
+		../../CQUtil/include/CQWinWidget.h \
 		CQPaintTools.h \
 		CQZoomCursor.h \
 		../../CImageLib/include/CImageLib.h \
@@ -924,15 +954,6 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../CStrUtil/include/CStrUtil.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQRGBAEdit.o CQRGBAEdit.cpp
 
-../obj/CQWinWidget.o: CQWinWidget.cpp CQWinWidget.h \
-		../../CQUtil/include/CQDrawUtil.h \
-		images/maximize.xpm \
-		images/minimize.xpm \
-		images/close.xpm \
-		cursors/select.xbm \
-		cursors/selectmask.xbm
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQWinWidget.o CQWinWidget.cpp
-
 ../obj/CQWorkspace.o: CQWorkspace.cpp ../include/CQWorkspace.h \
 		../../CQUtil/include/CQMenu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/CQWorkspace.o CQWorkspace.cpp
@@ -1007,11 +1028,11 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 ../obj/moc_CQRGBAEdit.o: .moc/moc_CQRGBAEdit.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQRGBAEdit.o .moc/moc_CQRGBAEdit.cpp
 
-../obj/moc_CQWinWidget.o: .moc/moc_CQWinWidget.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQWinWidget.o .moc/moc_CQWinWidget.cpp
-
 ../obj/moc_CQWorkspace.o: .moc/moc_CQWorkspace.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQWorkspace.o .moc/moc_CQWorkspace.cpp
+
+../obj/moc_CQZoomCursor.o: .moc/moc_CQZoomCursor.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../obj/moc_CQZoomCursor.o .moc/moc_CQZoomCursor.cpp
 
 ####### Install
 
