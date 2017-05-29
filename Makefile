@@ -7,4 +7,5 @@ clean:
 	cd test; qmake; make clean
 	rm src/Makefile
 	rm test/Makefile
+	rm lib/*.a
 	rm -f bin/CQPaint
