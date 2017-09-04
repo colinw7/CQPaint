@@ -29,7 +29,6 @@ CQPixelRendererScrolledCanvas.cpp \
 CQNameValue.cpp \
 CQPoint3DEdit.cpp \
 CQRGBAEdit.cpp \
-CQWorkspace.cpp \
 CQZoomCursor.cpp \
 
 HEADERS += \
@@ -48,7 +47,6 @@ CQPixelRendererSubCanvas.h \
 CQNameValue.h \
 CQPoint3DEdit.h \
 CQRGBAEdit.h \
-../include/CQWorkspace.h \
 CQZoomCursor.h \
 
 FORMS += \
