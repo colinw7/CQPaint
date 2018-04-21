@@ -14,7 +14,7 @@ CC            = gcc
 CXX           = g++
 DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -m64 -pipe -O2 -fPIC -Wall -W -D_REENTRANT $(DEFINES)
-CXXFLAGS      = -m64 -pipe -std=c++11 -O2 -fPIC -Wall -W -D_REENTRANT $(DEFINES)
+CXXFLAGS      = -m64 -pipe -std=c++14 -O2 -fPIC -Wall -W -D_REENTRANT $(DEFINES)
 INCPATH       = -I. -I. -I../include -I../../CFileMgr/qinclude -I../../CFileMgr/include -I../../CColorWheel/qinclude -I../../CColorWheel/include -I../../CQUtil/include -I../../CRenderer/include -I../../CRenderer/qinclude -I../../CImageLib/include -I../../CCommand/include -I../../CConfig/include -I../../CFont/include -I../../CFileUtil/include -I../../CFile/include -I../../CMath/include -I../../CStrUtil/include -I../../CUtil/include -I../../COS/include -isystem /usr/include/freetype2 -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I.moc -I.ui -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64
 QMAKE         = /usr/bin/qmake
 DEL_FILE      = rm -f
