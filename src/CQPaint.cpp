@@ -8,7 +8,9 @@
 #include <CQImageCanvas.h>
 #include <CQColorWheel.h>
 #include <CQFileMgr.h>
+#include <CImageLib.h>
 #include <COSFile.h>
+
 #include <QtGui>
 #include <QFileDialog>
 #include <QMessageBox>

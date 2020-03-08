@@ -1,14 +1,13 @@
 #ifndef CQIMAGE_CANVAS_H
 #define CQIMAGE_CANVAS_H
 
-#include <QWidget>
-
-#include <CIBBox2D.h>
-#include <CImage.h>
 #include <CImagePtr.h>
 #include <CValueHistory.h>
 #include <CEvent.h>
-#include <CAutoPtr.h>
+#include <CRGBA.h>
+#include <memory>
+
+#include <QWidget>
 
 class CQWinWidget;
 class CQZoomCursor;
@@ -59,7 +58,7 @@ class CQImageCanvas : public QWidget {
   virtual void updateImage(const std::string &filename);
   virtual void updateImage(CImagePtr image);
 
-  virtual CImagePtr getImage() const { return image_; }
+  virtual CImagePtr getImage() const;
 
   void updateVImage(bool image_changed);
 
@@ -133,19 +132,22 @@ class CQImageCanvas : public QWidget {
 
   typedef CValueHistoryT<double,2> HistDbl;
 
-  CImagePtr              image_;
-  CImagePtr              vimage_; // zoomed image
-  Mode                   mode_ { Mode::NONE };
-  CRGBA                  bg_;
-  Pen                    pen_;
-  CIPoint2D              press_pos_;
-  HistDbl                zoom_factor_ { 1.0 };
-  bool                   pressed_ { false };
-  bool                   fill_screen_ { false };
-  bool                   keep_aspect_ { true };
-  bool                   zoom_cursor_active_ { false };
-  CAutoPtr<CQZoomCursor> zoom_cursor_;
-  CAutoPtr<QTimer>       timer_;
+  using ZoomCursorP = std::unique_ptr<CQZoomCursor>;
+  using TimerP      = std::unique_ptr<QTimer>;
+
+  CImagePtr   image_;                             // image
+  CImagePtr   vimage_;                            // zoomed image
+  Mode        mode_               { Mode::NONE }; // mode
+  CRGBA       bg_;
+  Pen         pen_;
+  CIPoint2D   press_pos_;
+  HistDbl     zoom_factor_        { 1.0 };
+  bool        pressed_            { false };
+  bool        fill_screen_        { false };
+  bool        keep_aspect_        { true };
+  bool        zoom_cursor_active_ { false };
+  ZoomCursorP zoom_cursor_;
+  TimerP      timer_;
 };
 
 #endif

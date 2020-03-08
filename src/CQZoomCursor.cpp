@@ -100,8 +100,7 @@ updateImage(const CIPoint2D &pos)
 
       CRGBA rgba;
 
-      if (cursor_map_x_[i] != -999 &&
-          cursor_map_y_[i] != -999) {
+      if (cursor_map_x_[i] != -999 && cursor_map_y_[i] != -999) {
         int x1 = mx + cursor_map_x_[i];
         int y1 = my + cursor_map_y_[i];
 
@@ -139,8 +138,10 @@ setCursorMap()
   uint w = size_.getWidth ();
   uint h = size_.getHeight();
 
-  cursor_map_x_.set(new int [w*h]);
-  cursor_map_y_.set(new int [w*h]);
+  uint s = w*h;
+
+  cursor_map_x_.resize(s);
+  cursor_map_y_.resize(s);
 
   double r = std::max(w, h)/2.0;
 

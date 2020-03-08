@@ -1,4 +1,5 @@
 #include <CQImageCanvas.h>
+#include <CQImageUtil.h>
 #include <CQWinWidget.h>
 #include <CQPaintTools.h>
 #include <CQZoomCursor.h>
@@ -29,7 +30,7 @@ CQImageCanvas(QWidget *parent) :
 
   vimage_ = image_->dup();
 
-  zoom_cursor_ = new CQZoomCursor(image_);
+  zoom_cursor_ = std::make_unique<CQZoomCursor>(image_);
 }
 
 CQImageCanvas::
@@ -87,12 +88,12 @@ void
 CQImageCanvas::
 resizeEvent(QResizeEvent *)
 {
-  if (timer_ == NULL) {
-    timer_ = new QTimer(this);
+  if (! timer_) {
+    timer_ = std::make_unique<QTimer>(this);
 
     timer_->setSingleShot(true);
 
-    connect(timer_, SIGNAL(timeout()), this, SLOT(resizeTimeout()));
+    connect(timer_.get(), SIGNAL(timeout()), this, SLOT(resizeTimeout()));
   }
 
   timer_->start(50);
@@ -116,7 +117,7 @@ paintEvent(QPaintEvent *)
     int dx = 0; //max((w - int(vimage_->getWidth ()))/2, 0);
     int dy = 0; //max((h - int(vimage_->getHeight()))/2, 0);
 
-    painter.drawImage(QPoint(dx, dy), CQUtil::toQImage(vimage_));
+    painter.drawImage(QPoint(dx, dy), CQImageUtil::toQImage(vimage_));
   }
   // ... otherwise draw scaled image
   else {
@@ -154,7 +155,7 @@ paintEvent(QPaintEvent *)
 
     CImagePtr image = zoom_cursor_->getImage(pos);
 
-    painter.drawImage(CQUtil::toQPoint(pos), CQUtil::toQImage(image));
+    painter.drawImage(CQUtil::toQPoint(pos), CQImageUtil::toQImage(image));
   }
 }
 
@@ -188,6 +189,13 @@ CQImageCanvas::
 resizeTimeout()
 {
   updateVImage(false);
+}
+
+CImagePtr
+CQImageCanvas::
+getImage() const
+{
+  return image_;
 }
 
 void
