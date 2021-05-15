@@ -6,7 +6,13 @@ TARGET = CQPaint
 
 DEPENDPATH += .
 
-QMAKE_CXXFLAGS += -std=c++14
+QMAKE_CXXFLAGS += \
+-std=c++14 \
+-DCQUTIL_PEN \
+-DCQUTIL_BRUSH \
+-DCQUTIL_FONT \
+-DCQUTIL_IMAGE \
+-DCBRUSH_IMAGE \
 
 CONFIG += staticlib
 
@@ -33,9 +39,9 @@ CQZoomCursor.cpp \
 
 HEADERS += \
 ../include/CQPaint.h \
-../include/CQPaintGaussianBlur.h \
-../include/CQPaintTurbulence.h \
-CQPaintTools.h \
+CQPaintGaussianBlur.h \
+CQPaintTurbulence.h \
+../include/CQPaintTools.h \
 \
 ../include/CQImageCanvas.h \
 CQResizeImageDlg.h \
@@ -44,7 +50,7 @@ CQPixelRendererCanvas.h \
 CQPixelRendererScrolledCanvas.h \
 CQPixelRendererSubCanvas.h \
 \
-CQNameValue.h \
+../include/CQNameValue.h \
 CQPoint3DEdit.h \
 CQRGBAEdit.h \
 CQZoomCursor.h \

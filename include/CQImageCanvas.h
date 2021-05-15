@@ -51,9 +51,9 @@ class CQImageCanvas : public QWidget {
 
   void setOffset(int x_offset, int y_offset);
 
-  void resizeEvent(QResizeEvent *);
+  void resizeEvent(QResizeEvent *) override;
 
-  void paintEvent(QPaintEvent *);
+  void paintEvent(QPaintEvent *) override;
 
   virtual void updateImage(const std::string &filename);
   virtual void updateImage(CImagePtr image);
@@ -89,14 +89,14 @@ class CQImageCanvas : public QWidget {
 
   void doResize(int width, int height, bool scale, bool aspect);
 
-  void mousePressEvent  (QMouseEvent *event);
-  void mouseMoveEvent   (QMouseEvent *event);
-  void mouseReleaseEvent(QMouseEvent *event);
+  void mousePressEvent  (QMouseEvent *event) override;
+  void mouseMoveEvent   (QMouseEvent *event) override;
+  void mouseReleaseEvent(QMouseEvent *event) override;
 
-  void keyPressEvent  (QKeyEvent *event);
-  void keyReleaseEvent(QKeyEvent *event);
+  void keyPressEvent  (QKeyEvent *event) override;
+  void keyReleaseEvent(QKeyEvent *event) override;
 
-  QSize sizeHint() const;
+  QSize sizeHint() const override;
 
  public slots:
   void selectAll();

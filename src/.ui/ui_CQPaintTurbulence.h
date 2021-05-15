@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'CQPaintTurbulence.ui'
 **
-** Created by: Qt User Interface Compiler version 5.5.1
+** Created by: Qt User Interface Compiler version 5.12.8
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,13 +10,10 @@
 #define UI_CQPAINTTURBULENCE_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
@@ -48,33 +45,33 @@ public:
     void setupUi(QDialog *CQPaintTurbulenceUi)
     {
         if (CQPaintTurbulenceUi->objectName().isEmpty())
-            CQPaintTurbulenceUi->setObjectName(QStringLiteral("CQPaintTurbulenceUi"));
+            CQPaintTurbulenceUi->setObjectName(QString::fromUtf8("CQPaintTurbulenceUi"));
         CQPaintTurbulenceUi->resize(222, 232);
         vboxLayout = new QVBoxLayout(CQPaintTurbulenceUi);
         vboxLayout->setSpacing(6);
-        vboxLayout->setObjectName(QStringLiteral("vboxLayout"));
+        vboxLayout->setObjectName(QString::fromUtf8("vboxLayout"));
         vboxLayout->setContentsMargins(9, 9, 9, 9);
         vboxLayout1 = new QVBoxLayout();
         vboxLayout1->setSpacing(6);
-        vboxLayout1->setObjectName(QStringLiteral("vboxLayout1"));
+        vboxLayout1->setObjectName(QString::fromUtf8("vboxLayout1"));
         vboxLayout1->setContentsMargins(0, 0, 0, 0);
         fractal = new QCheckBox(CQPaintTurbulenceUi);
-        fractal->setObjectName(QStringLiteral("fractal"));
+        fractal->setObjectName(QString::fromUtf8("fractal"));
 
         vboxLayout1->addWidget(fractal);
 
         hboxLayout = new QHBoxLayout();
         hboxLayout->setSpacing(6);
-        hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
+        hboxLayout->setObjectName(QString::fromUtf8("hboxLayout"));
         hboxLayout->setContentsMargins(0, 0, 0, 0);
         frequencyLabel = new QLabel(CQPaintTurbulenceUi);
-        frequencyLabel->setObjectName(QStringLiteral("frequencyLabel"));
+        frequencyLabel->setObjectName(QString::fromUtf8("frequencyLabel"));
         frequencyLabel->setMinimumSize(QSize(70, 0));
 
         hboxLayout->addWidget(frequencyLabel);
 
         frequency = new QLineEdit(CQPaintTurbulenceUi);
-        frequency->setObjectName(QStringLiteral("frequency"));
+        frequency->setObjectName(QString::fromUtf8("frequency"));
         frequency->setMinimumSize(QSize(80, 0));
 
         hboxLayout->addWidget(frequency);
@@ -84,16 +81,16 @@ public:
 
         hboxLayout1 = new QHBoxLayout();
         hboxLayout1->setSpacing(6);
-        hboxLayout1->setObjectName(QStringLiteral("hboxLayout1"));
+        hboxLayout1->setObjectName(QString::fromUtf8("hboxLayout1"));
         hboxLayout1->setContentsMargins(0, 0, 0, 0);
         octavesLabel = new QLabel(CQPaintTurbulenceUi);
-        octavesLabel->setObjectName(QStringLiteral("octavesLabel"));
+        octavesLabel->setObjectName(QString::fromUtf8("octavesLabel"));
         octavesLabel->setMinimumSize(QSize(70, 0));
 
         hboxLayout1->addWidget(octavesLabel);
 
         octaves = new QLineEdit(CQPaintTurbulenceUi);
-        octaves->setObjectName(QStringLiteral("octaves"));
+        octaves->setObjectName(QString::fromUtf8("octaves"));
         octaves->setMinimumSize(QSize(80, 0));
 
         hboxLayout1->addWidget(octaves);
@@ -103,16 +100,16 @@ public:
 
         hboxLayout2 = new QHBoxLayout();
         hboxLayout2->setSpacing(6);
-        hboxLayout2->setObjectName(QStringLiteral("hboxLayout2"));
+        hboxLayout2->setObjectName(QString::fromUtf8("hboxLayout2"));
         hboxLayout2->setContentsMargins(0, 0, 0, 0);
         seedLabel = new QLabel(CQPaintTurbulenceUi);
-        seedLabel->setObjectName(QStringLiteral("seedLabel"));
+        seedLabel->setObjectName(QString::fromUtf8("seedLabel"));
         seedLabel->setMinimumSize(QSize(70, 0));
 
         hboxLayout2->addWidget(seedLabel);
 
         seed = new QLineEdit(CQPaintTurbulenceUi);
-        seed->setObjectName(QStringLiteral("seed"));
+        seed->setObjectName(QString::fromUtf8("seed"));
         seed->setMinimumSize(QSize(80, 0));
 
         hboxLayout2->addWidget(seed);
@@ -125,19 +122,19 @@ public:
 
         hboxLayout3 = new QHBoxLayout();
         hboxLayout3->setSpacing(6);
-        hboxLayout3->setObjectName(QStringLiteral("hboxLayout3"));
+        hboxLayout3->setObjectName(QString::fromUtf8("hboxLayout3"));
         hboxLayout3->setContentsMargins(0, 0, 0, 0);
         spacerItem = new QSpacerItem(131, 31, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         hboxLayout3->addItem(spacerItem);
 
         okButton = new QPushButton(CQPaintTurbulenceUi);
-        okButton->setObjectName(QStringLiteral("okButton"));
+        okButton->setObjectName(QString::fromUtf8("okButton"));
 
         hboxLayout3->addWidget(okButton);
 
         cancelButton = new QPushButton(CQPaintTurbulenceUi);
-        cancelButton->setObjectName(QStringLiteral("cancelButton"));
+        cancelButton->setObjectName(QString::fromUtf8("cancelButton"));
 
         hboxLayout3->addWidget(cancelButton);
 
@@ -159,16 +156,16 @@ public:
 
     void retranslateUi(QDialog *CQPaintTurbulenceUi)
     {
-        CQPaintTurbulenceUi->setWindowTitle(QApplication::translate("CQPaintTurbulenceUi", "Turbulence", 0));
-        fractal->setText(QApplication::translate("CQPaintTurbulenceUi", "Fractal", 0));
-        frequencyLabel->setText(QApplication::translate("CQPaintTurbulenceUi", "Frequency", 0));
-        frequency->setText(QApplication::translate("CQPaintTurbulenceUi", "0.01", 0));
-        octavesLabel->setText(QApplication::translate("CQPaintTurbulenceUi", "Octaves", 0));
-        octaves->setText(QApplication::translate("CQPaintTurbulenceUi", "1", 0));
-        seedLabel->setText(QApplication::translate("CQPaintTurbulenceUi", "Seed", 0));
-        seed->setText(QApplication::translate("CQPaintTurbulenceUi", "0", 0));
-        okButton->setText(QApplication::translate("CQPaintTurbulenceUi", "OK", 0));
-        cancelButton->setText(QApplication::translate("CQPaintTurbulenceUi", "Cancel", 0));
+        CQPaintTurbulenceUi->setWindowTitle(QApplication::translate("CQPaintTurbulenceUi", "Turbulence", nullptr));
+        fractal->setText(QApplication::translate("CQPaintTurbulenceUi", "Fractal", nullptr));
+        frequencyLabel->setText(QApplication::translate("CQPaintTurbulenceUi", "Frequency", nullptr));
+        frequency->setText(QApplication::translate("CQPaintTurbulenceUi", "0.01", nullptr));
+        octavesLabel->setText(QApplication::translate("CQPaintTurbulenceUi", "Octaves", nullptr));
+        octaves->setText(QApplication::translate("CQPaintTurbulenceUi", "1", nullptr));
+        seedLabel->setText(QApplication::translate("CQPaintTurbulenceUi", "Seed", nullptr));
+        seed->setText(QApplication::translate("CQPaintTurbulenceUi", "0", nullptr));
+        okButton->setText(QApplication::translate("CQPaintTurbulenceUi", "OK", nullptr));
+        cancelButton->setText(QApplication::translate("CQPaintTurbulenceUi", "Cancel", nullptr));
     } // retranslateUi
 
 };
