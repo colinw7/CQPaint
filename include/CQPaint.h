@@ -92,70 +92,71 @@ class CQPaint : public CQMainWindow {
   void createDockWindows();
 
  private:
-  CQWorkspace<CQImageCanvas> *workspace_;
-  Mode                        mode_;
+  CQWorkspace<CQImageCanvas>* workspace_ { nullptr };
+
+  Mode mode_ { Mode::SELECT };
 
   // File Menu
-  CQMenu *fileMenu;
+  CQMenu *fileMenu { nullptr };
 
-  CQMenuItem *newItem;
-  CQMenuItem *loadItem;
-  CQMenuItem *saveItem;
-  CQMenuItem *saveAsItem;
-  CQMenuItem *quitItem;
+  CQMenuItem *newItem { nullptr };
+  CQMenuItem *loadItem { nullptr };
+  CQMenuItem *saveItem { nullptr };
+  CQMenuItem *saveAsItem { nullptr };
+  CQMenuItem *quitItem { nullptr };
 
   // Edit Menu
-  CQMenu *editMenu;
+  CQMenu *editMenu { nullptr };
 
-  CQMenuItem *resizeItem;
-  CQMenuItem *fillScreenItem;
-  CQMenuItem *keepAspectItem;
-  CQMenuItem *zoomCursorItem;
+  CQMenuItem *resizeItem { nullptr };
+  CQMenuItem *fillScreenItem { nullptr };
+  CQMenuItem *keepAspectItem { nullptr };
+  CQMenuItem *zoomCursorItem { nullptr };
 
   // Process Menu
-  CQMenu *processMenu;
+  CQMenu *processMenu { nullptr };
 
-  CQMenuItem *clearItem;
-  CQMenuItem *invertItem;
-  CQMenuItem *grayScaleItem;
-  CQMenuItem *sepiaItem;
-  CQMenuItem *gaussianBlurItem;
-  CQMenuItem *turbulenceItem;
-  CQMenuItem *unsharpMaskItem;
-  CQMenuItem *rotateItem;
-  CQMenuItem *flipItem;
-  CQMenuItem *scrollItem;
+  CQMenuItem *clearItem        { nullptr };
+  CQMenuItem *invertItem       { nullptr };
+  CQMenuItem *grayScaleItem    { nullptr };
+  CQMenuItem *sepiaItem        { nullptr };
+  CQMenuItem *gaussianBlurItem { nullptr };
+  CQMenuItem *turbulenceItem   { nullptr };
+  CQMenuItem *unsharpMaskItem  { nullptr };
+  CQMenuItem *rotateItem       { nullptr };
+  CQMenuItem *flipItem         { nullptr };
+  CQMenuItem *scrollItem       { nullptr };
 
   // Selection Menu
 
-  CQMenu *selectionMenu;
+  CQMenu *selectionMenu { nullptr };
 
-  CQMenuItem *selectAllItem;
-  CQMenuItem *selectNoneItem;
+  CQMenuItem *selectAllItem  { nullptr };
+  CQMenuItem *selectNoneItem { nullptr };
 
   // Zoom Menu
-  CQMenu *zoomMenu;
+  CQMenu *zoomMenu { nullptr };
 
-  CQMenuItem *zoomIncreaseItem;
-  CQMenuItem *zoomDecreaseItem;
+  CQMenuItem *zoomIncreaseItem { nullptr };
+  CQMenuItem *zoomDecreaseItem { nullptr };
 
   // Tools + Windows Menu (MDI + Dock)
-  CQMenu *toolsMenu;
-  CQMenu *windowsMenu;
+  CQMenu *toolsMenu   { nullptr };
+  CQMenu *windowsMenu { nullptr };
 
   // Help Menu
-  CQMenu *helpMenu;
+  CQMenu *helpMenu { nullptr };
 
-  CQMenuItem *aboutItem;
-  CQMenuItem *aboutQtItem;
+  CQMenuItem *aboutItem   { nullptr };
+  CQMenuItem *aboutQtItem { nullptr };
 
-  CQToolBar *fileToolBar;
-  CQToolBar *editToolBar;
-  CQToolBar *processToolBar;
+  CQToolBar *fileToolBar    { nullptr };
+  CQToolBar *editToolBar    { nullptr };
+  CQToolBar *processToolBar { nullptr };
 
-  CQColorWheel *color_wheel_;
-  CQFileMgr    *file_mgr_;
-  CQPaintTools *paint_tools_;
+  CQColorWheel *color_wheel_ { nullptr };
+  CQFileMgr    *file_mgr_    { nullptr };
+  CQPaintTools *paint_tools_ { nullptr };
 };
 
 #endif

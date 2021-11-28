@@ -36,7 +36,7 @@ class CQNameValueChoice {
    ind_(0) {
   }
 
-  const CQNameValueChoice &operator=(const std::string &name) {
+  CQNameValueChoice &operator=(const std::string &name) {
     setName(name);
 
     return *this;
