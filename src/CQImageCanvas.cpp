@@ -138,8 +138,8 @@ paintEvent(QPaintEvent *)
 
     for (int y = y1; y <= y2; ++y) {
       for (int x = x1; x <= x2; ++x) {
-        int ix = (x - x1)*is;
-        int iy = (y - y1)*is;
+        int ix = int((x - x1)*is);
+        int iy = int((y - y1)*is);
 
         vimage_->getRGBAPixel(ix, iy, rgba);
 
@@ -242,7 +242,7 @@ CQImageCanvas::
 getImageWidth() const
 {
   if (vimage_.isValid())
-    return vimage_->getWidth();
+    return int(vimage_->getWidth());
 
   return 0;
 }
@@ -252,7 +252,7 @@ CQImageCanvas::
 getImageHeight() const
 {
   if (vimage_.isValid())
-    return vimage_->getHeight();
+    return int(vimage_->getHeight());
 
   return 0;
 }
@@ -574,5 +574,6 @@ QSize
 CQImageCanvas::
 sizeHint() const
 {
-  return QSize(std::max(image_->getWidth(), 256U), std::max(image_->getHeight(), 256U));
+  return QSize(int(std::max(image_->getWidth (), 256U)),
+               int(std::max(image_->getHeight(), 256U)));
 }

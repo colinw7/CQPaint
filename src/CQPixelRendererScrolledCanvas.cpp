@@ -274,7 +274,7 @@ void
 CQPixelRendererScrolledCanvas::
 scroll(int delta)
 {
-  vscroll_->setValue(vscroll_->value() + delta*vstep_);
+  vscroll_->setValue(vscroll_->value() + delta*int(vstep_));
 }
 
 void
@@ -339,8 +339,8 @@ updateScrollbars()
   int hstep = canvas_->width ();
   int vstep = canvas_->height();
 
-  hscroll_->setSingleStep(hstep_); hscroll_->setPageStep(hstep);
-  vscroll_->setSingleStep(vstep_); vscroll_->setPageStep(vstep);
+  hscroll_->setSingleStep(int(hstep_)); hscroll_->setPageStep(hstep);
+  vscroll_->setSingleStep(int(vstep_)); vscroll_->setPageStep(vstep);
 
   const CISize2D &vsize = canvas_->getVSize();
 

@@ -69,7 +69,7 @@ class CQNameValueChoice {
 
     va_start(vargs, value);
 
-    uint num_names = names_.size();
+    auto num_names = names_.size();
 
     for (uint i = 0; i < num_names; ++i) {
       values_[i] = value;
@@ -103,7 +103,7 @@ class CQNameValueChoice {
   }
 
   void setName(const std::string &name) {
-    uint num_names = names_.size();
+    auto num_names = names_.size();
 
     for (uint i = 0; i < num_names; ++i) {
       if (names_[i] == name) {
@@ -245,7 +245,7 @@ class CQNameValueEditor <CQNameValueChoice> {
   }
 
   void updateWidget(const CQNameValueChoice &value) {
-    widget_->setCurrentIndex(value.getInd());
+    widget_->setCurrentIndex(int(value.getInd()));
   }
 
   QWidget *getWidget() const { return widget_; }
