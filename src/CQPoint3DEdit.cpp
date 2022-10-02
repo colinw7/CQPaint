@@ -13,12 +13,12 @@ CQPoint3DEdit(const QString &name, const CPoint3D &value)
   y_edit_ = new QLineEdit("y");
   z_edit_ = new QLineEdit("z");
 
-  x_edit_->setMinimumSize(QSize(60,0));
-  x_edit_->setMaximumSize(QSize(60,22));
-  y_edit_->setMinimumSize(QSize(60,0));
-  y_edit_->setMaximumSize(QSize(60,22));
-  z_edit_->setMinimumSize(QSize(60,0));
-  z_edit_->setMaximumSize(QSize(60,22));
+  x_edit_->setMinimumSize(QSize(60, 0));
+  x_edit_->setMaximumSize(QSize(60, 22));
+  y_edit_->setMinimumSize(QSize(60, 0));
+  y_edit_->setMaximumSize(QSize(60, 22));
+  z_edit_->setMinimumSize(QSize(60, 0));
+  z_edit_->setMaximumSize(QSize(60, 22));
 
   x_edit_->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
   y_edit_->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);

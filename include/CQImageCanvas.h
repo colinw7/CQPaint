@@ -130,7 +130,7 @@ class CQImageCanvas : public QWidget {
     CRGBA bg;
   };
 
-  typedef CValueHistoryT<double,2> HistDbl;
+  typedef CValueHistoryT<double, 2> HistDbl;
 
   using ZoomCursorP = std::unique_ptr<CQZoomCursor>;
   using TimerP      = std::unique_ptr<QTimer>;

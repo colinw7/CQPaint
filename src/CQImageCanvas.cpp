@@ -17,10 +17,10 @@ CQImageCanvas(QWidget *parent) :
 {
   setObjectName("imageCanvas");
 
-  bg_ = CRGBA(0,0,0);
+  bg_ = CRGBA(0, 0, 0);
 
-  pen_.fg = CRGBA(1,0,0);
-  pen_.bg = CRGBA(0,1,0);
+  pen_.fg = CRGBA(1, 0, 0);
+  pen_.bg = CRGBA(0, 1, 0);
 
   CImageNoSrc src;
 
@@ -490,7 +490,7 @@ mousePressEvent(QMouseEvent *event)
     update();
   }
   else if (mode_ == Mode::DROPPER) {
-    if (event->button() != Qt::LeftButton && event->button() != Qt::MidButton) return;
+    if (event->button() != Qt::LeftButton && event->button() != Qt::MiddleButton) return;
 
     if (vimage_->validPixel(press_pos_)) {
       if (event->button() == Qt::LeftButton) {

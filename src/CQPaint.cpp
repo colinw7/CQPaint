@@ -40,7 +40,7 @@ setMode(Mode mode)
   CQImageCanvas *window = workspace_->activeWindow();
 
   if (window)
-    window->setMode((CQImageCanvas::Mode) mode);
+    window->setMode(CQImageCanvas::Mode(mode));
 
   mode_ = mode;
 }

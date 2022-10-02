@@ -17,10 +17,10 @@ class CQPaint : public CQMainWindow {
 
  public:
   enum class Mode {
-    SELECT  = (int) CQImageCanvas::Mode::SELECT,
-    PEN     = (int) CQImageCanvas::Mode::PEN,
-    DROPPER = (int) CQImageCanvas::Mode::DROPPER,
-    FILL    = (int) CQImageCanvas::Mode::FILL,
+    SELECT  = int(CQImageCanvas::Mode::SELECT),
+    PEN     = int(CQImageCanvas::Mode::PEN),
+    DROPPER = int(CQImageCanvas::Mode::DROPPER),
+    FILL    = int(CQImageCanvas::Mode::FILL),
     ROTATE  = 1001,
     FLIP    = 1002,
     SCROLL  = 1003

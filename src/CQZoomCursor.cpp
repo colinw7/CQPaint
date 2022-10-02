@@ -111,13 +111,13 @@ updateImage(const CIPoint2D &pos)
           zimage_->setRGBAPixel(x, y, rgba);
         }
         else {
-          rgba = CRGBA(0,0,0,0);
+          rgba = CRGBA(0, 0, 0, 0);
 
           zimage_->setRGBAPixel(x, y, rgba);
         }
       }
       else {
-        rgba = CRGBA(0,0,0,0);
+        rgba = CRGBA(0, 0, 0, 0);
 
         zimage_->setRGBAPixel(x, y, rgba);
       }
