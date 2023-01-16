@@ -378,11 +378,11 @@ class CQNameValueData : public CQNameValueDataIFace {
 
   virtual ~CQNameValueData() { }
 
-  CQNameValueDataIFace *dup() const {
+  CQNameValueDataIFace *dup() const override {
     return new CQNameValueData<T>(value_);
   }
 
-  QWidget *createEditor(QObject *parent) {
+  QWidget *createEditor(QObject *parent) override {
     editor_ = new CQNameValueEditor<T>(parent, value_);
 
     return editor_->getWidget();
@@ -399,7 +399,7 @@ class CQNameValueData : public CQNameValueDataIFace {
     return *value_;
   }
 
-  void updateValue() {
+  void updateValue() override {
     if (editor_)
       *value_ = editor_->getValue();
   }

@@ -1,6 +1,7 @@
 #include <CQPixelRendererCanvas.h>
 #include <CQWidgetPixelRenderer.h>
 #include <CQUtil.h>
+#include <CQUtilEvent.h>
 #include <CImageLib.h>
 
 #include <QWidget>

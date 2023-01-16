@@ -4,6 +4,9 @@
 #include <CQPaintTools.h>
 #include <CQZoomCursor.h>
 #include <CQUtil.h>
+#include <CQUtilRGBA.h>
+#include <CQUtilGeom.h>
+#include <CQUtilEvent.h>
 
 #include <QRubberBand>
 #include <QTimer>
