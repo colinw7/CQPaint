@@ -105,10 +105,8 @@ void
 CQPaint::
 save()
 {
-  CQImageCanvas *window = workspace_->activeWindow();
-
-  if (window == 0)
-    return;
+  auto *window = workspace_->activeWindow();
+  if (! window) return;
 
   std::cerr << "Save " << std::endl;
 }
@@ -117,10 +115,8 @@ void
 CQPaint::
 saveAs()
 {
-  CQImageCanvas *window = workspace_->activeWindow();
-
-  if (window == 0)
-    return;
+  auto *window = workspace_->activeWindow();
+  if (! window) return;
 
   QString title  = "Choose a file";
   QString cwd    = QString(COSFile::getCurrentDir().c_str());
@@ -140,7 +136,7 @@ fillScreen(bool flag)
 {
   CQImageCanvas *window = workspace_->activeWindow();
 
-  if (window != 0)
+  if (window)
     window->setFillScreen(flag);
 }
 
@@ -150,7 +146,7 @@ keepAspect(bool flag)
 {
   CQImageCanvas *window = workspace_->activeWindow();
 
-  if (window != 0)
+  if (window)
     window->setKeepAspect(flag);
 }
 
@@ -160,7 +156,7 @@ zoomCursor(bool flag)
 {
   CQImageCanvas *window = workspace_->activeWindow();
 
-  if (window != 0) window->setZoomCursor(flag);
+  if (window) window->setZoomCursor(flag);
 }
 
 void
@@ -169,7 +165,7 @@ selectAll()
 {
   CQImageCanvas *window = workspace_->activeWindow();
 
-  if (window != 0)
+  if (window)
     window->selectAll();
 }
 
@@ -179,7 +175,7 @@ selectNone()
 {
   CQImageCanvas *window = workspace_->activeWindow();
 
-  if (window != 0)
+  if (window)
     window->selectNone();
 }
 
@@ -189,7 +185,7 @@ clear()
 {
   CQImageCanvas *window = workspace_->activeWindow();
 
-  if (window != 0)
+  if (window)
     window->clear();
 }
 
@@ -199,7 +195,7 @@ invert()
 {
   CQImageCanvas *window = workspace_->activeWindow();
 
-  if (window != 0)
+  if (window)
     window->invert();
 }
 
@@ -209,7 +205,7 @@ grayscale()
 {
   CQImageCanvas *window = workspace_->activeWindow();
 
-  if (window != 0)
+  if (window)
     window->grayscale();
 }
 
@@ -219,7 +215,7 @@ sepia()
 {
   CQImageCanvas *window = workspace_->activeWindow();
 
-  if (window != 0)
+  if (window)
     window->sepia();
 }
 
@@ -241,7 +237,7 @@ resizeAccept(int width, int height, bool scale, bool aspect)
 {
   CQImageCanvas *window = workspace_->activeWindow();
 
-  if (window != 0)
+  if (window)
     window->doResize(width, height, scale, aspect);
 }
 
@@ -263,7 +259,7 @@ gaussianBlurAccept(double xBlur, double yBlur, int xSize, int ySize)
 {
   CQImageCanvas *window = workspace_->activeWindow();
 
-  if (window != 0)
+  if (window)
     window->gaussianBlur(xBlur, yBlur, xSize, ySize);
 }
 
@@ -285,7 +281,7 @@ turbulenceAccept(bool fractal, double freq, int octaves, int seed)
 {
   CQImageCanvas *window = workspace_->activeWindow();
 
-  if (window != 0) {
+  if (window) {
     //window->getImage()->setWindow(window->getSelectionRect());
 
     window->getImage()->turbulence(fractal, freq, octaves, seed);
@@ -304,7 +300,7 @@ unsharpMask()
 {
   CQImageCanvas *window = workspace_->activeWindow();
 
-  if (window != 0) {
+  if (window) {
     CImagePtr mimage = window->getImage()->unsharpMask(4.0);
 
     window->updateImage(mimage);
@@ -347,7 +343,7 @@ zoomIncrease()
 {
   CQImageCanvas *window = workspace_->activeWindow();
 
-  if (window != 0) window->zoomIncrease();
+  if (window) window->zoomIncrease();
 }
 
 void
@@ -356,7 +352,7 @@ zoomDecrease()
 {
   CQImageCanvas *window = workspace_->activeWindow();
 
-  if (window != 0) window->zoomDecrease();
+  if (window) window->zoomDecrease();
 }
 
 void
@@ -372,7 +368,7 @@ colorBgChanged()
 {
   CQImageCanvas *window = workspace_->activeWindow();
 
-  if (window != 0)
+  if (window)
     window->setPenBackground(color_wheel_->getBgRGB());
 }
 
@@ -382,7 +378,7 @@ colorFgChanged()
 {
   CQImageCanvas *window = workspace_->activeWindow();
 
-  if (window != 0)
+  if (window)
     window->setPenForeground(color_wheel_->getFgRGB());
 }
 
@@ -393,7 +389,7 @@ canvasPenBgChanged()
 {
   CQImageCanvas *window = workspace_->activeWindow();
 
-  if (window != 0)
+  if (window)
     color_wheel_->setBgRGB(window->getPenBackground());
 }
 
@@ -403,7 +399,7 @@ canvasPenFgChanged()
 {
   CQImageCanvas *window = workspace_->activeWindow();
 
-  if (window != 0)
+  if (window)
     color_wheel_->setFgRGB(window->getPenForeground());
 }
 
@@ -411,9 +407,8 @@ void
 CQPaint::
 canvasKeyPressed(const CKeyEvent &event)
 {
-  CQImageCanvas *window = workspace_->activeWindow();
-
-  if (window == 0) return;
+  auto *window = workspace_->activeWindow();
+  if (! window) return;
 
   if      (mode_ == Mode::ROTATE) {
     CImagePtr rimage;

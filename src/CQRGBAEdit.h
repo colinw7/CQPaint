@@ -9,8 +9,8 @@ class CQRGBAEdit : public QWidget {
   Q_OBJECT
 
  public:
-  CQRGBAEdit(const QString &name, QWidget *parent=0);
-  CQRGBAEdit(QWidget *parent=0, const QString &name="");
+  CQRGBAEdit(const QString &name, QWidget *parent=nullptr);
+  CQRGBAEdit(QWidget *parent=nullptr, const QString &name="");
 
   virtual ~CQRGBAEdit() { }
 

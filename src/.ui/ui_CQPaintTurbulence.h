@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'CQPaintTurbulence.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.8
+** Created by: Qt User Interface Compiler version 5.15.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -141,11 +141,11 @@ public:
 
         vboxLayout->addLayout(hboxLayout3);
 
-#ifndef QT_NO_SHORTCUT
+#if QT_CONFIG(shortcut)
         frequencyLabel->setBuddy(frequency);
         octavesLabel->setBuddy(octaves);
         seedLabel->setBuddy(seed);
-#endif // QT_NO_SHORTCUT
+#endif // QT_CONFIG(shortcut)
 
         retranslateUi(CQPaintTurbulenceUi);
         QObject::connect(okButton, SIGNAL(pressed()), CQPaintTurbulenceUi, SLOT(accept()));
@@ -156,16 +156,16 @@ public:
 
     void retranslateUi(QDialog *CQPaintTurbulenceUi)
     {
-        CQPaintTurbulenceUi->setWindowTitle(QApplication::translate("CQPaintTurbulenceUi", "Turbulence", nullptr));
-        fractal->setText(QApplication::translate("CQPaintTurbulenceUi", "Fractal", nullptr));
-        frequencyLabel->setText(QApplication::translate("CQPaintTurbulenceUi", "Frequency", nullptr));
-        frequency->setText(QApplication::translate("CQPaintTurbulenceUi", "0.01", nullptr));
-        octavesLabel->setText(QApplication::translate("CQPaintTurbulenceUi", "Octaves", nullptr));
-        octaves->setText(QApplication::translate("CQPaintTurbulenceUi", "1", nullptr));
-        seedLabel->setText(QApplication::translate("CQPaintTurbulenceUi", "Seed", nullptr));
-        seed->setText(QApplication::translate("CQPaintTurbulenceUi", "0", nullptr));
-        okButton->setText(QApplication::translate("CQPaintTurbulenceUi", "OK", nullptr));
-        cancelButton->setText(QApplication::translate("CQPaintTurbulenceUi", "Cancel", nullptr));
+        CQPaintTurbulenceUi->setWindowTitle(QCoreApplication::translate("CQPaintTurbulenceUi", "Turbulence", nullptr));
+        fractal->setText(QCoreApplication::translate("CQPaintTurbulenceUi", "Fractal", nullptr));
+        frequencyLabel->setText(QCoreApplication::translate("CQPaintTurbulenceUi", "Frequency", nullptr));
+        frequency->setText(QCoreApplication::translate("CQPaintTurbulenceUi", "0.01", nullptr));
+        octavesLabel->setText(QCoreApplication::translate("CQPaintTurbulenceUi", "Octaves", nullptr));
+        octaves->setText(QCoreApplication::translate("CQPaintTurbulenceUi", "1", nullptr));
+        seedLabel->setText(QCoreApplication::translate("CQPaintTurbulenceUi", "Seed", nullptr));
+        seed->setText(QCoreApplication::translate("CQPaintTurbulenceUi", "0", nullptr));
+        okButton->setText(QCoreApplication::translate("CQPaintTurbulenceUi", "OK", nullptr));
+        cancelButton->setText(QCoreApplication::translate("CQPaintTurbulenceUi", "Cancel", nullptr));
     } // retranslateUi
 
 };

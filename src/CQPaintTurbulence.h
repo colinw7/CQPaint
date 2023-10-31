@@ -23,7 +23,7 @@ class CQPaintTurbulence : public QDialog {
     return instance;
   }
 
-  void accept();
+  void accept() override;
 
  protected:
   CQPaintTurbulence(QWidget *parent);

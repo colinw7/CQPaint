@@ -373,7 +373,7 @@ class CQNameValueData : public CQNameValueDataIFace {
 
  public:
   CQNameValueData(T *value) :
-   value_(value), editor_(0) {
+   value_(value), editor_(nullptr) {
   }
 
   virtual ~CQNameValueData() { }

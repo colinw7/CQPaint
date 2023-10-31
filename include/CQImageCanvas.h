@@ -33,7 +33,7 @@ class CQImageCanvas : public QWidget {
   };
 
  public:
-  CQImageCanvas(QWidget *parent=0);
+  CQImageCanvas(QWidget *parent=nullptr);
 
   virtual ~CQImageCanvas();
 

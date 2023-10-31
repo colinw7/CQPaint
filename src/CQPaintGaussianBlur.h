@@ -22,7 +22,7 @@ class CQPaintGaussianBlur : public QDialog {
     return instance;
   }
 
-  void accept();
+  void accept() override;
 
  protected:
   CQPaintGaussianBlur(QWidget *parent);

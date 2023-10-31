@@ -85,11 +85,11 @@ class CQPaint : public CQMainWindow {
   void activeWidgetChanged(QWidget *);
 
  private:
-  void createWorkspace();
-  void createMenus();
-  void createToolBars();
-  void createStatusBar();
-  void createDockWindows();
+  void createWorkspace() override;
+  void createMenus() override;
+  void createToolBars() override;
+  void createStatusBar() override;
+  void createDockWindows() override;
 
  private:
   CQWorkspace<CQImageCanvas>* workspace_ { nullptr };

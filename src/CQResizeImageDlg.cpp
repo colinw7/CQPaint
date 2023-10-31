@@ -17,7 +17,7 @@ CQResizeImageDlg(QWidget *parent) :
 
   vlayout->setMargin(2); vlayout->setSpacing(2);
 
-  buttons_ = new CQHRadioButtons(0, "Scale", "Resize", 0);
+  buttons_ = new CQHRadioButtons(nullptr, "Scale", "Resize", 0);
 
   //-----
 

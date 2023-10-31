@@ -8,7 +8,7 @@ class CQResizeImageDlg : public QDialog {
   Q_OBJECT
 
  public:
-  CQResizeImageDlg(QWidget *parent=0);
+  CQResizeImageDlg(QWidget *parent=nullptr);
 
  public slots:
   void accept() override;

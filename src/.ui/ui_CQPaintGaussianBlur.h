@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'CQPaintGaussianBlur.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.8
+** Created by: Qt User Interface Compiler version 5.15.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -125,11 +125,11 @@ public:
 
         verticalLayout->addLayout(hboxLayout);
 
-#ifndef QT_NO_SHORTCUT
+#if QT_CONFIG(shortcut)
         yBlurLabel->setBuddy(yBlurLabel);
         xSizeLabel->setBuddy(xSize);
         ySizeLabel->setBuddy(ySize);
-#endif // QT_NO_SHORTCUT
+#endif // QT_CONFIG(shortcut)
 
         retranslateUi(CQPaintGaussianBlurUi);
         QObject::connect(okButton, SIGNAL(pressed()), CQPaintGaussianBlurUi, SLOT(accept()));
@@ -140,17 +140,17 @@ public:
 
     void retranslateUi(QDialog *CQPaintGaussianBlurUi)
     {
-        CQPaintGaussianBlurUi->setWindowTitle(QApplication::translate("CQPaintGaussianBlurUi", "Gaussian Blur", nullptr));
-        xBlurLabel->setText(QApplication::translate("CQPaintGaussianBlurUi", "X Blur", nullptr));
-        xBlur->setText(QApplication::translate("CQPaintGaussianBlurUi", "2.0", nullptr));
-        yBlurLabel->setText(QApplication::translate("CQPaintGaussianBlurUi", "Y Blur", nullptr));
-        yBlur->setText(QApplication::translate("CQPaintGaussianBlurUi", "2.0", nullptr));
-        xSizeLabel->setText(QApplication::translate("CQPaintGaussianBlurUi", "X Size", nullptr));
-        xSize->setText(QApplication::translate("CQPaintGaussianBlurUi", "4", nullptr));
-        ySizeLabel->setText(QApplication::translate("CQPaintGaussianBlurUi", "Y Size", nullptr));
-        ySize->setText(QApplication::translate("CQPaintGaussianBlurUi", "4", nullptr));
-        okButton->setText(QApplication::translate("CQPaintGaussianBlurUi", "OK", nullptr));
-        cancelButton->setText(QApplication::translate("CQPaintGaussianBlurUi", "Cancel", nullptr));
+        CQPaintGaussianBlurUi->setWindowTitle(QCoreApplication::translate("CQPaintGaussianBlurUi", "Gaussian Blur", nullptr));
+        xBlurLabel->setText(QCoreApplication::translate("CQPaintGaussianBlurUi", "X Blur", nullptr));
+        xBlur->setText(QCoreApplication::translate("CQPaintGaussianBlurUi", "2.0", nullptr));
+        yBlurLabel->setText(QCoreApplication::translate("CQPaintGaussianBlurUi", "Y Blur", nullptr));
+        yBlur->setText(QCoreApplication::translate("CQPaintGaussianBlurUi", "2.0", nullptr));
+        xSizeLabel->setText(QCoreApplication::translate("CQPaintGaussianBlurUi", "X Size", nullptr));
+        xSize->setText(QCoreApplication::translate("CQPaintGaussianBlurUi", "4", nullptr));
+        ySizeLabel->setText(QCoreApplication::translate("CQPaintGaussianBlurUi", "Y Size", nullptr));
+        ySize->setText(QCoreApplication::translate("CQPaintGaussianBlurUi", "4", nullptr));
+        okButton->setText(QCoreApplication::translate("CQPaintGaussianBlurUi", "OK", nullptr));
+        cancelButton->setText(QCoreApplication::translate("CQPaintGaussianBlurUi", "Cancel", nullptr));
     } // retranslateUi
 
 };
